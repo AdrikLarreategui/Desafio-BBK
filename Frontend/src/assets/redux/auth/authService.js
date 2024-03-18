@@ -28,48 +28,66 @@ const usersArray = [
     username: "company1",
     email: "company1@company1.com",
     password: "company1",
-    role: "candidate",
+    role: "company",
     tokens: [],
   },
   {
     username: "company2",
     email: "company2@company2.com",
     password: "company2",
-    role: "candidate",
+    role: "company",
     tokens: [],
   },
   {
     username: "company3",
     email: "company3@company3.com",
     password: "company3",
-    role: "candidate",
+    role: "company",
     tokens: [],
   },
 ];
 
 const register = async (userData) => {
-  const existingUser = usersArray.find((user) => user.email === userData.email);
-  if (existingUser) {
-    throw new Error("Email already exists");
+  try {
+    const existingUser = usersArray.find(
+      (user) => user.email === userData.email
+    );
+    if (existingUser) {
+      throw new Error("Email already exists");
+    }
+    usersArray.push(userData);
+
+    return userData;
+  } catch (error) {
+    throw error;
   }
-  usersArray.push(userData);
-  return userData;
 };
 
 const login = async (userData) => {
-  const user = usersArray.find(
-    (user) =>
-      user.email === userData.email && user.password === userData.password
-  );
-  if (!user) {
-    throw new Error("Invalid email or password");
-  }
-  user.tokens.push("123456789" + user.username);
-  const lastToken = user.tokens[user.tokens.length - 1];
-  localStorage.setItem("user", JSON.stringify(user));
-  localStorage.setItem("token", JSON.stringify(lastToken));
+  try {
+    const user = usersArray.find(
+      (user) =>
+        user.email === userData.email && user.password === userData.password
+    );
 
-  return user;
+    if (!user) {
+      throw new Error("Invalid email or password");
+    }
+
+    user.tokens.push("123456789" + user.username);
+    const lastToken = user.tokens[user.tokens.length - 1];
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", JSON.stringify(lastToken));
+
+    console.log(user);
+    return user;
+  } catch (error) {
+    throw error;
+  }
 };
 
+const authService = {
+  login,
+  register,
+};
 export default authService;

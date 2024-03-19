@@ -1,17 +1,18 @@
 import { useState } from "react";
 import "./App.css";
-import TheHeader from "./Components/Header/Header";
+import TheHeader from "./assets/Components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./assets/components/Login/Login";
+import Login from "./assets/Components/Login/Login";
+import Home from './assets/Components/Home/Home'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <TheHeader />
-        <h1>New Project BBK</h1>
-        <Login />
         <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
 
         </Routes>
       </BrowserRouter>

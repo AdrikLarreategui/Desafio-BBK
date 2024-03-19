@@ -21,7 +21,7 @@ const TheHeader = () => {
     const { user } = useSelector((state) => state.auth)
     const [current, setCurrent] = useState('home')
     const [text, setText] = useState('')
-
+    let items = {}
     const handleMenu = () => {
 
         if (user) {

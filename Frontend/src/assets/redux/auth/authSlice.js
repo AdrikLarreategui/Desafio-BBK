@@ -29,6 +29,13 @@ export const login = createAsyncThunk("auth/login", async (user) => {
     throw error;
   }
 });
+export const logout = createAsyncThunk("auth/logout", async () => {
+  try {
+    return await authService.logout();
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 export const authSlice = createSlice({
   name: "auth",
@@ -38,7 +45,7 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       // state.message = "";
-      // state.isLoading = false;
+      state.isLoading = false;
     },
   },
   extraReducers: (builder) => {
@@ -60,6 +67,10 @@ export const authSlice = createSlice({
       .addCase(register.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        state.user = null;
+        state.token = null;
       });
   },
 });

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../redux/auth/authSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { isError, isSuccess } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
@@ -26,6 +27,9 @@ const Login = () => {
     }
     if (isSuccess) {
       console.log("success");
+      setTimeout(() => {
+        navigate("/");
+      });
     }
 
     dispatch(reset());

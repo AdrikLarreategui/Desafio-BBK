@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { useEffect, useState } from "react";
+import { logout } from "../../redux/auth/authSlice";
 
 const TheHeader = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const TheHeader = () => {
   const onLogout = (e) => {
     e.preventDefault();
 
-    dispatch(Logout());
+    dispatch(logout());
     navigate("/login");
   };
 

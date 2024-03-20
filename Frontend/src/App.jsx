@@ -5,6 +5,7 @@ import TheHeader from "./assets/components/TheHeader/TheHeader";
 import Home from '../src/assets/components/Home/Home'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Login from "./assets/components/Login/Login";
 
 function App() {
   return (

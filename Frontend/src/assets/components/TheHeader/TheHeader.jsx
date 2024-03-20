@@ -1,6 +1,7 @@
+import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout } from '../../redux/auth/authSlice'
+import { Logout } from '../../redux/auth/authSlice'
 import { useEffect, useState } from 'react'
 import {
     HomeOutlined,
@@ -20,25 +21,45 @@ const TheHeader = () => {
     const { user } = useSelector((state) => state.auth)
     const [text, setText] = useState('')
 
-    const handleLogout = () => {
-        dispatch(logout())
-        console.log('user succesfully disconected')
+    const onLogout = (e) => {
+        e.preventDefault();
+    
+        dispatch(Logout());
+        navigate("/login");
+      };
+
+    const handleChange = (e) => {
+        setText(e.target.value)
+        if(e.key==='Enter') {
+            navigate(`/search/${text}`)
+        }
     }
+
+    // const isAdmin = user?.role === 'admin'
 
     return(
         <nav>
+            <Link to='/'>Home |</Link>
             {user ? (
                 <>
                     <Link to='/profile'>Profile |</Link>
-                    <button onClick={handleLogout}>Logout</button>
+                    <Link onClick={onLogout}>Logout | </Link>
+
+                    {/* {isAdmin && <Link to="/admin">Admin Panel | </Link>} */}
+
+                    <input
+                        onKeyUp={handleChange}
+                        placeholder="Enter the title of the post "
+                        name="text"
+                    />
+
                 </>
             ) : (
                 <>
                     <Link to='/login' >Login |</Link>
-                    <Link to='/register'>Register</Link>
+                    <Link to='/register'>Register |</Link>
                 </>
             )}
-            
         </nav>
     )
 }

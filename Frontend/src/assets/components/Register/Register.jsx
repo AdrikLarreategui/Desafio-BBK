@@ -1,3 +1,4 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -5,24 +6,30 @@ import { register, reset } from '../../redux/auth/authSlice'
 import { notification } from 'antd'
 
 const Register = () => {
-    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: '',
-        username: '',
         email:'',
         password: ''
     })
 
-    const { name, username, email, password } = formData
-    const { isSuccess, messsage, isError } = useSelector((state) => state.auth)
+    const { name, email, password } = formData
+    
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const { isSuccess, messsage, isError } = useSelector((state) => state.auth)
+
     useEffect(() => {
         if(isSuccess) {
             notification.success({
                 message: 'Success',
                 description: 'message',
             })
-            navigate('/login')
+            dispatch(reset())
+            setTimeout(()=> {
+                navigate('/login')
+            }, 1500)
+            
         }
         if(isError) {
             notification.error({
@@ -34,12 +41,12 @@ const Register = () => {
     }, [isSuccess, messsage, isError])
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name] : e.target.value
-        })
-    }
-
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		})
+	}
+      
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('form', formData)
@@ -58,13 +65,6 @@ const Register = () => {
                         placeholder="name">
                     </input>
                     <input
-                        type='text'
-                        name='username'
-                        value={username}
-                        onChange={handleChange}
-                        placeholder='username'>
-                    </input>
-                    <input
                         type="email"
                         name="email"
                         value={email}
@@ -80,7 +80,7 @@ const Register = () => {
                         placeholder="password"
 				    />
                 </form>
-                <button type='submit'>Send</button>
+                <button type='submit'>Register</button>
         </>
     )
 }

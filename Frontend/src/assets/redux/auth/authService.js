@@ -55,8 +55,17 @@ const register = async (userData) => {
     if (existingUser) {
       throw new Error("Email already exists");
     }
-    usersArray.push(userData);
 
+    const newUser = {
+      username: userData.username,
+      email: userData.email,
+      password: "111@111.com",
+      role: "user",
+      tokens: [],
+    };
+    usersArray.push(newUser);
+    console.log(newUser);
+    console.log(usersArray);
     return userData;
   } catch (error) {
     throw error;

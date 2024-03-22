@@ -7,7 +7,11 @@ import { register, reset } from "../../redux/auth/authSlice";
 
 //CÓDIGO CHATGPT
 const CompanyForm = ({ onSubmit, onReturn }) => {
-   const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState(
+    {email: '',
+    password: '',
+    role: 'company',
+      companyProfile: {
     companyName: '',
     typeCompany: '',
     location: '',
@@ -15,7 +19,7 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
     webSite: '',
     workersNumber: '',
     description: ''
-  })
+ }})
 
 
     const { companyName, typeCompany, location, telephoneNumber, webSite, workersNumber, description } = formData
@@ -41,6 +45,8 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <input name = "email" type="text" placeholder="email" value={email} onChange={handleChange} required />
+      <input name = "password" type="text" placeholder="password" value={password} onChange={handleChange} required />
       <input name = "companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} required />
       <input name = "typeCompany" type="text" placeholder="Tipo de empresa" value={typeCompany} onChange={handleChange} required />
       <input name = "location" type="text" placeholder="Ubicación" value={location} onChange={handleChange} required />

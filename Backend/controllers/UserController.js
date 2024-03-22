@@ -10,18 +10,18 @@ const UserController = {
       if (req.body.password) {
         password = bcrypt.hashSync(req.body.password, 10);
       }
-
-      const user = await User.create({
+      let userData = {
         ...req.body,
         password,
-        role: req.body.role || "candidate",
-      });
-      if (req.body.role === "talent") {
-        delete req.body.company_profile;
+        role: req.body.role || "talent",
+      };
+
+      if (req.body.role === "talent" && req.body.talentProfile) {
+        userData = { ...userData, talentProfile: req.body.talentProfile };
+      } else if (req.body.role === "company" && req.body.companyProfile) {
+        userData = { ...userData, companyProfile: req.body.companyProfile };
       }
-      if (req.body.role === "company") {
-        delete req.body.talent_profile;
-      }
+      const user = await User.create(userData);
 
       res.status(201).send({ message: "User succesfully registered", user });
     } catch (error) {

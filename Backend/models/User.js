@@ -3,10 +3,10 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const UserSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: [true, "Username is obligatory to register"],
-    },
+    // username: {
+    //   type: String,
+    //   required: [true, "Username is obligatory to register"],
+    // },
     email: {
       type: String,
       unique: true,
@@ -36,7 +36,7 @@ const UserSchema = new mongoose.Schema(
           },
         ],
         awards: [],
-        aboutTheTalent: [],
+        aboutTheTalent: "String",
         profileImg: "String",
         likedOffers: [
           /*{ type: ObjectId, ref: "Offer" }*/
@@ -44,14 +44,7 @@ const UserSchema = new mongoose.Schema(
         appliedOffers: [
           /*{ type: ObjectId, ref: "Offer" }*/
         ],
-        ratings: [
-          {
-            entity_id: ObjectId,
-            rating: Number,
-          },
-        ],
       },
-      default: null,
     },
     companyProfile: {
       type: {
@@ -70,20 +63,22 @@ const UserSchema = new mongoose.Schema(
         likedCandidates: [
           /*{ type: ObjectId, ref: "User" }*/
         ],
-        ratings: [
-          {
-            candidate_id: ObjectId,
-            rating: Number,
-          },
-        ],
       },
-      default: null,
     },
   },
   { timestamps: true }
 );
+
+UserSchema.pre("save", function (next) {
+  if (this.role === "talent") {
+    this.companyProfile = undefined;
+  } else if (this.role === "company") {
+    this.talentProfile = undefined;
+  }
+  next();
+});
 UserSchema.methods.toJSON = function () {
-  const user = this._doc;
+  const user = this.toObject();
   delete user.tokens;
   delete user.password;
   return user;

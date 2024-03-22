@@ -14,8 +14,14 @@ const UserController = {
       const user = await User.create({
         ...req.body,
         password,
-        role: req.body.roll || "user",
+        role: req.body.role || "candidate",
       });
+      if (req.body.role === "talent") {
+        delete req.body.company_profile;
+      }
+      if (req.body.role === "company") {
+        delete req.body.talent_profile;
+      }
 
       res.status(201).send({ message: "User succesfully registered", user });
     } catch (error) {

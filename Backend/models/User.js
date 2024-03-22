@@ -20,6 +20,65 @@ const UserSchema = new mongoose.Schema(
       type: String,
     },
     tokens: [],
+    talentProfile: {
+      type: {
+        name: String,
+        surnames: String,
+        telephone: String,
+        birthdate: Date,
+        education: [],
+        skills: [],
+        interests: [],
+        languages: [
+          {
+            language: String,
+            proficiency: String,
+          },
+        ],
+        awards: [],
+        aboutTheTalent: [],
+        profileImg: "String",
+        likedOffers: [
+          /*{ type: ObjectId, ref: "Offer" }*/
+        ],
+        appliedOffers: [
+          /*{ type: ObjectId, ref: "Offer" }*/
+        ],
+        ratings: [
+          {
+            entity_id: ObjectId,
+            rating: Number,
+          },
+        ],
+      },
+      default: null,
+    },
+    companyProfile: {
+      type: {
+        company_name: String,
+        industry: String,
+        location: String,
+        telephone: String,
+        website: String,
+        socialNumber: String,
+        numberOfEmployees: [String],
+        description: String,
+        logoUrl: String,
+        postedOffers: [
+          /*{ type: ObjectId, ref: "Offer" }*/
+        ],
+        likedCandidates: [
+          /*{ type: ObjectId, ref: "User" }*/
+        ],
+        ratings: [
+          {
+            candidate_id: ObjectId,
+            rating: Number,
+          },
+        ],
+      },
+      default: null,
+    },
   },
   { timestamps: true }
 );

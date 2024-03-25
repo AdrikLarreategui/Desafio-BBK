@@ -67,7 +67,7 @@ const TalentRegister = () => {
     const addSkill = () => {
         setFormData({
             ...formData,
-            skills: [{ ...skills }]
+            skills
         })
     }
 
@@ -98,6 +98,7 @@ const TalentRegister = () => {
                         <input type="date" name="birthdate" value={birthdate} onChange={handleChange} placeholder="Fecha de nacimiento" ></input>
                         <input type="text" name="education" value={education} onChange={handleChange} placeholder="educación" ></input>
                         <input type="text" name="skills" value={skills} onChange={handleChange} placeholder="skills" ></input>
+
                         <button type="button" onClick={addSkill}> Add Skill </button>
 
                         <input type="text" name="interests" value={interests} onChange={handleChange} placeholder="interests"></input>

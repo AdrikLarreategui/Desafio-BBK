@@ -22,7 +22,7 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
  }})
 
 
-    const { companyName, typeCompany, location, telephoneNumber, webSite, workersNumber, description } = formData
+    const { email, password, companyName, typeCompany, location, telephoneNumber, webSite, workersNumber, description } = formData
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isSuccess, isError } = useSelector((state) => state.auth);

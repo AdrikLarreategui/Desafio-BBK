@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../redux/auth/authSlice";
-
+//import './Register.scss'
 
 //CÓDIGO CHATGPT
 const CompanyForm = ({ onSubmit, onReturn }) => {
@@ -64,6 +64,7 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
 }
 const TalentForm = () => {
   const [formData, setFormData] = useState({
+    DNI: '',
     name: '',
     surname: '',
     telephone: '',
@@ -82,10 +83,9 @@ const TalentForm = () => {
     //RATINGS[]
   })
 
-  const { name, surname, telephone, birthdate, email, password, education, skills, interests, languages, awards, aboutTheTalent } = formData
+  const { dni, name, surname, telephone, birthdate, email, password, education, skills, interests, languages, awards, aboutTheTalent } = formData
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const { isSuccess, isError } = useSelector((state) => state.auth)
 
@@ -98,21 +98,44 @@ const TalentForm = () => {
     });
   }
 
-
   const handleLanguagesChange = (index, e) => {
     const { name, value } = e.target
     const newLanguages = [...languages]
-    newLanguages[index][name] = value;
+    newLanguages[index][name] = value
     setFormData({
       ...formData,
       languages: newLanguages
     })
   }
 
+  const handleInterestsChange = (index, e) => {
+    const newInterests = [...interests]
+    newInterests[index] = e.target.value
+    setFormData({
+      ...formData,
+      interests: newInterests
+    })
+  }
+  const handleSkillsChange = (index, e) => {
+    const newSkills = [...skills]
+    newSkills[index] = e.target.value
+    setFormData({
+      ...formData,
+      skills: newSkills
+    })
+  }
+
   const addSkill = () => {
     setFormData({
       ...formData,
-      skills
+      skills: [...skills, '']
+    })
+  }
+
+  const addInterest = () => {
+    setFormData({
+      ...formData,
+      interests: [...interests, '']
     })
   }
 
@@ -130,8 +153,6 @@ const TalentForm = () => {
     dispatch(register(formData))
   }
 
-
-
   return (
     <>
       <div>
@@ -139,24 +160,36 @@ const TalentForm = () => {
         <form onSubmit={handleSubmit}>
           <div>
 
+            <input type="text" name="dni" value={dni} onChange={handleChange} placeholder="DNI" ></input>
             <input type="text" name="name" value={name} onChange={handleChange} placeholder="nombre" ></input>
             <input type="text" name="surname" value={surname} onChange={handleChange} placeholder="apellido" ></input>
             <input type="number" name="telephone" value={telephone} onChange={handleChange} placeholder="teléfono" ></input>
             <input type="date" name="birthdate" value={birthdate} onChange={handleChange} placeholder="Fecha de nacimiento" ></input>
             <input type="text" name="education" value={education} onChange={handleChange} placeholder="educación" ></input>
-            <input type="text" name="skills" value={skills} onChange={handleChange} placeholder="skills" ></input>
+            <h3>skills</h3>
 
-            <button type="button" onClick={addSkill}> Add Skill </button>
+            {skills.map((skill, index) => (
+              <div key={index}>
+                <input type="text" name="skills" value={skill} onChange={(e) => handleSkillsChange(index, e)}
+                  placeholder="skills" ></input>
+                {skill}
+              </div>
+            ))}
+            <button type="button" onClick={addSkill}> + skills </button>
 
-            <input type="text" name="interests" value={interests} onChange={handleChange} placeholder="interests"></input>
+            <h3>interests</h3>
+            {/* <input type="text" name='interests /> */}
+            {interests.map((interest, index) => (
+              <div key={index}>interests
+                <input type="text" name="interests" value={interest} onChange={(e) => handleInterestsChange(index, e)} placeholder="interests"></input>
+                {interest}
+              </div>
+            ))}
+            <button type="button" onClick={addInterest} > + interests</button>
 
             <label htmlFor="languages">
               <h3>Languages</h3>
-              {/*   <input type="text" name="language" value={languages.language} onChange={handleChange} placeholder="language" > </input>
-                            <input type="text" name="proficiency" value={lang.proficiency} onChange={handleChange} placeholder="proficiency" > </input> */}
-              {/* {languages.push({ languages.language, languages.proficiency })} */}
             </label>
-
             {languages.map((lang, index) => (
               <div key={index}>
                 <input type="text" name="language" value={lang.language} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Idioma" />
@@ -193,7 +226,7 @@ const Register = () => {
   };
 
   const handleTalentSubmit = (data) => {
-    reset.send('Datos registrados: ', data)
+    res.send('Datos registrados: ', data)
 
   }
 

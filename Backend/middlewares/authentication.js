@@ -11,7 +11,11 @@ const authentication = async (req, res, next) => {
 
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await User.findOne({ _id: payload._id, tokens: token });
+    let user;
+
+    const Model = payload.type === "talent" ? Talent : Company;
+
+    user = await Model.findOne({ _id: payload._id, tokens: token });
 
     if (!user) {
       return res.status(401).send({ message: "No estás autorizado" });

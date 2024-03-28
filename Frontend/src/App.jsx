@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./assets/components/Login/Login";
 import Admin from "../src/assets/components/Admin/Admin"
 import NotFound from '../src/assets/components/NotFound/NotFound'
+import 'bootswatch/dist/darkly/bootstrap.min.css'
+
+import './App.css'
 
 function App() {
   return (

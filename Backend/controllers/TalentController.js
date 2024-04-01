@@ -64,7 +64,7 @@ const TalentController = {
 
   async logout(req, res) {
     try {
-      await Talent.findByIdAndUpdate(req.talent._id, {
+      await Talent.findByIdAndUpdate(req.user._id, {
         $pull: { tokens: req.headers.authorization },
       });
 

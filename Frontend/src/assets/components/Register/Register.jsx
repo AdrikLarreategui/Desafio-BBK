@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../redux/auth/authSlice";
+import { Button, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 //import './Register.scss'
 
-
+//Registro de empresas
 const CompanyForm = ({ onSubmit, onReturn }) => {
   const [formData, setFormData] = useState(
     {
@@ -49,21 +51,44 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="email" type="text" placeholder="email" value={email} onChange={handleChange} required />
-      <input name="password" type="text" placeholder="password" value={password} onChange={handleChange} required />
-      <input name="companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} required />
-      <input name="industry" type="text" placeholder="Tipo de empresa" value={industry} onChange={handleChange} required />
-      <input name="location" type="text" placeholder="Ubicación" value={location} onChange={handleChange} required />
-      <input name="telephone" type="tel" placeholder="Número de teléfono" value={telephone} onChange={handleChange} required />
-      <input name="webSite" type="text" placeholder="Sitio web" value={webSite} onChange={handleChange} required />
-      <input name="socialNumber" type="text" placeholder="CIF" value={socialNumber} onChange={handleChange} required />
-      <input name="workersNumber" type="number" placeholder="Número de trabajadores" value={workersNumber} onChange={handleChange} required />
-      <textarea placeholder="description" value={description} onChange={handleChange} required />
-      <button type="submit">Enviar</button>
-    </form>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Control name="email" type="text" placeholder="email" value={email} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+        <Form.Control name="password" type="text" placeholder="password" value={password} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicCompanyName">
+        <Form.Control name="companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicIndustry">
+        <Form.Control name="industry" type="text" placeholder="Tipo de empresa" value={industry} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicLocation">
+        <Form.Control name="location" type="text" placeholder="Ubicación" value={location} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicTelephone">
+        <Form.Control name="telephone" type="tel" placeholder="Número de teléfono" value={telephone} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicWebSite">
+        <Form.Control name="webSite" type="text" placeholder="Sitio web" value={webSite} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicSocialNumber">
+        <Form.Control name="socialNumber" type="text" placeholder="CIF" value={socialNumber} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicWorkersNumber">
+        <Form.Control name="workersNumber" type="number" placeholder="Número de trabajadores" value={workersNumber} onChange={handleChange} required />
+      </Form.Group>
+      <Form.Group controlId="formBasicDescription">
+        <Form.Control as="textarea" rows={3} placeholder="description" value={description} onChange={handleChange} required />
+      </Form.Group>
+      <Button variant="primary" type="submit">Enviar</Button>
+    </Form>
   );
 }
+
+
+//Registro de talento
 const TalentForm = () => {
   const [formData, setFormData] = useState({
     DNI: '',
@@ -159,58 +184,57 @@ const TalentForm = () => {
     <>
       <div>
         <h1>Register Talent</h1>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <div>
 
-            <input type="text" name="dni" value={dni} onChange={handleChange} placeholder="DNI" ></input>
-            <input type="text" name="name" value={name} onChange={handleChange} placeholder="nombre" ></input>
-            <input type="text" name="surname" value={surname} onChange={handleChange} placeholder="apellido" ></input>
-            <input type="number" name="telephone" value={telephone} onChange={handleChange} placeholder="teléfono" ></input>
-            <input type="date" name="birthdate" value={birthdate} onChange={handleChange} placeholder="Fecha de nacimiento" ></input>
-            <input type="text" name="education" value={education} onChange={handleChange} placeholder="educación" ></input>
+            <Form.Control type="text" name="dni" value={dni} onChange={handleChange} placeholder="DNI" />
+            <Form.Control type="text" name="name" value={name} onChange={handleChange} placeholder="nombre" />
+            <Form.Control type="text" name="surname" value={surname} onChange={handleChange} placeholder="apellido" />
+            <Form.Control type="number" name="telephone" value={telephone} onChange={handleChange} placeholder="teléfono" />
+            <Form.Control type="date" name="birthdate" value={birthdate} onChange={handleChange} placeholder="Fecha de nacimiento" />
+            <Form.Control type="text" name="education" value={education} onChange={handleChange} placeholder="educación" />
             <h3>skills</h3>
 
             {skills.map((skill, index) => (
               <div key={index}>
-                <input type="text" name="skills" value={skill} onChange={(e) => handleSkillsChange(index, e)}
-                  placeholder="skills" ></input>
+                <Form.Control type="text" name="skills" value={skill} onChange={(e) => handleSkillsChange(index, e)}
+                  placeholder="skills" />
                 {skill}
               </div>
             ))}
-            <button type="button" onClick={addSkill}> + skills </button>
+            <Button variant="primary" type="button" onClick={addSkill}> + skills </Button>
 
             <h3>interests</h3>
             {/* <input type="text" name='interests /> */}
             {interests.map((interest, index) => (
               <div key={index}>interests
-                <input type="text" name="interests" value={interest} onChange={(e) => handleInterestsChange(index, e)} placeholder="interests"></input>
+                <Form.Control type="text" name="interests" value={interest} onChange={(e) => handleInterestsChange(index, e)} placeholder="interests" />
                 {interest}
               </div>
             ))}
-            <button type="button" onClick={addInterest} > + interests</button>
+            <Button variant="primary" type="button" onClick={addInterest} > + interests</Button>
 
             <label htmlFor="languages">
               <h3>Languages</h3>
             </label>
             {languages.map((lang, index) => (
               <div key={index}>
-                <input type="text" name="language" value={lang.language} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Idioma" />
-                <input type="text" name="proficiency" value={lang.proficiency} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Nivel" />
+                <Form.Control type="text" name="language" value={lang.language} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Idioma" />
+                <Form.Control type="text" name="proficiency" value={lang.proficiency} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Nivel" />
               </div>
             ))}
-            <button type="button" onClick={addLanguage}>Add Language</button>
+            <Button variant="primary" type="button" onClick={addLanguage}>Add Language</Button>
 
-            <input type="text" name="awards" value={awards} onChange={handleChange} placeholder="awards" ></input>
-            <input type="text" name="aboutTheTalent" value={aboutTheTalent} onChange={handleChange} placeholder="aboutTheTalent" ></input>
+            <Form.Control type="text" name="awards" value={awards} onChange={handleChange} placeholder="awards" />
+            <Form.Control type="text" name="aboutTheTalent" value={aboutTheTalent} onChange={handleChange} placeholder="aboutTheTalent" />
             {/* //input image uploader */}
 
-            <input type="email" name="email" value={email} onChange={handleChange} placeholder="email">
-            </input>
+            <Form.Control type="email" name="email" value={email} onChange={handleChange} placeholder="email" />
             {/*   <input type="text" name="ratings" value={ratings} onChange={handleChange} placeholder="ratings" ></input> */}
-            <input type="password" name="password" value={password} onChange={handleChange} placeholder="password"></input>
+            <Form.Control type="password" name="password" value={password} onChange={handleChange} placeholder="password" />
           </div>
-          <button type="submit">Register Talent</button>
-        </form>
+          <Button variant="primary" type="submit">Register Talent</Button>
+        </Form>
       </div>
     </>
   );
@@ -249,8 +273,8 @@ const Register = () => {
       <h1>Registro</h1>
       {!showForm && (
         <div>
-          <button onClick={() => handleOptionClick('talento')}> Talento </button>
-          <button onClick={() => handleOptionClick('empresa')}> Empresa </button>
+          <Button variant="primary" onClick={() => handleOptionClick('talento')}> Talento </Button>
+          <Button variant="primary" onClick={() => handleOptionClick('empresa')}> Empresa </Button>
         </div>
       )}
       {selectedOption === 'empresa' && showForm && (
@@ -267,7 +291,9 @@ const Register = () => {
   );
 }
 
-export default Register;
+export default Register
+
+
 
 
 

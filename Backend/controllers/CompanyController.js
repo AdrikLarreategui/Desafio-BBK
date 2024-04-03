@@ -93,6 +93,28 @@ const CompanyController = {
         console.error(error)    
         }
     },
+    async delete(req, res){
+
+        try {
+            const company = await Company.findByIdAndDelete(req.params._id, 
+                { new: true, })
+            
+            if(!company)
+            {
+                return res.send({ message: "Company doesn't exist"})
+
+            }
+
+
+            res.status(201).send({ message: 'Company deleted'})
+
+        } 
+        catch (error) 
+        {    
+            console.error(error)
+            res.status(400).send('There was an error deleting the company')
+        }
+    },
 
   async getAll(req, res) {
     try {
@@ -103,8 +125,6 @@ const CompanyController = {
       res.status(500).send({ message: "Internal Server Error" });
     }
   },
-
-
 
 
 

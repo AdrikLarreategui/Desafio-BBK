@@ -59,13 +59,11 @@ const CompanyController = {
         catch (error) {
             console.error(error)
         }
-        
     },
 
     async logout(req, res){
         try {
 
-            
         await Company.findByIdAndUpdate(req.user._id,
             {
             $pull: { tokens: req.headers.authorization },
@@ -78,10 +76,23 @@ const CompanyController = {
         console.error(error)   
         res.send('Hubo un problema con el log out') 
         }
-
     },
 
+    async update(req, res){
+        try {
+            const company = await Company.findByIdAndUpdate(req.params._id, req.body, 
+            { new: true, })
 
+            if(!company)
+            {
+                return res.send({ message: 'Company not found' })
+            }
+        res.send(company)
+        } 
+        catch (error) {
+        console.error(error)    
+        }
+    },
 
   async getAll(req, res) {
     try {
@@ -92,14 +103,6 @@ const CompanyController = {
       res.status(500).send({ message: "Internal Server Error" });
     }
   },
-
-
-
-
-
-
-
-
 
 
 

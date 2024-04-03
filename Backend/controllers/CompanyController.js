@@ -60,17 +60,27 @@ const CompanyController = {
             console.error(error)
         }
         
+    },
 
+    async logout(req, res){
+        try {
 
+            
+        await Company.findByIdAndUpdate(req.user._id,
+            {
+            $pull: { tokens: req.headers.authorization },
+        })
 
+        res.status(500).send({message: 'Log out efectuado correctamente'})
+        } 
+        catch (error)
+        {
+        console.error(error)   
+        res.send('Hubo un problema con el log out') 
+        }
 
+    },
 
-    }
-
-
-
-
-,
 
 
   async getAll(req, res) {

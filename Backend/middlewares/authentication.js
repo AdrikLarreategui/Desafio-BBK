@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Talent = require("../models/Talent");
+const Company = require("../models/Company")
 require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
@@ -10,19 +11,18 @@ const authentication = async (req, res, next) => {
 
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
-    let talent = await Talent.findOne({ _id: payload._id, tokens: token });
-let company = await Company.findOne({_id: payload._id, tokens:token })
+    let user = (await Talent.findOne({ _id: payload._id, tokens: token })) || (await Company.findOne({_id: payload._id, tokens:token }))
+
+//let company = await Company.findOne({_id: payload._id, tokens:token })
     // if (!user) {
     //   user = await Company.findOne({ _id: payload._id, tokens: token });
     // }
- 
-    talent ? talent : company
+//talent ? talent : company
 
-    if (!talent && !company) {
+    if (!user) {
       return res.status(401).send({ message: "No estás autorizado" });
     }
-
-   (req.talent = talent) || (req.company = company)
+  req.user = user
     
     next();
   } catch (error) {

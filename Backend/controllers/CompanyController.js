@@ -1,0 +1,99 @@
+const Company = require("../models/Company");
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+ 
+const CompanyController = {
+    async create(req, res) {
+        try
+        {
+
+            let password = req.body.password;
+            
+           if(req.body.password)
+            {
+                password = bcrypt.hashSync(req.body.password, 10)
+            } 
+            const userData = {
+                ...req.body,
+                password,
+                role:"company"
+
+            };
+            const company = await Company.create(userData);
+            res.status(201).send({message: "Cuenta de empresa registrada con éxito", company});
+        } 
+        catch(error)
+        {
+            console.error(error)
+            //next(error)
+        }
+    },
+
+    async login(req, res){
+        
+        try {
+            const user = await Company.findOne({ email: req.body.email })
+            if(!user)
+            {
+                return res.status(400).send({ message: 'usuario o contraseña erróneos' })
+            }
+
+            
+            const isMatch = bcrypt.compareSync(req.body.password, user.password)
+
+            if(!isMatch)
+            {
+                return res.status(401).send({ message: 'Usuario o contraseña incorrectos'})
+            }
+
+            const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+            
+            user.tokens.length > 4 ? user.tokens.shift()
+            : user.tokens.push(token)
+
+            await user.save()
+
+            res.status(201).send({ message: 'user registered', user, tokens: user.tokens })
+        } 
+        catch (error) {
+            console.error(error)
+        }
+        
+
+
+
+
+
+    }
+
+
+
+
+,
+
+
+  async getAll(req, res) {
+    try {
+      const companies = await Company.find();
+      res.status(200).send({ message: "Succesfully retrieved companies", companies });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: "Internal Server Error" });
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+module.exports = CompanyController

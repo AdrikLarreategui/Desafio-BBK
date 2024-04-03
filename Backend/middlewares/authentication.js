@@ -10,17 +10,20 @@ const authentication = async (req, res, next) => {
 
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
-    let user = await Talent.findOne({ _id: payload._id, tokens: token });
-
+    let talent = await Talent.findOne({ _id: payload._id, tokens: token });
+let company = await Company.findOne({_id: payload._id, tokens:token })
     // if (!user) {
     //   user = await Company.findOne({ _id: payload._id, tokens: token });
     // }
+ 
+    talent ? talent : company
 
-    if (!user) {
+    if (!talent && !company) {
       return res.status(401).send({ message: "No estás autorizado" });
     }
 
-    req.user = user;
+   (req.talent = talent) || (req.company = company)
+    
     next();
   } catch (error) {
     console.error(error);

@@ -13,12 +13,6 @@ const authentication = async (req, res, next) => {
 
     let user = (await Talent.findOne({ _id: payload._id, tokens: token })) || (await Company.findOne({_id: payload._id, tokens:token }))
 
-//let company = await Company.findOne({_id: payload._id, tokens:token })
-    // if (!user) {
-    //   user = await Company.findOne({ _id: payload._id, tokens: token });
-    // }
-//talent ? talent : company
-
     if (!user) {
       return res.status(401).send({ message: "No estás autorizado" });
     }

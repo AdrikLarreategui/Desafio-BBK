@@ -14,6 +14,8 @@ app.use(express.json());
 
 dbConnection();
 app.use("/users", require("./routes/users"));
+app.use("/talents", require("./routes/talents"));
+app.use("/companies", require("./routes/companies"))
 
 app.use(typeError);
 

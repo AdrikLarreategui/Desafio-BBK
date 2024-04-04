@@ -5,7 +5,7 @@ import { login, reset } from "../../redux/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { isError, isSuccess } = useSelector((state) => state.auth);
+  const { isError, isSuccess } = useSelector((state) => state.talentAuth);
 
   const [formData, setFormData] = useState({
     email: "",

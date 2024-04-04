@@ -8,7 +8,8 @@ import { logout } from "../../redux/auth/authSlice";
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { talent } = useSelector((state) => state.talentAuth);
+
   const [text, setText] = useState("");
 
   const onLogout = (e) => {
@@ -30,7 +31,7 @@ const TheHeader = () => {
   return (
     <nav>
       <Link to="/">Home |</Link>
-      {user ? (
+      {talent ? (
         <>
           <Link to="/profile">Profile |</Link>
           <Link onClick={onLogout}>Logout | </Link>

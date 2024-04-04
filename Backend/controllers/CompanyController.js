@@ -102,12 +102,9 @@ const CompanyController = {
             if(!company)
             {
                 return res.send({ message: "Company doesn't exist"})
-
             }
 
-
-            res.status(201).send({ message: 'Company deleted'})
-
+        res.status(201).send({ message: 'Company deleted'})
         } 
         catch (error) 
         {    

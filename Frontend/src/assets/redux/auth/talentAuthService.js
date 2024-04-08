@@ -3,12 +3,12 @@ import axios from "axios";
 const API_URL = "http://localhost:8080";
 
 const register = async (userData) => {
-  const res = await axios.post(`${API_URL}/talent/`, userData);
+  const res = await axios.post(`${API_URL}/talents/`, userData);
   return res.data;
 };
 
 const login = async (userData) => {
-  const res = await axios.post(`${API_URL}/talent/login`, userData);
+  const res = await axios.post(`${API_URL}/talents/login`, userData);
 
   if (res.data) {
     const lastToken = res.data.tokens[res.data.tokens.length - 1];
@@ -19,7 +19,7 @@ const login = async (userData) => {
 };
 const logout = async () => {
   const token = JSON.parse(localStorage.getItem("token"));
-  const logoutURL = API_URL + `/talent/logout`;
+  const logoutURL = API_URL + `/talents/logout`;
 
   const res = await axios.delete(logoutURL, {
     headers: {

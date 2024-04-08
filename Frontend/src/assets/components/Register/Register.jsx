@@ -101,7 +101,7 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
         <Form.Control
           name="industry"
           type="text"
-          placeholder="Tipo de empresa"
+          placeholder="Industria"
           value={industry}
           onChange={handleChange}
           required
@@ -179,6 +179,7 @@ const TalentForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    password2: "",
 
     dni: "",
     name: "",
@@ -206,6 +207,7 @@ const TalentForm = () => {
   const {
     email,
     password,
+    password2,
     dni,
     name,
     surnames,
@@ -281,9 +283,15 @@ const TalentForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("form", formData);
-    dispatch(register(formData));
+
+    if (password !== password2) {
+      alert("Error: Passwords do not match");
+    } else {
+      console.log("formData", formData);
+      dispatch(register(formData));
+    }
   };
+  const [dateInputType, setDateInputType] = useState("text");
 
   return (
     <>
@@ -317,23 +325,26 @@ const TalentForm = () => {
               name="telephone"
               value={telephone}
               onChange={handleChange}
-              placeholder="teléfono"
+              placeholder="Teléfono"
             />
             <Form.Control
-              type="date"
+              type={dateInputType}
               name="birthdate"
               value={birthdate}
               onChange={handleChange}
               placeholder="Fecha de nacimiento"
+              onFocus={() => setDateInputType("date")}
+              onBlur={() => setDateInputType("text")}
             />
             <Form.Control
               type="text"
               name="education"
               value={education}
               onChange={handleChange}
-              placeholder="educación"
+              placeholder="Formación"
             />
-            <h3>skills</h3>
+
+            <h3>Skills</h3>
 
             {skills.map((skill, index) => (
               <div key={index}>
@@ -352,7 +363,7 @@ const TalentForm = () => {
               + skills{" "}
             </Button>
 
-            <h3>interests</h3>
+            <h3>Interests</h3>
             {/* <input type="text" name='interests /> */}
             {interests.map((interest, index) => (
               <div key={index}>
@@ -371,45 +382,47 @@ const TalentForm = () => {
               {" "}
               + interests
             </Button>
-
-            <label htmlFor="languages">
-              <h3>Languages</h3>
-            </label>
-            {languages.map((lang, index) => (
-              <div key={index}>
-                <Form.Control
-                  type="text"
-                  name="language"
-                  value={lang.language}
-                  onChange={(e) => handleLanguagesChange(index, e)}
-                  placeholder="Idioma"
-                />
-                <Form.Control
-                  type="text"
-                  name="proficiency"
-                  value={lang.proficiency}
-                  onChange={(e) => handleLanguagesChange(index, e)}
-                  placeholder="Nivel"
-                />
-              </div>
-            ))}
-            <Button variant="primary" type="button" onClick={addLanguage}>
-              Add Language
-            </Button>
+            <div>
+              <label htmlFor="languages">
+                <h3>Languages</h3>
+              </label>
+              {languages.map((lang, index) => (
+                <div key={index}>
+                  <Form.Control
+                    type="text"
+                    name="language"
+                    value={lang.language}
+                    onChange={(e) => handleLanguagesChange(index, e)}
+                    placeholder="Idioma"
+                  />
+                  <Form.Control
+                    type="text"
+                    name="proficiency"
+                    value={lang.proficiency}
+                    onChange={(e) => handleLanguagesChange(index, e)}
+                    placeholder="Nivel"
+                  />
+                </div>
+              ))}
+              <Button variant="primary" type="button" onClick={addLanguage}>
+                Add Language
+              </Button>
+            </div>
 
             <Form.Control
               type="text"
               name="awards"
               value={awards}
               onChange={handleChange}
-              placeholder="awards"
+              placeholder="Awards"
             />
             <Form.Control
-              type="text"
+              as="textarea"
+              // type="text"
               name="aboutTheTalent"
               value={aboutTheTalent}
               onChange={handleChange}
-              placeholder="aboutTheTalent"
+              placeholder="Sobre ti"
             />
             {/* //input image uploader */}
 
@@ -418,7 +431,7 @@ const TalentForm = () => {
               name="email"
               value={email}
               onChange={handleChange}
-              placeholder="email"
+              placeholder="Correo electrónico"
             />
             {/*   <input type="text" name="ratings" value={ratings} onChange={handleChange} placeholder="ratings" ></input> */}
             <Form.Control
@@ -426,7 +439,14 @@ const TalentForm = () => {
               name="password"
               value={password}
               onChange={handleChange}
-              placeholder="password"
+              placeholder="Contraseña"
+            />
+            <Form.Control
+              type="password"
+              name="password2"
+              value={password2}
+              onChange={handleChange}
+              placeholder="Confirma la contraseña"
             />
           </div>
           <Button variant="primary" type="submit">

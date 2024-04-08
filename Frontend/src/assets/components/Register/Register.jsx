@@ -30,7 +30,7 @@ const CompanyForm = ({ onSubmit, onReturn }) => {
   const { email, password, companyName, industry, location, telephone, webSite, socialNumber, workersNumber, description } = formData
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isSuccess, isError } = useSelector((state) => state.auth);
+  // const { isSuccess, isError } = useSelector((state) => state.auth);
 
 
   const handleSubmit = (e) => {
@@ -114,7 +114,7 @@ const TalentForm = () => {
 
   const dispatch = useDispatch()
 
-  const { isSuccess, isError } = useSelector((state) => state.auth)
+  // const { isSuccess, isError } = useSelector((state) => state.auth)
 
   const handleChange = (e) => {
 

@@ -30,6 +30,8 @@ const TheHeader = () => {
 
   // const isAdmin = user?.role === 'admin'
   const [hover, setHover] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(false)
+
 
   return (
     <nav>
@@ -51,9 +53,9 @@ const TheHeader = () => {
             </>
           ) : (
             <>
-              <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+              <li onMouseEnter={() => setActiveIndex(0)} onMouseLeave={() => setActiveIndex(null)}>
                 <a href="">Talento</a>
-                {hover &&
+                {activeIndex === 0 &&
                   (
                     <div>
 
@@ -75,10 +77,10 @@ const TheHeader = () => {
                 }
               </li>
 
-              <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+              <li onMouseEnter={() => setActiveIndex(1)} onMouseLeave={() => setActiveIndex(null)}>
                 <a href="">Organizaciones</a>
                 <div>
-                  {hover &&
+                  {activeIndex === 1 &&
                     (
                       <div>
                         <h5> por q Talent Job pa organizaciones?</h5>
@@ -92,11 +94,11 @@ Pendiente de crear el componente companies(o organizations) */}
                     )}
                 </div>
               </li>
-              <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+              <li onMouseEnter={() => setActiveIndex(2)} onMouseLeave={() => setActiveIndex(null)}>
 
                 <a href="">Recursos</a>
                 <div>
-                  {hover &&
+                  {activeIndex === 2 &&
                     (
                       <div>
                         <a href="/">Eventos</a>
@@ -108,13 +110,13 @@ Pendiente de crear el componente companies(o organizations) */}
                   }
                 </div>
               </li>
-              <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+              <li onMouseEnter={() => setActiveIndex(3)} onMouseLeave={() => setActiveIndex(null)}>
                 <a href="/careerAssistant">Career Assistant</a>
                 <div>
-                  {hover &&
+                  {activeIndex === 3 &&
                     (
                       <div>
-                        <a href="">Revision cv</a>
+                        <a href=""> Revision cv </a>
 
                         <a href="">Entrevista career</a>
 

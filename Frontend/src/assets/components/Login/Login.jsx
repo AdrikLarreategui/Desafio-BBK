@@ -1,64 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../redux/auth/authSlice";
+import React, { useState } from "react";
+import LoginTalent from "./LoginTalent/LoginTalent";
+import LoginCompany from "./LoginCompany/LoginCompany";
+import { Button, Form } from "react-bootstrap";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { isError, isSuccess } = useSelector((state) => state.talentAuth);
+  const [option, setOption] = useState(null);
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = formData;
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isError) {
-      console.log("error");
-    }
-    if (isSuccess) {
-      console.log("success");
-      setTimeout(() => {
-        navigate("/");
-      });
-    }
-
-    dispatch(reset());
-  }, [isError, isSuccess]);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(login(formData));
+  const handleOptionClick = (option) => {
+    setOption(option);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="email"
-        name="email"
-        placeholder="email"
-        value={email}
-        onChange={onChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        placeholder="password"
-        onChange={onChange}
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <>
+      <div>Login</div>
+      {!option && (
+        <div>
+          <Button
+            variant="primary"
+            onClick={() => handleOptionClick("talento")}
+          >
+            Talento{" "}
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => handleOptionClick("empresa")}
+          >
+            Empresa{" "}
+          </Button>
+        </div>
+      )}
+
+      {option === "talento" && <LoginTalent />}
+      {option === "empresa" && <LoginCompany />}
+    </>
   );
 };
+
 export default Login;

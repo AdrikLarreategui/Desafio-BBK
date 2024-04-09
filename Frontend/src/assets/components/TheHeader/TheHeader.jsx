@@ -3,12 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { useEffect, useState } from "react";
-import { logout } from "../../redux/auth/authSlice";
+import { logout } from "../../redux/auth/talentAuthSlice";
 
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { talent } = useSelector((state) => state.talentAuth);
+  const { user } = useSelector((state) => state.talentAuth);
 
   const [text, setText] = useState("");
 
@@ -31,7 +31,7 @@ const TheHeader = () => {
   return (
     <nav>
       <Link to="/">Home |</Link>
-      {talent ? (
+      {user ? (
         <>
           <Link to="/profile">Profile |</Link>
           <Link onClick={onLogout}>Logout | </Link>

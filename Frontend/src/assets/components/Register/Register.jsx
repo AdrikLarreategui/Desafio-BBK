@@ -1,9 +1,469 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register, reset } from "../../redux/auth/talentAuthSlice";
+import { Button, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+//import './Register.scss'
+
+//Registro de empresas
+const CompanyForm = ({ onSubmit, onReturn }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    role: "company",
+    companyProfile: {
+      companyName: "",
+      industry: "",
+      location: "",
+      telephone: "",
+      webSite: "",
+      socialNumber: "",
+      workersNumber: "",
+      description: "",
+    },
+  });
+
+  const {
+    email,
+    password,
+    companyName,
+    industry,
+    location,
+    telephone,
+    webSite,
+    socialNumber,
+    workersNumber,
+    description,
+  } = formData;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const { isSuccess, isError } = useSelector((state) => state.auth);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({
+      companyName,
+      industry,
+      location,
+      telephone,
+      webSite,
+      socialNumber,
+      workersNumber,
+      description,
+    });
+    setTimeout(() => {
+      onReturn();
+    }, 1500);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Control
+          name="email"
+          type="text"
+          placeholder="email"
+          value={email}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+        <Form.Control
+          name="password"
+          type="text"
+          placeholder="password"
+          value={password}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicCompanyName">
+        <Form.Control
+          name="companyName"
+          type="text"
+          placeholder="Nombre de la empresa"
+          value={companyName}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicIndustry">
+        <Form.Control
+          name="industry"
+          type="text"
+          placeholder="Industria"
+          value={industry}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicLocation">
+        <Form.Control
+          name="location"
+          type="text"
+          placeholder="Ubicación"
+          value={location}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicTelephone">
+        <Form.Control
+          name="telephone"
+          type="tel"
+          placeholder="Número de teléfono"
+          value={telephone}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicWebSite">
+        <Form.Control
+          name="webSite"
+          type="text"
+          placeholder="Sitio web"
+          value={webSite}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicSocialNumber">
+        <Form.Control
+          name="socialNumber"
+          type="text"
+          placeholder="CIF"
+          value={socialNumber}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicWorkersNumber">
+        <Form.Control
+          name="workersNumber"
+          type="number"
+          placeholder="Número de trabajadores"
+          value={workersNumber}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formBasicDescription">
+        <Form.Control
+          as="textarea"
+          rows={3}
+          placeholder="description"
+          value={description}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Enviar
+      </Button>
+    </Form>
+  );
+};
+
+//Registro de talento
+const TalentForm = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    password2: "",
+
+    dni: "",
+    name: "",
+    surnames: "",
+    telephone: "",
+    birthdate: "",
+    // streetAddress: "",
+    // city: "",
+    // province: "",
+    // country: "",
+    // postalCode: "",
+
+    education: [],
+    skills: [],
+    interests: [],
+    languages: [{ language: "", proficiency: "" }],
+    awards: [],
+    aboutTheTalent: "",
+    //IMAGE
+    //LIKEDOFFERS [{}]
+    //APPLIEDOFFERS [{}]
+    //RATINGS[]
+  });
+
+  const {
+    email,
+    password,
+    password2,
+    dni,
+    name,
+    surnames,
+    telephone,
+    birthdate,
+    education,
+    skills,
+    interests,
+    languages,
+    awards,
+    aboutTheTalent,
+  } = formData;
+
+  const dispatch = useDispatch();
+
+  // const { isSuccess, isError } = useSelector((state) => state.auth)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleLanguagesChange = (index, e) => {
+    const { name, value } = e.target;
+    const newLanguages = [...languages];
+    newLanguages[index][name] = value;
+    setFormData({
+      ...formData,
+      languages: newLanguages,
+    });
+  };
+
+  const handleInterestsChange = (index, e) => {
+    const newInterests = [...interests];
+    newInterests[index] = e.target.value;
+    setFormData({
+      ...formData,
+      interests: newInterests,
+    });
+  };
+  const handleSkillsChange = (index, e) => {
+    const newSkills = [...skills];
+    newSkills[index] = e.target.value;
+    setFormData({
+      ...formData,
+      skills: newSkills,
+    });
+  };
+
+  const addSkill = () => {
+    setFormData({
+      ...formData,
+      skills: [...skills, ""],
+    });
+  };
+
+  const addInterest = () => {
+    setFormData({
+      ...formData,
+      interests: [...interests, ""],
+    });
+  };
+
+  const addLanguage = () => {
+    setFormData({
+      ...formData,
+      languages: [...languages, { language: "", proficiency: "" }],
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (password !== password2) {
+      alert("Error: Passwords do not match");
+    } else {
+      console.log("formData", formData);
+      dispatch(register(formData));
+    }
+  };
+  const [dateInputType, setDateInputType] = useState("text");
+
+  return (
+    <>
+      <div>
+        <h1>Register Talent</h1>
+        <Form onSubmit={handleSubmit}>
+          <div>
+            <Form.Control
+              type="text"
+              name="dni"
+              value={dni}
+              onChange={handleChange}
+              placeholder="DNI"
+            />
+            <Form.Control
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              placeholder="Nombre"
+            />
+            <Form.Control
+              type="text"
+              name="surnames"
+              value={surnames}
+              onChange={handleChange}
+              placeholder="Apellidos"
+            />
+            <Form.Control
+              type="number"
+              name="telephone"
+              value={telephone}
+              onChange={handleChange}
+              placeholder="Teléfono"
+            />
+            <Form.Control
+              type={dateInputType}
+              name="birthdate"
+              value={birthdate}
+              onChange={handleChange}
+              placeholder="Fecha de nacimiento"
+              onFocus={() => setDateInputType("date")}
+              onBlur={() => setDateInputType("text")}
+            />
+            <Form.Control
+              type="text"
+              name="education"
+              value={education}
+              onChange={handleChange}
+              placeholder="Formación"
+            />
+
+            <h3>Skills</h3>
+
+            {skills.map((skill, index) => (
+              <div key={index}>
+                <Form.Control
+                  type="text"
+                  name="skills"
+                  value={skill}
+                  onChange={(e) => handleSkillsChange(index, e)}
+                  placeholder="skills"
+                />
+                {skill}
+              </div>
+            ))}
+            <Button variant="primary" type="button" onClick={addSkill}>
+              {" "}
+              + skills{" "}
+            </Button>
+
+            <h3>Interests</h3>
+            {/* <input type="text" name='interests /> */}
+            {interests.map((interest, index) => (
+              <div key={index}>
+                interests
+                <Form.Control
+                  type="text"
+                  name="interests"
+                  value={interest}
+                  onChange={(e) => handleInterestsChange(index, e)}
+                  placeholder="interests"
+                />
+                {interest}
+              </div>
+            ))}
+            <Button variant="primary" type="button" onClick={addInterest}>
+              {" "}
+              + interests
+            </Button>
+            <div>
+              <label htmlFor="languages">
+                <h3>Languages</h3>
+              </label>
+              {languages.map((lang, index) => (
+                <div key={index}>
+                  <Form.Control
+                    type="text"
+                    name="language"
+                    value={lang.language}
+                    onChange={(e) => handleLanguagesChange(index, e)}
+                    placeholder="Idioma"
+                  />
+                  <Form.Control
+                    type="text"
+                    name="proficiency"
+                    value={lang.proficiency}
+                    onChange={(e) => handleLanguagesChange(index, e)}
+                    placeholder="Nivel"
+                  />
+                </div>
+              ))}
+              <Button variant="primary" type="button" onClick={addLanguage}>
+                Add Language
+              </Button>
+            </div>
+
+            <Form.Control
+              type="text"
+              name="awards"
+              value={awards}
+              onChange={handleChange}
+              placeholder="Awards"
+            />
+            <Form.Control
+              as="textarea"
+              // type="text"
+              name="aboutTheTalent"
+              value={aboutTheTalent}
+              onChange={handleChange}
+              placeholder="Sobre ti"
+            />
+            {/* //input image uploader */}
+
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Correo electrónico"
+            />
+            {/*   <input type="text" name="ratings" value={ratings} onChange={handleChange} placeholder="ratings" ></input> */}
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Contraseña"
+            />
+            <Form.Control
+              type="password"
+              name="password2"
+              value={password2}
+              onChange={handleChange}
+              placeholder="Confirma la contraseña"
+            />
+          </div>
+          <Button variant="primary" type="submit">
+            Register Talent
+          </Button>
+        </Form>
+      </div>
+    </>
+  );
+};
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import TalentRegister from "./TalentRegister";
 import CompanyRegister from "./CompanyRegister";
 
 const Register = () => {
+  const [selectedOption, setSelectedOption] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [showForm, setShowForm] = useState(false);
 
@@ -21,6 +481,7 @@ const Register = () => {
   };
 
   const handleReturnHome = () => {
+    setSelectedOption("");
     setSelectedOption("");
     setShowForm(false);
     console.log("Volver a la página de inicio");
@@ -48,6 +509,7 @@ const Register = () => {
       )}
     </div>
   );
+};
 };
 
 export default Register;
@@ -353,3 +815,4 @@ export default Register;
 
 
 
+export default Register;

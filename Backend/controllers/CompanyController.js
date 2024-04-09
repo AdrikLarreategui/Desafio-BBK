@@ -105,9 +105,6 @@ const CompanyController = {
 
             }
 
-
-            res.status(201).send({ message: 'Company deleted'})
-
         } 
         catch (error) 
         {    

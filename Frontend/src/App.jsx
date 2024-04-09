@@ -1,5 +1,9 @@
+import React from "react";
+import ReactDOM from 'react-dom'
 import { useState } from "react";
 import Register from "./assets/components/Register/Register";
+import CompanyRegister from "./assets/components/Register/CompanyRegister";
+import TalentRegister from "./assets/components/Register/TalentRegister";
 import TheHeader from "./assets/components/TheHeader/TheHeader";
 import Home from "../src/assets/components/Home/Home";
 import Profile from '../src/assets/components/Profile/Profile'
@@ -20,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
+          {/* <Route path="/registerCompany" element={<CompanyRegister />} />
+          <Route path="/registerTalent" element={<TalentRegister />}/> */}
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={  //<PrivateZone>
             <Profile />

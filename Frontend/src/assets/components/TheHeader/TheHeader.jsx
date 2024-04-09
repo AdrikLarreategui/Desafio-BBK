@@ -7,7 +7,7 @@ import { logout } from "../../redux/auth/talentAuthSlice";
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.talentAuth);
+  const { talent } = useSelector((state) => state.talentAuth);
 
 
 
@@ -95,40 +95,40 @@ Pendiente de crear el componente companies(o organizations) */}
               <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 
                 <a href="">Recursos</a>
-                  <div>
-                    {hover &&
-                      (
-                        <div>
-                          <a href="/">Eventos</a>
-                          <Link to="/">Guías</Link>
-                          <Link to="/">Cursos</Link>
-                          <Link to="/">Articulos</Link>
-                        </div>
-                      )
-                    }
-                  </div>
+                <div>
+                  {hover &&
+                    (
+                      <div>
+                        <a href="/">Eventos</a>
+                        <Link to="/">Guías</Link>
+                        <Link to="/">Cursos</Link>
+                        <Link to="/">Articulos</Link>
+                      </div>
+                    )
+                  }
+                </div>
               </li>
-                <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                  <a href="/careerAssistant">Career Assistant</a>
-                  <div>
-                    {hover &&
-                      (
-                        <div>
-                          <a href="">Revision cv</a>
+              <li onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+                <a href="/careerAssistant">Career Assistant</a>
+                <div>
+                  {hover &&
+                    (
+                      <div>
+                        <a href="">Revision cv</a>
 
-                          <a href="">Entrevista career</a>
+                        <a href="">Entrevista career</a>
 
-                        </div>
-                      )
-                    }
-                  </div>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-      </nav>
-    );
-  };
+                      </div>
+                    )
+                  }
+                </div>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
 export default TheHeader;

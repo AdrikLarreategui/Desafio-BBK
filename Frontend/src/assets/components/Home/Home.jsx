@@ -1,9 +1,17 @@
 import React from "react";
 
+const logo = 'images/LOGO_BBK_Talent_Job.svg'
+
+
 const Home = () => {
   return (
     <>
-      <h2>Home</h2>
+    <br />
+      <h2>BBK Fundazioa</h2>
+      <br />
+      <img src={logo} />
+
+
     </>
   );
 };

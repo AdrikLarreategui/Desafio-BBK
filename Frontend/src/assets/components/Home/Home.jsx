@@ -1,12 +1,12 @@
 import React from "react";
 
-const logo = 'images/LOGO_BBK_Talent_Job.svg'
+const logo = 'images/LOGO_BBK_Talent_Job.jpg'
 
 
 const Home = () => {
   return (
     <>
-    <br />
+      <br />
       <h2>BBK Fundazioa</h2>
       <br />
       <img src={logo} />

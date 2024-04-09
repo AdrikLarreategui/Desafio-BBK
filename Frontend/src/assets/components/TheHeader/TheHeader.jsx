@@ -2,14 +2,12 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { logout } from "../../redux/auth/authSlice";
-import './TheHeader'
-
+import { logout } from "../../redux/auth/talentAuthSlice";
 
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { talent } = useSelector((state) => state.talentAuth);
+  const { user } = useSelector((state) => state.talentAuth);
 
 
 

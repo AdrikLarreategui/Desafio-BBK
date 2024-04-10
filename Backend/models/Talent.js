@@ -1,100 +1,89 @@
 const mongoose = require("mongoose");
 const ObjectId = mongoose.SchemaTypes.ObjectId;
 
-const TalentSchema = new mongoose.Schema(
-  {
-    email: {
-      type: String,
-      unique: true,
-      required: [true, "Email is obligatory to register"],
-    },
-    password: {
-      type: String,
-      required: [true, "Password is obligatory to register"],
-    },
-    role: {
-      type: String,
-    },
-    tokens: [],
-
-    name: {
-      type: String,
-      // required: [true, "Name is obligatory to register"],
-    },
-    surnames: {
-      type: String,
-      // required: [true, "Surnames is obligatory to register"],
-    },
-    dni: { type: String },
-    // firstSurname: {
-    //   type: String,
-    //   // required: [true, "Surname is obligatory to register"],
-    // },
-    // secondSurname: {
-    //   type: String,
-    // },
-    telephone: {
-      type: Number,
-      // required: [true, "Telephone is obligatory to register"],
-    },
-    birthdate: {
-      type: Date,
-      // required: [true, "Birthdate is obligatory to register"],
-    },
-    streetAddress: {
-      type: String,
-      // required: [true, "Street is obligatory to register"],
-    },
-    city: {
-      type: String,
-      // required: [true, "City is obligatory to register"],
-    },
-    province: {
-      type: String,
-      // required: [true, "Province is obligatory to register"],
-    },
-    country: {
-      type: String,
-      // required: [true, "Country is obligatory to register"],
-    },
-    postalCode: {
-      type: Number,
-      // required: [true, "Postal code is obligatory to register"],
-    },
-    education: [],
-    languages: [
-      {
-        // languageId: String /*{ type: ObjectId, ref: "Skill" }*/,
-        language: String,
-        proficiency: {
-          type: String,
-          enum: [
-            "Principiante",
-            "Básico",
-            "Pre-intermedio",
-            "Intermedio",
-            "Intermedio-Alto",
-            "Avanzado",
-          ],
-          // required: [true, "Level is obligatory to indicate"],
-        },
-      },
-    ],
-    skills: [],
-    interests: [],
-
-    awards: [],
-    aboutTheTalent: "String",
-    profileImg: "String",
-    likedOffers: [
-      /*{ type: ObjectId, ref: "Offer" }*/
-    ],
-    appliedOffers: [
-      /*{ type: ObjectId, ref: "Offer" }*/
-    ],
+const TalentSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    unique: true,
+    required: [true, "Email is obligatory to register"],
   },
-  { timestamps: true }
-);
+  password: {
+    type: String,
+    required: [true, "Password is obligatory to register"],
+  },
+  role: {
+    type: String,
+  },
+  tokens: [],
+  name: {
+    type: String,
+    // required: [true, "Name is obligatory to register"],
+  },
+  firstSurname: {
+    type: String,
+    // required: [true, "Surname is obligatory to register"],
+  },
+  secondSurname: {
+    type: String,
+  },
+  telephone: {
+    type: Number,
+    // required: [true, "Telephone is obligatory to register"],
+  },
+  birthdate: {
+    type: Date,
+    // required: [true, "Birthdate is obligatory to register"],
+  },
+  streetAddress: {
+    type: String,
+    // required: [true, "Street is obligatory to register"],
+  },
+  city: {
+    type: String,
+    // required: [true, "City is obligatory to register"],
+  },
+  province: {
+    type: String,
+    // required: [true, "Province is obligatory to register"],
+  },
+  country: {
+    type: String,
+    // required: [true, "Country is obligatory to register"],
+  },
+  postalCode: {
+    type: Number,
+    // required: [true, "Postal code is obligatory to register"],
+  },
+  education: [],
+  skills: [
+    {
+      skillId: String /*{ type: ObjectId, ref: "Skill" }*/,
+      proficiency: {
+        type: String,
+        enum: [
+          "Beginner",
+          "Intermediate",
+          "Advanced",
+          "Expert",
+          "Master",
+          "Grandmaster",
+        ],
+        required: [true, "Level is obligatory to indicate"],
+      },
+    },
+  ],
+  interests: [],
+
+  awards: [],
+  aboutTheTalent: "String",
+  profileImg: "String",
+  likedOffers: [
+    /*{ type: ObjectId, ref: "Offer" }*/
+  ],
+  appliedOffers: [
+    /*{ type: ObjectId, ref: "Offer" }*/
+  ],
+});
 
 TalentSchema.methods.toJSON = function () {
   const user = this.toObject();

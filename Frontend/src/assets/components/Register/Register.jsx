@@ -4,7 +4,7 @@ import TalentRegister from "./TalentRegister";
 import CompanyRegister from "./CompanyRegister";
 
 const Register = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
   const [showForm, setShowForm] = useState(false);
 
   const handleOptionClick = (option) => {
@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   const handleReturnHome = () => {
-    setSelectedOption("");
+    setSelectedOption('');
     setShowForm(false);
     console.log("Volver a la página de inicio");
   };
@@ -48,7 +48,7 @@ const Register = () => {
       )}
     </div>
   );
-};
+}
 
 export default Register;
 

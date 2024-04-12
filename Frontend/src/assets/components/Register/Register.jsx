@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import TalentRegister from "./TalentRegister";
 import CompanyRegister from "./CompanyRegister";
+import "./Register.css";
 
 const Register = () => {
   const [selectedOption, setSelectedOption] = useState('');

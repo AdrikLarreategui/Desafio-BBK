@@ -14,27 +14,27 @@ const initialState = {
   users: [],
 };
 
-export const register = createAsyncThunk(
+export const registerTalent = createAsyncThunk(
   "talentAuth/register",
   async (user) => {
     try {
-      return await talentAuthService.register(user);
+      return await talentAuthService.registerTalent(user);
     } catch (error) {
       console.log(error);
     }
   }
 );
 
-export const login = createAsyncThunk("talentAuth/login", async (user) => {
+export const loginTalent = createAsyncThunk("talentAuth/login", async (user) => {
   try {
-    return await talentAuthService.login(user);
+    return await talentAuthService.loginTalent(user);
   } catch (error) {
     return rejectWithValue(error.response.data);
   }
 });
-export const logout = createAsyncThunk("talentAuth/logout", async () => {
+export const logoutTalent = createAsyncThunk("talentAuth/logout", async () => {
   try {
-    return await talentAuthService.logout();
+    return await talentAuthService.logoutTalent();
   } catch (error) {
     console.error(error);
   }
@@ -53,25 +53,25 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(loginTalent.fulfilled, (state, action) => {
         state.user = action.payload;
         state.token = action.payload.tokens[action.payload.tokens.length - 1];
         state.isSuccess = true;
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(loginTalent.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
       })
 
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(registerTalent.fulfilled, (state, action) => {
         state.isSuccess = true;
         // state.message = action.payload.message;
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(registerTalent.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
       })
-      .addCase(logout.fulfilled, (state, action) => {
+      .addCase(logoutTalent.fulfilled, (state, action) => {
         state.user = null;
         state.token = null;
       });

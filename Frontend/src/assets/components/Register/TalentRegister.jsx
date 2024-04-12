@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 
 const TalentRegister = ({ onSubmit, onReturn }) => {
   const [formData, setFormData] = useState({
-    DNI: "",
+    dni: "",
     name: "",
     surname: "",
     telephone: "",
@@ -81,7 +81,14 @@ const TalentRegister = ({ onSubmit, onReturn }) => {
     event.preventDefault();
     console.log("form", formData);
     onSubmit(formData);
+    setTimeout(() => {
+      onReturn();
+    }, 1500);
   };
+ 
+
+
+
 
   return (
     <>
@@ -130,8 +137,8 @@ const TalentRegister = ({ onSubmit, onReturn }) => {
             </Button>
             <Form.Control type="text" name="awards" value={awards} onChange={handleChange} placeholder="awards" />
             <Form.Control type="text" name="aboutTheTalent" value={aboutTheTalent} onChange={handleChange} placeholder="aboutTheTalent" />
-            <Form.Control type="email" name="email" value={email} onChange={handleChange} placeholder="email" />
-            <Form.Control type="password" name="password" value={password} onChange={handleChange} placeholder="password" />
+            <Form.Control type="email" name="email" value={email} onChange={handleChange} placeholder="email" required />
+            <Form.Control type="password" name="password" value={password} onChange={handleChange} placeholder="password" required />
           </div>
           <Button variant="primary" type="submit">
             Register Talent

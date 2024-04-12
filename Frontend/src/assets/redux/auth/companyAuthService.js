@@ -1,14 +1,15 @@
 import axios  from "axios";
-import authService from "./talentAuthService";
+//import authService from "./talentAuthService";
 const API_URL = "http://localhost:8080"
 
-const register = async (userData) => {
-    const res = await axios.post(`${API_URL}/company/`, userData);
+const registerCompany = async (userData) => {
+    const res = await axios.post(`${API_URL}/companies`, userData);
+    console.log('ha llegado a companyAuthService');
     return res.data;
   };
   
-  const login = async (userData) => {
-    const res = await axios.post(`${API_URL}/company/login`, userData);
+  const loginCompany = async (userData) => {
+    const res = await axios.post(`${API_URL}/companies/login`, userData);
   
     if (res.data) {
       const lastToken = res.data.tokens[res.data.tokens.length - 1];
@@ -17,9 +18,9 @@ const register = async (userData) => {
     }
     return res.data;
   };
-  const logout = async () => {
+  const logoutCompany = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    const logoutURL = API_URL + `/company/logout`;
+    const logoutURL = API_URL + `/companies/logout`;
   
     const res = await axios.delete(logoutURL, {
       headers: {
@@ -34,9 +35,9 @@ const register = async (userData) => {
   };
   
   const authService = {
-    login,
-    register,
-    logout,
+    registerCompany,
+    loginCompany,
+    logoutCompany,
   };
 
 export default authService

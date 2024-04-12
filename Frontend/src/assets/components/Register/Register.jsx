@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import TalentRegister from "./TalentRegister";
 import CompanyRegister from "./CompanyRegister";
+import { registerTalent, reset } from "../../redux/auth/talentAuthSlice"
+import { registerCompany } from "../../redux/auth/companyAuthSlice"
+import { useDispatch } from 'react-redux'
 
 const Register = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [showForm, setShowForm] = useState(false);
+
+  const dispatch = useDispatch()
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -14,10 +19,12 @@ const Register = () => {
 
   const handleTalentSubmit = (data) => {
     console.log("Datos registrados: ", data);
+    dispatch(registerTalent(data))
   };
 
   const handleCompanySubmit = (data) => {
     console.log("Datos de Empresa:", data);
+    dispatch(registerCompany(data))
   };
 
   const handleReturnHome = () => {

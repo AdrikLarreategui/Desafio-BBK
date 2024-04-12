@@ -1,6 +1,6 @@
-const User = require("../models/User");
 const Talent = require("../models/Talent");
-const Company = require("../models/Company")
+const Company = require("../models/Company");
+const Offer = require("../models/Offer");
 require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
@@ -11,13 +11,15 @@ const authentication = async (req, res, next) => {
 
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
-    let user = (await Talent.findOne({ _id: payload._id, tokens: token })) || (await Company.findOne({_id: payload._id, tokens:token }))
+    let user =
+      (await Talent.findOne({ _id: payload._id, tokens: token })) ||
+      (await Company.findOne({ _id: payload._id, tokens: token }));
 
     if (!user) {
       return res.status(401).send({ message: "No estás autorizado" });
     }
-  req.user = user
-    
+    req.user = user;
+
     next();
   } catch (error) {
     console.error(error);
@@ -40,4 +42,20 @@ const isAdmin = async (req, res, next) => {
   next();
 };
 
-module.exports = { authentication, isAdmin };
+const isAuthorOffer = async (req, res, next) => {
+  try {
+    const post = await Offer.findById(req.params._id);
+    if (post.companyId.toString() !== req.user._id.toString()) {
+      return res.status(403).send({ message: "This offer is not yours" });
+    }
+    next();
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      error,
+      message: "There was a problem verifying authorship",
+    });
+  }
+};
+
+module.exports = { authentication, isAdmin, isAuthorOffer };

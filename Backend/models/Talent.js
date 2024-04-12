@@ -77,9 +77,7 @@ const TalentSchema = new mongoose.Schema({
   awards: [],
   aboutTheTalent: "String",
   profileImg: "String",
-  likedOffers: [
-    /*{ type: ObjectId, ref: "Offer" }*/
-  ],
+  likedOffers: [{ type: ObjectId, ref: "Offer" }],
   appliedOffers: [
     /*{ type: ObjectId, ref: "Offer" }*/
   ],

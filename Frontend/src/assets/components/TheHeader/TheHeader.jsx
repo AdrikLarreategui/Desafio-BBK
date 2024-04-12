@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { logout} from "../../redux/auth/talentAuthSlice";
-//import { logoutCompany} from "../../redux/auth/companyAuthSlice"
+import { logoutTalent } from "../../redux/auth/talentAuthSlice";
+import { logoutCompany} from "../../redux/auth/companyAuthSlice"
 
 const TheHeader = () => {
   const navigate = useNavigate();
@@ -15,8 +15,7 @@ const TheHeader = () => {
 
   const onLogout = (event) => {
     event.preventDefault();
-    dispatch(logout())
-    //dispatch(logoutTalent()) || dispatch(logoutCompany());
+    dispatch(logoutTalent()) || dispatch(logoutCompany());
     navigate("/login");
   };
 

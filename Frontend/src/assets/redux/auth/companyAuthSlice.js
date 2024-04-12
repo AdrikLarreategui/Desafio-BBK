@@ -14,11 +14,11 @@ const initialState = {
   users: [],
 };
 
-export const register = createAsyncThunk(
+export const registerCompany = createAsyncThunk(
   "companyAuth/register",
   async (user, thunkAPI) => {
     try {
-      return await companyAuthService.register(user);
+      return await companyAuthService.registerCompany(user);
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(error)
@@ -26,17 +26,17 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk("companyAuth/login", async (user) => {
+export const loginCompany = createAsyncThunk("companyAuth/login", async (user) => {
   try {
-    return await companyAuthService.login(user);
+    return await companyAuthService.loginCompany(user);
   } catch (error) {
     return rejectWithValue(error.response.data);
   }
 });
 
-export const logout = createAsyncThunk("companyAuth/logout", async () => {
+export const logoutCompany = createAsyncThunk("companyAuth/logout", async () => {
   try {
-    return await companyAuthService.logout();
+    return await companyAuthService.logoutCompany();
   } catch (error) {
     console.error(error);
   }
@@ -55,25 +55,25 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(loginCompany.fulfilled, (state, action) => {
         state.user = action.payload;
         state.token = action.payload.tokens[action.payload.tokens.length - 1];
         state.isSuccess = true;
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(loginCompany.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
       })
 
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(registerCompany.fulfilled, (state, action) => {
         state.isSuccess = true;
         // state.message = action.payload.message;
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(registerCompany.rejected, (state, action) => {
         state.isError = true;
         // state.message = action.payload;
       })
-      .addCase(logout.fulfilled, (state, action) => {
+      .addCase(logoutCompany.fulfilled, (state, action) => {
         state.user = null;
         state.token = null;
       });

@@ -81,7 +81,14 @@ const TalentRegister = ({ onSubmit, onReturn }) => {
     event.preventDefault();
     console.log("form", formData);
     onSubmit(formData);
+    setTimeout(() => {
+      onReturn();
+    }, 1500);
   };
+ 
+
+
+
 
   return (
     <>

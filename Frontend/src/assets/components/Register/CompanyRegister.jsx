@@ -26,6 +26,7 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
       onReturn();
     }, 1500);
   };
+ 
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -64,28 +65,28 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
           <Form.Control name="password" type="text" placeholder="password" value={password} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formBasicCompanyCIF">
-          <Form.Control name="cif" type="text" placeholder="CIF" value={cif} onChange={handleChange} required />
+          <Form.Control name="cif" type="text" placeholder="CIF" value={cif} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicCompanyName">
-          <Form.Control name="companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} required />
+          <Form.Control name="companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicTypeCompany">
-          <Form.Control name="typeCompany" type="text" placeholder="Tipo de empresa" value={typeCompany} onChange={handleChange} required />
+          <Form.Control name="typeCompany" type="text" placeholder="Tipo de empresa" value={typeCompany} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicField">
-          <Form.Control name="field" type="text" placeholder="Sector de empresa" value={field} onChange={handleChange} required />
+          <Form.Control name="field" type="text" placeholder="Sector de empresa" value={field} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicWorkersNumber">
-          <Form.Control name="workersNumber" type="number" placeholder="Número de trabajadores" value={workersNumber} onChange={handleChange} required />
+          <Form.Control name="workersNumber" type="number" placeholder="Número de trabajadores" value={workersNumber} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicDescription">
-          <Form.Control as="textarea" rows={3} name="description" placeholder="description" value={description} onChange={handleChange} required />
+          <Form.Control as="textarea" rows={3} name="description" placeholder="description" value={description} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicLocation">
-          <Form.Control name="location" type="text" placeholder="Ubicación" value={location} onChange={handleChange} required />
+          <Form.Control name="location" type="text" placeholder="Ubicación" value={location} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicTelephone">
-          <Form.Control name="telephoneNumber" type="tel" placeholder="Número de teléfono" value={telephoneNumber} onChange={handleChange} required />
+          <Form.Control name="telephoneNumber" type="tel" placeholder="Número de teléfono" value={telephoneNumber} onChange={handleChange} />
         </Form.Group>
         <Form.Group controlId="formBasicWebSite">
           <Form.Control name="website" type="text" placeholder="Sitio web" value={website} onChange={handleChange} />
@@ -99,4 +100,3 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
 };
 
 export default CompanyRegister;
-

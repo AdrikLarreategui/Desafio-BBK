@@ -40,6 +40,37 @@ export const logout = createAsyncThunk("talentAuth/logout", async () => {
   }
 });
 
+//////////////////////////////////////////////
+
+// export const getAll = createAsyncThunk("talents/getAll", async () => {
+//   try {
+//     return await talentsService.getAll();
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
+
+// export const getById = createAsyncThunk("talents/getById", async (_id) => {
+//   try {
+//     return await talentsService.getById(_id);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
+// export const getTalentByTitle = createAsyncThunk(
+//   "talents/getTalentByTitle",
+//   async (title) => {
+//     try {
+//       return await talentsService.getTalentByTitle(title);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+// );
+
+
+//////////////////////////
+
 export const authSlice = createSlice({
   name: "talentAuth",
   initialState,
@@ -75,6 +106,23 @@ export const authSlice = createSlice({
         state.user = null;
         state.token = null;
       });
+      /////////////
+      // .addCase(getAll.fulfilled, (state, action) => {
+      //   state.talents = action.payload;
+      // })
+      // .addCase(getAll.pending, (state) => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(getById.fulfilled, (state, action) => {
+      //   state.talent = action.payload;
+      // })
+      // .addCase(getTalentByTitle.fulfilled, (state, action) => {
+      //   state.talents = action.payload;
+      // })
+
+      //   state.isLoading = false;
+
+      ////////////
   },
 });
 

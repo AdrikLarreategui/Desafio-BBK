@@ -3,11 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { logout } from "../../redux/auth/talentAuthSlice";
+// import {logout } from "../../redux/auth/companyAuthSlice";
 
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { talent } = useSelector((state) => state.talentAuth);
+  // const { company } = useSelector((state) => state.companyAuth)
 
 
 
@@ -70,6 +72,8 @@ const TheHeader = () => {
 
                       {talent ? (
                         <Link to='/profile'>Profile</Link>) :
+                        // <Link to='/CompanyRegister'>Inscríbete</Link>
+                        // <Link to='/TalentRegister'>Inscríbete</Link>
                         <Link to='/register'>Inscríbete</Link>
                       }
                     </div>
@@ -89,6 +93,12 @@ const TheHeader = () => {
 
                         {/* Habrá una página de empresas ficticias que estan apuntadas 
 Pendiente de crear el componente companies(o organizations) */}
+                        {talent ? (
+                        <Link to='/profile'>Profile</Link>) :
+                        // <Link to='/CompanyRegister'>Inscríbete</Link>
+                        // <Link to='/TalentRegister'>Inscríbete</Link>
+                        <Link to='/register'>Inscríbete</Link>
+                      }
                         <Link to="/companies">Explora perfiles(PENDIENTE CREAR PERFILES DE COMPAÑIAS)</Link>
                       </div>
                     )}

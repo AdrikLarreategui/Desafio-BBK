@@ -47,6 +47,13 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
     "Comunidad de Bienes",
     "Sociedad Cooperativa",
   ]
+  const fieldOptions = [
+    "Sector primario",
+    "Sector secundario",
+    "Sector terciario",
+    "Sector cuaternario",
+    "Sector quinario",
+  ]
   const [valueSelected, setValueSelected] = useState('');
 
 
@@ -70,12 +77,30 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
         <Form.Group controlId="formBasicCompanyName">
           <Form.Control name="companyName" type="text" placeholder="Nombre de la empresa" value={companyName} onChange={handleChange} />
         </Form.Group>
-        <Form.Group controlId="formBasicTypeCompany">
-          <Form.Control name="typeCompany" type="text" placeholder="Tipo de empresa" value={typeCompany} onChange={handleChange} />
-        </Form.Group>
+
+    {/*     
+      <Form.Control name="typeCompany" type="text" placeholder="Tipo de empresa" value={typeCompany} onChange={handleChange} />
+    */}
+
+
+    <Form.Group controlId="formBasicTypeCompany">
+        <Form.Control as="select" name="typeCompany" value={typeCompany} onChange={handleChange}>
+          <option value="">Selecciona el tipo de empresa</option>
+          {typeOfCompany.map((type, index) => (
+            <option key={index} value={type}>{type}</option>
+          ))}
+        </Form.Control>
+      </Form.Group> 
+
         <Form.Group controlId="formBasicField">
-          <Form.Control name="field" type="text" placeholder="Sector de empresa" value={field} onChange={handleChange} />
+          <Form.Control as="select" name="field" value={field} onChange={handleChange} >
+          <option value="">Selecciona el sector de la empresa</option>
+          {fieldOptions.map((type, index) =>(
+            <option key={index} value={type}>{type}</option>
+          ))}
+          </Form.Control>
         </Form.Group>
+
         <Form.Group controlId="formBasicWorkersNumber">
           <Form.Control name="workersNumber" type="number" placeholder="Número de trabajadores" value={workersNumber} onChange={handleChange} />
         </Form.Group>

@@ -2,7 +2,6 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-    font: Raleway;
   display: flex;
   flex-direction: row;
 }
@@ -19,4 +18,7 @@
 li {
   width: 60%;
   background-color: aqua;
+}
+.body {
+    font: Raleway;
 }

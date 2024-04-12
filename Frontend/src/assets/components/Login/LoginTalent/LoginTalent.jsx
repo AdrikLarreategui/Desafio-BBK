@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../../redux/auth/talentAuthSlice";
+import { loginTalent, reset } from "../../../redux/auth/talentAuthSlice";
 
 const LoginTalent = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const LoginTalent = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(formData));
+    dispatch(loginTalent(formData));
   };
   return (
     <form onSubmit={onSubmit}>

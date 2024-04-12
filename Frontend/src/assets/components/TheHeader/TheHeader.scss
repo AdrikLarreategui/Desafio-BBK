@@ -1,22 +1,21 @@
 .nav-container ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-container ul li {
-    display: inline-block;
-    margin-right: 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .nav-container ul li:last-child {
-    margin-right: 0;
-
+  margin-right: 0;
 }
 
 li {
-    width: 60%;
-    background-color: aqua;
+  width: 60%;
+  background-color: aqua;
 }

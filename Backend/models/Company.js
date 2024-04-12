@@ -54,15 +54,12 @@ const CompanySchema = new mongoose.Schema({
   telephoneNumber: String,
   website: String,
   //Luego hacer que incluya .com/.es/.eus
-  createdOffers: [
-    /*{ type: ObjectId, ref: "Offer" }*/
-  ],
+  createdOffers: [{ type: ObjectId, ref: "Offer" }],
   likedTalents: [
     {
       //    type: ObjectId, ref:"Talent"
     },
   ],
-
 });
 
 CompanySchema.methods.toJSON = function () {

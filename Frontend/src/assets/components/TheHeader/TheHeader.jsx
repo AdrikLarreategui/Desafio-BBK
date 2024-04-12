@@ -2,21 +2,21 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { logout } from "../../redux/auth/talentAuthSlice";
+import { logout} from "../../redux/auth/talentAuthSlice";
+//import { logoutCompany} from "../../redux/auth/companyAuthSlice"
 
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { talent } = useSelector((state) => state.talentAuth);
-
-
+//  const { company } = useSelector((state) => state.companyAuth)
 
   const [text, setText] = useState("");
 
-  const onLogout = (e) => {
-    e.preventDefault();
-
-    dispatch(logout());
+  const onLogout = (event) => {
+    event.preventDefault();
+    dispatch(logout())
+    //dispatch(logoutTalent()) || dispatch(logoutCompany());
     navigate("/login");
   };
 
@@ -54,7 +54,7 @@ const TheHeader = () => {
           ) : (
             <>
               <li onMouseEnter={() => setActiveIndex(0)} onMouseLeave={() => setActiveIndex(null)}>
-                <a href="">Talento</a>
+                <h3>Talento</h3>
                 {activeIndex === 0 &&
                   (
                     <div>

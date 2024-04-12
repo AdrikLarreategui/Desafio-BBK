@@ -1,6 +1,6 @@
 import React from "react";
 
-const logo = 'images/LOGO_BBK_Talent_Job.jpg'
+const logo = 'images/LOGO_BBK_Talent_Job.png'
 
 
 const Home = () => {

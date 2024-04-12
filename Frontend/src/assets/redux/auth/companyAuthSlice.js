@@ -16,11 +16,12 @@ const initialState = {
 
 export const register = createAsyncThunk(
   "companyAuth/register",
-  async (user) => {
+  async (user, thunkAPI) => {
     try {
       return await companyAuthService.register(user);
     } catch (error) {
       console.log(error);
+      return thunkAPI.rejectWithValue(error)
     }
   }
 );

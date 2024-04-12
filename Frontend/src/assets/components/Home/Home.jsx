@@ -1,7 +1,6 @@
 import React from "react";
 
-const logo = 'images/LOGO_BBK_Talent_Job.png'
-
+const logo = "images/LOGO_BBK_Talent_Job.png";
 
 const Home = () => {
   return (
@@ -10,8 +9,6 @@ const Home = () => {
       <h2>BBK Fundazioa</h2>
       <br />
       <img src={logo} />
-
-
     </>
   );
 };

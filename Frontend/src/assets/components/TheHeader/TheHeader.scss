@@ -1,4 +1,5 @@
 .nav-container ul {
+  font: Raleway;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -7,18 +8,22 @@
 }
 
 .nav-container ul li {
+  font: Raleway;
   display: inline-block;
   margin-right: 10px;
 }
 
 .nav-container ul li:last-child {
+  font: Raleway;
   margin-right: 0;
 }
 
 li {
+  font: Raleway;
   width: 60%;
   background-color: aqua;
 }
+
 .body {
     font: Raleway;
 }

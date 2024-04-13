@@ -26,7 +26,6 @@ const logoutTalent = async () => {
       authorization: token,
     },
   });
-
   if (res.data) {
     localStorage.clear();
   }

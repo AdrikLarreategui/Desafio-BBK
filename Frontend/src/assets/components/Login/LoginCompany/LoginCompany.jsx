@@ -39,6 +39,10 @@ const LoginCompany = () => {
     e.preventDefault();
     console.log("Trying to log in");
     dispatch(loginCompany(formData));
+
+    setTimeout(() => {
+      navigate("/company-profile");
+    });
   };
 
   return (

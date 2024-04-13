@@ -8,7 +8,7 @@ router.post("/login", TalentController.login);
 // router.get("/id/:_id", authentication, isAdmin, TalentController.getUserByID);
 // router.get("/connected", authentication, TalentController.getUserConnected);
 router.delete("/logout", authentication, TalentController.logout);
-// router.get("/getAll", authentication, isAdmin, TalentController.getAll);
+router.get("/getAll", authentication, TalentController.getAll);
 router.delete("/delete/:_id", authentication, isAdmin, TalentController.delete);
 
 module.exports = router;

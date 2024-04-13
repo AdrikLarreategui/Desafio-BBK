@@ -25,13 +25,16 @@ export const registerTalent = createAsyncThunk(
   }
 );
 
-export const loginTalent = createAsyncThunk("talentAuth/login", async (user) => {
-  try {
-    return await talentAuthService.loginTalent(user);
-  } catch (error) {
-    return rejectWithValue(error.response.data);
+export const loginTalent = createAsyncThunk(
+  "talentAuth/login",
+  async (user) => {
+    try {
+      return await talentAuthService.loginTalent(user);
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-});
+);
 export const logoutTalent = createAsyncThunk("talentAuth/logout", async () => {
   try {
     return await talentAuthService.logoutTalent();

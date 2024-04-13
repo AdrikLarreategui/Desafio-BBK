@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { logoutTalent } from "../../redux/auth/talentAuthSlice";
 import { logoutCompany } from "../../redux/auth/companyAuthSlice";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const TheHeader = () => {
@@ -17,7 +18,9 @@ const TheHeader = () => {
 
   const onLogout = (event) => {
     event.preventDefault();
-    dispatch(logoutTalent()) || dispatch(logoutCompany());
+    // talentUser && (logoutTalent())
+
+    dispatch(logoutTalent()) && dispatch(logoutCompany());
 
     navigate("/login");
   };
@@ -37,7 +40,9 @@ const TheHeader = () => {
   return (
     <nav>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <Navbar.Brand href="/">BBK Talent Job</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          BBK Talent Job
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
@@ -45,7 +50,9 @@ const TheHeader = () => {
               <>
                 {talentUser && (
                   <>
-                    <Nav.Link href="/profile">Profile</Nav.Link>
+                    <Nav.Link as={Link} to="/profile">
+                      Profile
+                    </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Form inline>
                       <FormControl
@@ -59,9 +66,14 @@ const TheHeader = () => {
                 )}
                 {companyUser && (
                   <>
-                    <Nav.Link href="/company-profile">Company Profile</Nav.Link>
+                    <Nav.Link as={Link} to="/company-profile">
+                      Company Profile
+                    </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                    {/* <Nav.Link href="/createOffer">Post Offer</Nav.Link> */}
+                    {/* <Nav.Link as={Link} to="/createOffer">Post Offer</Nav.Link> */}
+                    <Nav.Link as={Link} to="/company/discover-talents">
+                      Descubrir talento
+                    </Nav.Link>
                   </>
                 )}
               </>
@@ -71,11 +83,12 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     ¿Por qué BBK Talent Job?
                   </NavDropdown.ItemText>
-                  <NavDropdown.Item href="/offers">
+                  <NavDropdown.Item as={Link} to="/offers">
                     Descubre ofertas
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    href={talentUser ? "/profile" : "/talent/register"}
+                    as={Link}
+                    to={talentUser ? "/profile" : "/talent/register"}
                   >
                     {talentUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
@@ -87,26 +100,38 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     por q Talent Job pa organizaciones?
                   </NavDropdown.ItemText>
-                  <NavDropdown.Item href="/companies">
+                  <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/">Eventos</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Guías</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Cursos</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Artículos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Eventos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Guías
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Cursos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Artículos
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown
                   title="Career Assistant"
                   id="navbarScrollingDropdown"
                 >
-                  <NavDropdown.Item href="/">Revisión CV</NavDropdown.Item>
-                  <NavDropdown.Item href="/">
+                  <NavDropdown.Item as={Link} to="/">
+                    Revisión CV
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
                     Entrevista career
                   </NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
               </>
             )}
           </Nav>

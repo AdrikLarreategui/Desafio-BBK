@@ -1,21 +1,36 @@
 const Talent = require("../models/Talent");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { uploadImage } = require('../utils/cloudinary.js')
 require("dotenv").config();
 
 const TalentController = {
   async create(req, res, next) {
     try {
+//      console.log(req.files.image)
       let password;
       if (req.body.password) {
         password = bcrypt.hashSync(req.body.password, 10);
       }
-      const userData = {
-        ...req.body,
-        password,
-        role: "talent",
-      };
+      
+      let profilePicture;
+      if(req.files.image) {
+        const result = await uploadImage(req.files.image.tempFilePath)
+        console.log(result)
 
+
+
+       // profilePicture = { public_id: await result.public_id,
+         // secure_url: await result.secure_url   }
+        }
+        
+        const userData = {
+          ...req.body,
+          password,
+          role: "talent",
+          profilePicture,
+        };
+        console.log(userData)
       const talent = await Talent.create(userData);
 
       res.status(201).send({ message: "User succesfully registered", talent });

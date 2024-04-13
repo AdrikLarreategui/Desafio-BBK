@@ -10,7 +10,7 @@ const Register = () => {
         <Button as={Link} to="/talent/register" variant="primary">
           Talento
         </Button>
-        <Button as={Link} to="/companies/register" variant="primary">
+        <Button as={Link} to="/company/register" variant="primary">
           Empresa
         </Button>
       </div>

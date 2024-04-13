@@ -1,6 +1,6 @@
 import axios  from "axios";
 //import authService from "./talentAuthService";
-const API_URL = "http://localhost:8080/offers"
+const API_URL = "http://localhost:3000/offers"
 
 
 const getAll = async () => {

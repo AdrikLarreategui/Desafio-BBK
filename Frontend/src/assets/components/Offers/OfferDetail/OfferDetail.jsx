@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-// import { getById } from "../../../redux/posts/postsSlice";
-// import { getById } from '../../../redux/auth/companyAuthSlice'
+import { getById } from "../../../redux/auth/offerAuthSlice";
+import { getById } from '../../../redux/auth/companyAuthSlice'
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -47,7 +47,7 @@ const OfferDetail = () => {
       <div className="offer-detail">
         <h2>Offer Detail</h2>
         <div key={offer._id} className={`card `}>
-          <h2 className="title">{post.title}</h2>
+          <h2 className="title">{offer.title}</h2>
 
           <div className="offer-info">
             {/* <p>User ID:{offer.userId}</p> */}
@@ -56,10 +56,10 @@ const OfferDetail = () => {
           <hr></hr>
           <p className="content">{offer.content}</p>
           <div className="offer-footer">
-            <button className="likes" onClick={manageLikes}>
+            {/* <button className="likes" onClick={manageLikes}>
               <span>Likes: {offer.likes?.length} </span>
               {isLiked ? <HeartFilled /> : <HeartOutlined />}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

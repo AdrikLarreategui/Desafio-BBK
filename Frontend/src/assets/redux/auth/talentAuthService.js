@@ -33,51 +33,6 @@ const logoutTalent = async () => {
   return res.data;
 };
 
-// const getAll = async () => {
-//   const res = await axios.get(API_URL + "/talent/getAll");
-//   return res.data.talents;
-// };
-//PENDIENTE CREAR LA CARPETA TALENTS EN COMPONENTS
-
-
-// const getById = async (_id) => {
-//   const res = await axios.get(API_URL + "/talents/getAll?_id=" + _id);
-//   console.log(`this is res.data.talents`, res.data.posts);
-//   return res.data.posts[0];
-// };
-// const getTalentByTitle = async (talentTitle) => {
-//   const res = await axios.get(API_URL + "/talents/getAll?title=" + talentTitle);
-//   return res.data.posts;
-// };
-
-// const like = async (_id) => {
-//   const token = JSON.parse(localStorage.getItem("token"));
-//   const res = await axios.put(
-//     `${API_URL}/talents/like/${_id}`,
-//     {},
-//     {
-//       headers: {
-//         authorization: token,
-//       },
-//     }
-//   );
-//   return res.data.updatedTalent;
-// };
-
-// const create = async (talentData) => {
-//   const token = JSON.parse(localStorage.getItem("token"));
-//   const res = await axios.talent(`${API_URL}/talents/`, postData, {
-//     headers: {
-//       authorization: token,
-//     },
-//   });
-//   return res.data;
-// };
-
-// const talentsService = {
-
-// };
-
 const authService = {
   loginTalent,
   registerTalent,

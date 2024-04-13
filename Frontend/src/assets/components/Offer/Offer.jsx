@@ -40,7 +40,7 @@ const Offer = () => {
         </div>
         <hr></hr>
         <p className="content ">{offer.content}</p>
-        <div className="offer-footer">
+        {/* <div className="offer-footer"> */}
           {/* <button className="likes" onClick={manageLikes}>
             <span>Likes: {post.likes?.length} </span>
             {isLiked ? <HeartFilled /> : <HeartOutlined />}
@@ -51,7 +51,7 @@ const Offer = () => {
               <CommentOutlined />
             </Link>
           </button> */}
-        </div>
+        {/* </div> */}
       </div>
     );
   });

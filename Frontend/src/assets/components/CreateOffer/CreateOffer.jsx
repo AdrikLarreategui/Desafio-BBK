@@ -121,8 +121,8 @@ const CreateOffer = () => {
           <Form.Control  as="textarea" rows={3} name="offerOverview" type="text" placeholder="Descripción de la oferta" value={offerOverview} onChange={handleChange} />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Enviar
+        <Button as={Link} to="/createOffer" variant="primary">
+          Inscríbete
         </Button>
       </Form>
     </div>

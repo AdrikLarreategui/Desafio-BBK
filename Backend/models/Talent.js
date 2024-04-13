@@ -53,23 +53,24 @@ const TalentSchema = new mongoose.Schema(
       // required: [true, "Postal code is obligatory to register"],
     },
     education: [],
-    skills: [
+    languages: [
       {
-        skillId: String /*{ type: ObjectId, ref: "Skill" }*/,
+        // languageId: String /*{ type: ObjectId, ref: "Skill" }*/,
         proficiency: {
           type: String,
           enum: [
             "Principiante",
             "Básico",
-            "Pre-intermedio",
             "Intermedio",
             "Intermedio-Alto",
             "Avanzado",
+            "Nativo",
           ],
           // required: [true, "Level is obligatory to indicate"],
         },
       },
     ],
+    skills: [],
 
     interests: [],
 

@@ -1,154 +1,292 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { registerTalent } from "../../redux/auth/talentAuthSlice";
+import "./TalentRegister.css";
 
-const TalentRegister = ({ onSubmit, onReturn }) => {
-  const [formData, setFormData] = useState({
-    dni: "",
-    name: "",
-    surname: "",
-    telephone: "",
-    birthdate: "",
-    email: "",
-    password: "",
-    education: [],
-    skills: [],
-    interests: [],
-    languages: [{ language: "", proficiency: "" }],
-    awards: [],
-    aboutTheTalent: "",
-  });
-
-  const { dni, name, surname, telephone, birthdate, email, password, education, skills, interests, languages, awards, aboutTheTalent } = formData;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+const TalentRegister = () =>
+  // { onSubmit, onReturn }
+  {
+    const [formData, setFormData] = useState({
+      dni: "",
+      name: "",
+      surnames: "",
+      telephone: "",
+      birthdate: "",
+      email: "",
+      password: "",
+      password2: "",
+      education: [],
+      skills: [],
+      interests: [],
+      languages: [{ language: "", proficiency: "" }],
+      aboutTheTalent: "",
     });
-  };
 
-  const handleLanguagesChange = (index, e) => {
-    const { name, value } = e.target;
-    const newLanguages = [...languages];
-    newLanguages[index][name] = value;
-    setFormData({
-      ...formData,
-      languages: newLanguages,
-    });
-  };
+    const {
+      dni,
+      name,
+      surnames,
+      telephone,
+      birthdate,
+      email,
+      password,
+      password2,
+      education,
+      skills,
+      interests,
+      languages,
+      aboutTheTalent,
+    } = formData;
 
-  const handleInterestsChange = (index, e) => {
-    const newInterests = [...interests];
-    newInterests[index] = e.target.value;
-    setFormData({
-      ...formData,
-      interests: newInterests,
-    });
-  };
+    const languageLevels = [
+      "Principiante",
+      "Básico",
+      "Intermedio",
+      "Intermedio-Alto",
+      "Avanzado",
+      "Nativo",
+    ];
 
-  const handleSkillsChange = (index, e) => {
-    const newSkills = [...skills];
-    newSkills[index] = e.target.value;
-    setFormData({
-      ...formData,
-      skills: newSkills,
-    });
-  };
+    // const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-  const addSkill = () => {
-    setFormData({
-      ...formData,
-      skills: [...skills, ""],
-    });
-  };
+    const handleChange = (e) => {
+      const { name, value } = e.target;
 
-  const addInterest = () => {
-    setFormData({
-      ...formData,
-      interests: [...interests, ""],
-    });
-  };
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
 
-  const addLanguage = () => {
-    setFormData({
-      ...formData,
-      languages: [...languages, { language: "", proficiency: "" }],
-    });
-  };
+    const handleLanguagesChange = (index, e) => {
+      const { name, value } = e.target;
+      const newLanguages = [...languages];
+      newLanguages[index][name] = value;
+      setFormData({
+        ...formData,
+        languages: newLanguages,
+      });
+    };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("form", formData);
-    onSubmit(formData);
-    setTimeout(() => {
-      onReturn();
-    }, 1500);
-  };
- 
+    const handleInterestsChange = (index, e) => {
+      const newInterests = [...interests];
+      newInterests[index] = e.target.value;
+      setFormData({
+        ...formData,
+        interests: newInterests,
+      });
+    };
 
+    const handleSkillsChange = (index, e) => {
+      const newSkills = [...skills];
+      newSkills[index] = e.target.value;
+      setFormData({
+        ...formData,
+        skills: newSkills,
+      });
+    };
 
+    const addSkill = () => {
+      setFormData({
+        ...formData,
+        skills: [...skills, ""],
+      });
+    };
 
+    const addInterest = () => {
+      setFormData({
+        ...formData,
+        interests: [...interests, ""],
+      });
+    };
 
-  return (
-    <>
-      <div>
-        <h1>Register Talent</h1>
-        <Form onSubmit={handleSubmit}>
-          <div>
-            <Form.Control type="text" name="dni" value={dni} onChange={handleChange} placeholder="DNI" />
-            <Form.Control type="text" name="name" value={name} onChange={handleChange} placeholder="nombre" />
-            <Form.Control type="text" name="surname" value={surname} onChange={handleChange} placeholder="apellido" />
-            <Form.Control type="number" name="telephone" value={telephone} onChange={handleChange} placeholder="teléfono" />
-            <Form.Control type="date" name="birthdate" value={birthdate} onChange={handleChange} placeholder="Fecha de nacimiento" />
-            <Form.Control type="text" name="education" value={education} onChange={handleChange} placeholder="educación" />
-            <h3>skills</h3>
-            {skills.map((skill, index) => (
-              <div key={index}>
-                <Form.Control type="text" name="skills" value={skill} onChange={(e) => handleSkillsChange(index, e)} placeholder="skills" />
-                {skill}
+    const addLanguage = () => {
+      setFormData({
+        ...formData,
+        languages: [...languages, { language: "", proficiency: "" }],
+      });
+    };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      if (password !== password2) {
+        alert("Error: Las contraseñas no coinciden");
+      } else {
+        console.log("form", formData);
+        console.log(skills);
+        dispatch(registerTalent(formData));
+      }
+    };
+    const [dateInputType, setDateInputType] = useState("text");
+
+    return (
+      <>
+        <div>
+          <h1>Register Talent</h1>
+          <Form onSubmit={handleSubmit}>
+            <div>
+              <Form.Control
+                type="text"
+                name="dni"
+                value={dni}
+                onChange={handleChange}
+                placeholder="DNI/NIE/Pasaporte"
+                maxLength="25"
+              />
+              <Form.Control
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                placeholder="Nombre"
+                maxLength="25"
+              />
+              <Form.Control
+                type="text"
+                name="surnames"
+                value={surnames}
+                onChange={handleChange}
+                placeholder="Apellidos"
+                maxLength="50"
+              />
+              <Form.Control
+                className="no-spinners"
+                type="number"
+                name="telephone"
+                value={telephone}
+                onChange={handleChange}
+                placeholder="Teléfono"
+                maxLength="9"
+              />
+              <Form.Control
+                type={dateInputType}
+                name="birthdate"
+                value={birthdate}
+                onChange={handleChange}
+                placeholder="Fecha de nacimiento"
+                onFocus={() => setDateInputType("date")}
+                onBlur={() => setDateInputType("text")}
+              />
+              <Form.Control
+                type="text"
+                name="education"
+                value={education}
+                onChange={handleChange}
+                placeholder="Formación"
+                maxLength="150"
+              />
+              <h3>Habilidades</h3>
+              {skills.map((skill, index) => (
+                <div key={index}>
+                  <Form.Control
+                    type="text"
+                    name="skills"
+                    value={skill}
+                    onChange={(e) => handleSkillsChange(index, e)}
+                    placeholder="Skills"
+                  />
+                  {skill}
+                </div>
+              ))}
+              <Button variant="primary" type="button" onClick={addSkill}>
+                + skills
+              </Button>
+
+              <h3>Intereses</h3>
+              {interests.map((interest, index) => (
+                <div key={index}>
+                  interests
+                  <Form.Control
+                    type="text"
+                    name="interests"
+                    value={interest}
+                    onChange={(e) => handleInterestsChange(index, e)}
+                    placeholder="Interests"
+                  />
+                  {interest}
+                </div>
+              ))}
+              <Button variant="primary" type="button" onClick={addInterest}>
+                + interests
+              </Button>
+              <div>
+                <label htmlFor="languages">
+                  <h3>Idiomas</h3>
+                </label>
+                {languages.map((lang, index) => (
+                  <div key={index}>
+                    <Form.Control
+                      type="text"
+                      name="language"
+                      value={lang.language}
+                      onChange={(e) => handleLanguagesChange(index, e)}
+                      placeholder="Idioma"
+                    />
+                    <Form.Control
+                      // type="text"
+                      as="select"
+                      name="proficiency"
+                      value={lang.proficiency}
+                      onChange={(e) => handleLanguagesChange(index, e)}
+                      placeholder="Nivel"
+                    >
+                      <option value="">Nivel</option>
+                      {languageLevels.map((type, index) => (
+                        <option key={index} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </Form.Control>
+                  </div>
+                ))}
+                <Button variant="primary" type="button" onClick={addLanguage}>
+                  + Idioma
+                </Button>
               </div>
-            ))}
-            <Button variant="primary" type="button" onClick={addSkill}>
-              + skills
+
+              <Form.Control
+                as="textarea"
+                rows={4}
+                name="aboutTheTalent"
+                value={aboutTheTalent}
+                onChange={handleChange}
+                placeholder="Sobre ti"
+              />
+              <Form.Control
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Correo electrónico"
+                required
+              />
+              <Form.Control
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Constraseña"
+                required
+              />
+              <Form.Control
+                type="password"
+                name="password2"
+                value={password2}
+                onChange={handleChange}
+                placeholder="Confirma la contraseña"
+                required
+              />
+            </div>
+            <Button variant="primary" type="submit">
+              Register Talent
             </Button>
-            <h3>interests</h3>
-            {interests.map((interest, index) => (
-              <div key={index}>
-                interests
-                <Form.Control type="text" name="interests" value={interest} onChange={(e) => handleInterestsChange(index, e)} placeholder="interests" />
-                {interest}
-              </div>
-            ))}
-            <Button variant="primary" type="button" onClick={addInterest}>
-              + interests
-            </Button>
-            <label htmlFor="languages">
-              <h3>Languages</h3>
-            </label>
-            {languages.map((lang, index) => (
-              <div key={index}>
-                <Form.Control type="text" name="language" value={lang.language} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Idioma" />
-                <Form.Control type="text" name="proficiency" value={lang.proficiency} onChange={(e) => handleLanguagesChange(index, e)} placeholder="Nivel" />
-              </div>
-            ))}
-            <Button variant="primary" type="button" onClick={addLanguage}>
-              Add Language
-            </Button>
-            <Form.Control type="text" name="awards" value={awards} onChange={handleChange} placeholder="awards" />
-            <Form.Control type="text" name="aboutTheTalent" value={aboutTheTalent} onChange={handleChange} placeholder="aboutTheTalent" />
-            <Form.Control type="email" name="email" value={email} onChange={handleChange} placeholder="email" required />
-            <Form.Control type="password" name="password" value={password} onChange={handleChange} placeholder="password" required />
-          </div>
-          <Button variant="primary" type="submit">
-            Register Talent
-          </Button>
-        </Form>
-      </div>
-    </>
-  );
-};
+          </Form>
+        </div>
+      </>
+    );
+  };
 
 export default TalentRegister;
-
-

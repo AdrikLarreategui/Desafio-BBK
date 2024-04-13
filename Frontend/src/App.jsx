@@ -12,6 +12,8 @@ import Login from "./assets/components/Login/Login";
 import Admin from "../src/assets/components/Admin/Admin";
 import NotFound from "../src/assets/components/NotFound/NotFound";
 import "bootswatch/dist/darkly/bootstrap.min.css";
+import LoginTalent from "./assets/components/Login/LoginTalent/LoginTalent";
+import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
 
 import "./App.css";
 
@@ -24,9 +26,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/registerCompany" element={<CompanyRegister />} />
-          {/* <Route path="/registerTalent" element={<TalentRegister />}/>  */}
+          <Route path="/company/register" element={<CompanyRegister />} />
+          <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/talent/login" element={<LoginTalent />} />
+          <Route path="/company/login" element={<LoginCompany />} />
+
           <Route
             path="/profile"
             element={

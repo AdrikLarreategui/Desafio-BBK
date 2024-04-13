@@ -59,8 +59,11 @@ const TheHeader = () => {
                     ¿Por qué BBK Talent Job?
                   </NavDropdown.ItemText>
                   <NavDropdown.Item href="/offers">
-                    Descubre ofertas
+                    Descubre las ofertas disponibles
                   </NavDropdown.Item>
+                  {/* {<NavDropdown.Item >
+                  href={user ? "/alent/offers}
+                  {</NavDropdown.Item>} */}
                   <NavDropdown.Item
                     href={user ? "/profile" : "/talent/register"}
                   >
@@ -72,10 +75,10 @@ const TheHeader = () => {
                   id="navbarScrollingDropdown"
                 >
                   <NavDropdown.ItemText>
-                    por q Talent Job pa organizaciones?
+                    ¿Por qué elegir BBK Talent Job para oganizaciones?
                   </NavDropdown.ItemText>
                   <NavDropdown.Item href="/companies">
-                    Explora perfiles
+                    Explora los perfiles disponibles
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
@@ -88,9 +91,9 @@ const TheHeader = () => {
                   title="Career Assistant"
                   id="navbarScrollingDropdown"
                 >
-                  <NavDropdown.Item href="/">Revisión CV</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Revisión de tu CV</NavDropdown.Item>
                   <NavDropdown.Item href="/">
-                    Entrevista career
+                    Entrevista con Career Asistant
                   </NavDropdown.Item>
                 </NavDropdown>
               </>

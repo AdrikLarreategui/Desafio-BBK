@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import companyAuthService from "./companyAuthService";
 
-const user = JSON.parse(localStorage.getItem("user"));
-const token = JSON.parse(localStorage.getItem("token"));
+const companyUser = JSON.parse(localStorage.getItem("companyUser"));
+const companyToken = JSON.parse(localStorage.getItem("companyToken"));
 
 const initialState = {
-  user: user ? user : null,
-  token: token ? token : null,
+  user: companyUser ? companyUser : null,
+  token: companyToken ? companyToken : null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -21,26 +21,32 @@ export const registerCompany = createAsyncThunk(
       return await companyAuthService.registerCompany(user);
     } catch (error) {
       console.log(error);
-      return thunkAPI.rejectWithValue(error)
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
-export const loginCompany = createAsyncThunk("companyAuth/login", async (user) => {
-  try {
-    return await companyAuthService.loginCompany(user);
-  } catch (error) {
-    return rejectWithValue(error.response.data);
+export const loginCompany = createAsyncThunk(
+  "companyAuth/login",
+  async (user) => {
+    try {
+      return await companyAuthService.loginCompany(user);
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-});
+);
 
-export const logoutCompany = createAsyncThunk("companyAuth/logout", async () => {
-  try {
-    return await companyAuthService.logoutCompany();
-  } catch (error) {
-    console.error(error);
+export const logoutCompany = createAsyncThunk(
+  "companyAuth/logout",
+  async () => {
+    try {
+      return await companyAuthService.logoutCompany();
+    } catch (error) {
+      console.error(error);
+    }
   }
-});
+);
 
 export const authSlice = createSlice({
   name: "companyAuth",

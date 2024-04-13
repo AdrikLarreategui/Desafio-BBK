@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import talentAuthService from "./talentAuthService";
 
-const user = JSON.parse(localStorage.getItem("user"));
-const token = JSON.parse(localStorage.getItem("token"));
+const talentUser = JSON.parse(localStorage.getItem("talentUser"));
+const talentToken = JSON.parse(localStorage.getItem("talentToken"));
 
 const initialState = {
-  user: user ? user : null,
-  token: token ? token : null,
+  user: talentUser ? talentUser : null,
+  token: talentToken ? talentToken : null,
   isError: false,
   isSuccess: false,
   isLoading: false,

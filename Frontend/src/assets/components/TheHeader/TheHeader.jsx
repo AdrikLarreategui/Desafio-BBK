@@ -10,14 +10,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.talentAuth);
-  //  const { company } = useSelector((state) => state.companyAuth)
+  const { user: talentUser } = useSelector((state) => state.talentAuth);
+  const { user: companyUser } = useSelector((state) => state.companyAuth);
 
   const [text, setText] = useState("");
 
   const onLogout = (event) => {
     event.preventDefault();
     dispatch(logoutTalent()) || dispatch(logoutCompany());
+
     navigate("/login");
   };
 
@@ -31,6 +32,7 @@ const TheHeader = () => {
   // const isAdmin = user?.role === 'admin'
   // const [hover, setHover] = useState(false);
   // const [activeIndex, setActiveIndex] = useState(false);
+  const isLoggedIn = !!talentUser || !!companyUser;
 
   return (
     <nav>
@@ -39,18 +41,29 @@ const TheHeader = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            {user ? (
+            {isLoggedIn ? (
               <>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-                <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                <Form inline>
-                  <FormControl
-                    type="text"
-                    placeholder="Buscar ofertas"
-                    className="mr-sm-2"
-                    onKeyUp={handleChange}
-                  />
-                </Form>
+                {talentUser && (
+                  <>
+                    <Nav.Link href="/profile">Profile</Nav.Link>
+                    <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                    <Form inline>
+                      <FormControl
+                        type="text"
+                        placeholder="Buscar ofertas"
+                        className="mr-sm-2"
+                        onKeyUp={handleChange}
+                      />
+                    </Form>
+                  </>
+                )}
+                {companyUser && (
+                  <>
+                    <Nav.Link href="/company-profile">Company Profile</Nav.Link>
+                    <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                    {/* <Nav.Link href="/createOffer">Post Offer</Nav.Link> */}
+                  </>
+                )}
               </>
             ) : (
               <>
@@ -62,9 +75,9 @@ const TheHeader = () => {
                     Descubre ofertas
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    href={user ? "/profile" : "/talent/register"}
+                    href={talentUser ? "/profile" : "/talent/register"}
                   >
-                    {user ? "Profile" : "Inscríbete"}
+                    {talentUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown
@@ -93,6 +106,7 @@ const TheHeader = () => {
                     Entrevista career
                   </NavDropdown.Item>
                 </NavDropdown>
+                <Nav.Link href="/login">Login</Nav.Link>
               </>
             )}
           </Nav>

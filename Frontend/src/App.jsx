@@ -16,6 +16,7 @@ import LoginTalent from "./assets/components/Login/LoginTalent/LoginTalent";
 import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
 
 import "./App.css";
+import Talents from "./assets/components/Talents/Talents";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
           <Route path="/company/login" element={<LoginCompany />} />
+          <Route path="/company/discover-talents" element={<Talents />} />
 
           <Route
             path="/profile"

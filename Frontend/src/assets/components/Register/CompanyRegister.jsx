@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registerCompany } from "../../redux/auth/companyAuthSlice";
 
-const CompanyRegister = ({ onSubmit, onReturn }) => {
+const CompanyRegister = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,15 +32,14 @@ const CompanyRegister = ({ onSubmit, onReturn }) => {
     telephoneNumber,
     website,
   } = formData;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
-    onSubmit(formData);
-    setTimeout(() => {
-      onReturn();
-    }, 1500);
+    dispatch(registerCompany(formData));
   };
 
   const handleChange = (event) => {

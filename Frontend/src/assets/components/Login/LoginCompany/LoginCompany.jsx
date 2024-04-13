@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { loginCompany, reset } from "../../../redux/auth/companyAuthSlice";
+import { loginCompany } from "../../../redux/auth/companyAuthSlice";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
@@ -38,7 +38,11 @@ const LoginCompany = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("Trying to log in");
-    // dispatch(loginCompany(formData));
+    dispatch(loginCompany(formData));
+
+    setTimeout(() => {
+      navigate("/company-profile");
+    });
   };
 
   return (

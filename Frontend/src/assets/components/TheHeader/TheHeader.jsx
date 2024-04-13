@@ -61,7 +61,9 @@ const TheHeader = () => {
                   <NavDropdown.Item href="/offers">
                     Descubre ofertas
                   </NavDropdown.Item>
-                  <NavDropdown.Item href={user ? "/profile" : "/register"}>
+                  <NavDropdown.Item
+                    href={user ? "/profile" : "/talent/register"}
+                  >
                     {user ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
                 </NavDropdown>

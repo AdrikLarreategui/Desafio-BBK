@@ -1,39 +1,46 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap"
 import { Link } from "react-router-dom";
-const { logo } = "../../images/LOGO_BBK_Talent_Job.png";
-const { foto1 } = "../../images/1.jpg"
-import './Home'
-
+import './Home.css'
+const logo = "/images/LOGO_BBK_Talent_Job.png";
+const foto1 = "/images/foto1.jpg"
+const foto2 = "/images/foto2.jpg"
+const foto3 = "/images/foto3.jpg"
+const foto4 = "/images/foto4.jpg"
+const foto5 = "images/foto5.jpg"
+const foto6 = "images/foto6.jpg"
 
 const Home = () => {
   return (
     <>
+      <img src={logo} />
       <section className="firstSection">
 
         <article>
-        <h1>Donde el talento joven y las organizaciones se encuentran </h1>
-        <p>Ayudamos a los jóvenes a encontrar un empleo y a las empresas y organizaciones a mejorar su competitividad a través del talento.</p>
-        <br />
-          <div>
-            <Button as={Link} to="/talent/register" variant="primary">
-              Soy Talento
-            </Button>
-          </div>
-          <div>
-            <Button as={Link} to="/company/register" variant="primary">
-              Soy Organización
-            </Button>
+          <h1>Donde el talento joven y las organizaciones se encuentran </h1>
+          <p>Ayudamos a los jóvenes a encontrar un empleo y a las empresas y organizaciones a mejorar su competitividad a través del talento.</p>
+          <br />
+          <div className="buttons">
+            <div>
+              <button className="talent" as={Link} to="/talent/register" variant="primary">
+                SOY TALENTO
+              </button>
+            </div>
+            <div>
+              <button className="company" as={Link} to="/company/register" variant="primary">
+                SOY ORGANIZACIÓN
+              </button>
+            </div>
           </div>
         </article>
 
         <article>
-          <img src={logo} />{foto1}
+          <img src={foto1} alt="" />
         </article>
       </section>
 
+      <h2>Una plataforma para aumentar la empleabilidad en los jóvenes</h2>
       <section className="secondSection">
-        <h2>Una plataforma para aumentar la empleabilidad en los jóvenes</h2>
         <article className="">
           <div>
             <h3>Da el salto al mundo laboral </h3>
@@ -51,24 +58,23 @@ const Home = () => {
               En BBK Talent Job te ayudamos a desarrollar tu carrera profesional con recursos, asociaciones, eventos, formación y mucho más… Para que dejes de ser becario antes de dejar de ser joven.
             </p>
             <div>
-              <Button as={Link} to="/talent/register" variant="primary">
+              <button className="talent" as={Link} to="/talent/register" variant="primary">
                 IMPULSA TU CARRERA PROFESIONAL
-              </Button>
+              </button>
             </div>
           </div>
-
-          <div>
-            <article>
-              <img src={foto1} alt="" />
-            </article>
-
-          </div>
-
         </article>
+
+        <article>
+          <article>
+            <img src={foto2} alt="" />
+          </article>
+        </article>
+
       </section>
       <section className="thirdSection">
-        <article>
-          <img src="" alt="" />
+        <article className="foto3">
+          <img src={foto3} alt="" />
         </article>
         <article>
           <h3>
@@ -83,9 +89,9 @@ const Home = () => {
 
           </p>
           <div>
-            <Button as={Link} to="/company/register" variant="primary">
+            <button className="company" as={Link} to="/company/register" variant="primary">
               ENCUENTRA EL TALENTO JOVEN QUE NECESITAS
-            </Button>
+            </button>
           </div>
 
         </article>
@@ -100,10 +106,12 @@ const Home = () => {
           lo excepcional sucede cuando se encuentran y se unen para crear, construir y compartir
           conocimientos, crecimiento y nuevas experiencias.
         </p>
+      </section>
+      <section className="fifthSection">
 
         <article>
           <article>
-            <img src="" alt="" />
+            <img src={foto4} alt="" />
           </article>
           <div>
             <h3>
@@ -117,16 +125,16 @@ const Home = () => {
               ayude a mejorar tu futuro profesional!
             </p>
             <div>
-              <Button as={Link} to="/talent/register" variant="primary">
+              <button className="talent" as={Link} to="/talent/register" variant="primary">
                 REGÍSTRATE AHORA
-              </Button>
+              </button>
 
             </div>
           </div>
         </article>
         <article>
           <article>
-            <img src="" alt="" />
+            <img src={foto5} alt="" />
           </article>
           <div>
             <h3>
@@ -140,9 +148,9 @@ const Home = () => {
               encuentra la persona perfecta!
             </p>
             <div>
-              <Button as={Link} to="/company/register" variant="primary">
+              <button className="company" as={Link} to="/company/register" variant="primary">
                 PUBLICA UNA OFERTA
-              </Button>
+              </button>
             </div>
           </div>
 

@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/companies/register" element={<CompanyRegister />} />
+          <Route path="/company/register" element={<CompanyRegister />} />
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
@@ -36,7 +36,7 @@ function App() {
           <Route path="/company/login" element={<LoginCompany />} />  
           {/* LA ruta para logearse es COMPANY, en sigular */}
 
-          <Route path="/companies/discover-talents" element={<Talents />} />
+          <Route path="/company/discover-talents" element={<Talents />} />
           
           {/* De nuevo, COMPANY en singular. Además, redirige al formulario de registro de empresa */}
           <Route path="/company/createOffer" element={<CompanyRegister />} />

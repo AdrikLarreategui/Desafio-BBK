@@ -22,14 +22,15 @@ const Home = () => {
           <br />
           <div className="buttons">
             <div>
-              <button className="talent" as={Link} to="/talent/register" variant="primary">
-                SOY TALENTO
-              </button>
+              <Link to="/talent/register">
+                <button className="talent">SOY TALENTO</button>
+              </Link>
             </div>
             <div>
-              <button className="company" as={Link} to="/company/register" variant="primary">
-                SOY ORGANIZACIÓN
-              </button>
+              <Link to="/company/register">
+                <button className="company">SOY ORGANIZACION</button>
+              </Link>
+
             </div>
           </div>
         </article>
@@ -58,9 +59,9 @@ const Home = () => {
               En BBK Talent Job te ayudamos a desarrollar tu carrera profesional con recursos, asociaciones, eventos, formación y mucho más… Para que dejes de ser becario antes de dejar de ser joven.
             </p>
             <div>
-              <button className="talent" as={Link} to="/talent/register" variant="primary">
-                IMPULSA TU CARRERA PROFESIONAL
-              </button>
+              <Link to="/talent/register">
+                <button className="talent">IMPULSA TU CARRERA PROFESIONAL</button>
+              </Link>
             </div>
           </div>
         </article>
@@ -89,11 +90,10 @@ const Home = () => {
 
           </p>
           <div>
-            <button className="company" as={Link} to="/company/register" variant="primary">
-              ENCUENTRA EL TALENTO JOVEN QUE NECESITAS
-            </button>
+            <Link to="/company/register">
+              <button className="company">ENCUENTRA EL TALENTO JOVEN QUE NECESITAS</button>
+            </Link>
           </div>
-
         </article>
       </section>
 
@@ -125,10 +125,9 @@ const Home = () => {
               ayude a mejorar tu futuro profesional!
             </p>
             <div>
-              <button className="talent" as={Link} to="/talent/register" variant="primary">
-                REGÍSTRATE AHORA
-              </button>
-
+              <Link to="/talent/register">
+                <button className="talent">REGÍSTRATE AHORA</button>
+              </Link>
             </div>
           </div>
         </article>
@@ -148,9 +147,9 @@ const Home = () => {
               encuentra la persona perfecta!
             </p>
             <div>
-              <button className="company" as={Link} to="/company/register" variant="primary">
-                PUBLICA UNA OFERTA
-              </button>
+              <Link to="/company/register">
+                <button className="company">PUBLICA UNA OFERTA</button>
+              </Link>
             </div>
           </div>
 

@@ -1,0 +1,472 @@
+[
+  {
+    "_id": "6604a1eabb62f8f4db630eb0",
+    "email": "talent@talent.com",
+    "role": "talent",
+    "name": "i am talent",
+    "education": [],
+    "interests": [],
+    "awards": [],
+    "likedOffers": [],
+    "appliedOffers": [],
+    "skills": [],
+    "__v": 0,
+    "languages": []
+  },
+  {
+    "_id": "660a759d0029f133e7a8a020",
+    "email": "talent2@talent2.com",
+    "role": "talent",
+    "name": "i am talent",
+    "education": [],
+    "interests": [],
+    "awards": [],
+    "likedOffers": [],
+    "appliedOffers": [],
+    "skills": [],
+    "__v": 1,
+    "languages": []
+  },
+  {
+    "education": [],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "likedOffers": [],
+    "appliedOffers": [],
+    "_id": "6614171ecddbca6e8dceb2ef",
+    "email": "talento111@talento111.com",
+    "role": "talent",
+    "talentProfile": {
+      "education": [],
+      "skills": [],
+      "interests": [],
+      "awards": [],
+      "likedOffers": [],
+      "appliedOffers": [],
+      "languages": []
+    },
+    "__v": 0,
+    "languages": []
+  },
+  {
+    "_id": "6614231a5d4eae9759efd147",
+    "email": "asd@asd.com",
+    "role": "talent",
+    "name": "asd@asd.com",
+    "surnames": "asd@asd.com",
+    "dni": "asd@asd.com",
+    "telephone": 5314,
+    "birthdate": "2024-04-12T00:00:00.000Z",
+    "education": [
+      "asd@asd.com"
+    ],
+    "languages": [
+      {
+        "proficiency": "Intermedio",
+        "_id": "6614231a5d4eae9759efd148"
+      }
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [
+      "asd@asd.com"
+    ],
+    "aboutTheTalent": "asd@asd.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-08T17:02:18.593Z",
+    "updatedAt": "2024-04-12T18:41:28.490Z",
+    "__v": 2
+  },
+  {
+    "_id": "661428e376c580874abe1a78",
+    "email": "nuevo@nuevo.com",
+    "role": "talent",
+    "name": "nuevo@nuevo.com",
+    "surnames": "nuevo@nuevo.com",
+    "dni": "nuevo@nuevo.com",
+    "telephone": 1265472,
+    "birthdate": "2024-04-13T00:00:00.000Z",
+    "education": [
+      "nuevo@nuevo.com"
+    ],
+    "languages": [
+      {
+        "language": "Ingles",
+        "proficiency": "Intermedio",
+        "_id": "661428e376c580874abe1a79"
+      }
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [
+      "nuevo@nuevo.com"
+    ],
+    "aboutTheTalent": "nuevo@nuevo.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-08T17:26:59.424Z",
+    "updatedAt": "2024-04-13T16:03:18.366Z",
+    "__v": 5
+  },
+  {
+    "_id": "661a694435e51b54a2e8e889",
+    "email": "new@new.com",
+    "role": "talent",
+    "name": "new@new.com",
+    "surnames": "new@new.com",
+    "telephone": 2142,
+    "birthdate": "2024-04-19T00:00:00.000Z",
+    "education": [
+      "new@new.com"
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "new@new.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T11:15:16.559Z",
+    "updatedAt": "2024-04-13T11:15:16.559Z",
+    "__v": 0,
+    "languages": []
+  },
+  {
+    "_id": "661a698a35e51b54a2e8e88d",
+    "email": "new1@new1.com",
+    "role": "talent",
+    "name": "new1@new1.com",
+    "surnames": "new1@new1.com",
+    "telephone": 2142,
+    "birthdate": "2024-04-19T00:00:00.000Z",
+    "education": [
+      "new1@new1.com"
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "new1@new1.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T11:16:26.875Z",
+    "updatedAt": "2024-04-13T11:16:26.875Z",
+    "__v": 0,
+    "languages": []
+  },
+  {
+    "_id": "661a6b402392157d1e7e95b1",
+    "email": "new2@new2.com",
+    "role": "talent",
+    "name": "new2@new2.com",
+    "surnames": "new2@new2.com",
+    "telephone": 2142,
+    "birthdate": "2024-04-19T00:00:00.000Z",
+    "education": [
+      "new2@new2.com"
+    ],
+    "languages": [
+      {
+        "proficiency": "Intermedio",
+        "_id": "661a6b402392157d1e7e95b2"
+      },
+      {
+        "proficiency": "Nativo",
+        "_id": "661a6b402392157d1e7e95b3"
+      },
+      {
+        "proficiency": "Intermedio",
+        "_id": "661a6b402392157d1e7e95b4"
+      },
+      {
+        "proficiency": "Nativo",
+        "_id": "661a6b402392157d1e7e95b5"
+      },
+      {
+        "proficiency": "Principiante",
+        "_id": "661a6b402392157d1e7e95b6"
+      }
+    ],
+    "skills": [
+      "new2@new2.com",
+      "new2@new2.com",
+      "sdfsdf",
+      "new2@new2.com"
+    ],
+    "interests": [
+      "new2@new2.com",
+      "new2@new2.comnew2@new2.com",
+      "new2@new2.com",
+      ""
+    ],
+    "awards": [],
+    "aboutTheTalent": "new2@new2.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T11:23:44.363Z",
+    "updatedAt": "2024-04-13T13:43:11.970Z",
+    "__v": 2
+  },
+  {
+    "_id": "661ab7515b52c70dc8325b70",
+    "email": "test4@test4.com",
+    "role": "talent",
+    "name": "test4@test4.com",
+    "surnames": "test4@test4.com",
+    "telephone": 654,
+    "birthdate": "2024-04-18T00:00:00.000Z",
+    "education": [
+      "test4@test4.com"
+    ],
+    "languages": [
+      {
+        "proficiency": "Intermedio-Alto",
+        "_id": "661ab7515b52c70dc8325b71"
+      }
+    ],
+    "skills": [
+      "test4@test4.com",
+      "test4@test4.com",
+      "test4@test4.com"
+    ],
+    "interests": [
+      "test4@test4.com",
+      "test4@test4.com"
+    ],
+    "awards": [],
+    "aboutTheTalent": "test4@test4.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T16:48:17.351Z",
+    "updatedAt": "2024-04-13T16:48:17.351Z",
+    "__v": 0
+  },
+  {
+    "_id": "661ab8935b52c70dc8325b73",
+    "email": "test5@test5.com",
+    "role": "talent",
+    "name": "test5@test5.com",
+    "surnames": "test5@test5.com",
+    "telephone": null,
+    "birthdate": "2024-04-24T00:00:00.000Z",
+    "education": [],
+    "languages": [
+      {
+        "proficiency": "Intermedio",
+        "_id": "661ab8935b52c70dc8325b74"
+      }
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T16:53:39.198Z",
+    "updatedAt": "2024-04-13T16:53:39.198Z",
+    "__v": 0
+  },
+  {
+    "_id": "661abae55b52c70dc8325b7f",
+    "email": "test6@test6.com",
+    "role": "talent",
+    "name": "test6@test6.com",
+    "surnames": "test6@test6.com",
+    "telephone": null,
+    "birthdate": "2024-05-02T00:00:00.000Z",
+    "education": [
+      "test6@test6.com"
+    ],
+    "languages": [
+      {
+        "proficiency": "Avanzado",
+        "_id": "661abae55b52c70dc8325b80"
+      },
+      {
+        "proficiency": "Intermedio",
+        "_id": "661abae55b52c70dc8325b81"
+      },
+      {
+        "proficiency": "Intermedio",
+        "_id": "661abae55b52c70dc8325b82"
+      },
+      {
+        "proficiency": "Nativo",
+        "_id": "661abae55b52c70dc8325b83"
+      }
+    ],
+    "skills": [
+      "asddasdas",
+      "sdfsdfsdf",
+      "55555555555"
+    ],
+    "interests": [
+      "werwerewr",
+      "we3rwerwer",
+      "werwerwer"
+    ],
+    "awards": [],
+    "aboutTheTalent": "sdgdsgf",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T17:03:33.704Z",
+    "updatedAt": "2024-04-13T17:03:33.704Z",
+    "__v": 0
+  },
+  {
+    "_id": "661abcc36ca6457aeea8c010",
+    "email": "test7@test7.com",
+    "role": "talent",
+    "name": "",
+    "surnames": "",
+    "telephone": null,
+    "birthdate": null,
+    "education": [],
+    "languages": [
+      {
+        "language": "test7@test7.com",
+        "proficiency": "Básico",
+        "_id": "661abcc36ca6457aeea8c011"
+      },
+      {
+        "language": "test7@test7.com",
+        "proficiency": "Intermedio-Alto",
+        "_id": "661abcc36ca6457aeea8c012"
+      }
+    ],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T17:11:31.653Z",
+    "updatedAt": "2024-04-13T17:11:31.653Z",
+    "__v": 0
+  },
+  {
+    "_id": "661ac3016ca6457aeea8c018",
+    "email": "test8@test8.com",
+    "role": "talent",
+    "name": "test8@test8.com",
+    "surnames": "test8@test8.com",
+    "telephone": 2315345,
+    "birthdate": null,
+    "education": [
+      "test8@test8.com"
+    ],
+    "languages": [
+      {
+        "language": "test8@test8.com",
+        "proficiency": "Básico",
+        "_id": "661ac3016ca6457aeea8c019"
+      }
+    ],
+    "skills": [
+      "dsvdsv",
+      "test8@test8.com",
+      "test8@test8.com",
+      "test8@test8.com",
+      "test8@test8.com",
+      "test8@test8.com",
+      "test8@test8.com"
+    ],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "test8@test8.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T17:38:09.679Z",
+    "updatedAt": "2024-04-13T17:38:09.679Z",
+    "__v": 0
+  },
+  {
+    "_id": "661b9c9489557565bd9afed5",
+    "email": "company1@company1.com",
+    "role": "talent",
+    "name": "company1@company1.com",
+    "surnames": "company1@company1.com",
+    "telephone": null,
+    "birthdate": null,
+    "education": [],
+    "languages": [],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "company1@company1.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-14T09:06:28.733Z",
+    "updatedAt": "2024-04-14T10:19:54.242Z",
+    "__v": 2
+  },
+  {
+    "_id": "661b9df2f0fe4ce705086307",
+    "email": "test12@test12.com",
+    "role": "talent",
+    "name": "test12@test12.com",
+    "surnames": "test12@test12.com",
+    "telephone": 324168321654,
+    "birthdate": "2024-04-01T00:00:00.000Z",
+    "education": [
+      "test12@test12.com"
+    ],
+    "languages": [
+      {
+        "language": "1",
+        "proficiency": "Principiante",
+        "_id": "661b9df2f0fe4ce705086308"
+      },
+      {
+        "language": "2",
+        "proficiency": "Avanzado",
+        "_id": "661b9df2f0fe4ce705086309"
+      },
+      {
+        "language": "3",
+        "proficiency": "Avanzado",
+        "_id": "661b9df2f0fe4ce70508630a"
+      }
+    ],
+    "skills": [
+      "1",
+      "2",
+      "3"
+    ],
+    "interests": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "awards": [],
+    "aboutTheTalent": "test12@test12.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-14T09:12:18.135Z",
+    "updatedAt": "2024-04-14T09:12:18.135Z",
+    "__v": 0
+  },
+  {
+    "_id": "661b9e1cf0fe4ce70508630c",
+    "email": "test13@test13.com",
+    "role": "talent",
+    "name": "test13@test13.com",
+    "surnames": "test13@test13.com",
+    "telephone": null,
+    "birthdate": null,
+    "education": [],
+    "languages": [],
+    "skills": [
+      "1"
+    ],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "test13@test13.com",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-14T09:13:00.223Z",
+    "updatedAt": "2024-04-14T09:20:37.727Z",
+    "__v": 1
+  }
+]

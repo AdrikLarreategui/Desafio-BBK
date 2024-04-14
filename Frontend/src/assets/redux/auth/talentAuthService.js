@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "http://localhost:8080";
 
 const registerTalent = async (userData) => {
   const res = await axios.post(`${API_URL}/talents/`, userData);

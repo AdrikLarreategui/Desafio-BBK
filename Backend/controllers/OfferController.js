@@ -47,11 +47,44 @@ const OfferController = {
 
   async getAll(req, res) {
     try {
-      const { page = 1, limit = 10, title, _id } = req.query;
+      const {
+        page = 1,
+        limit = 10,
+        title,
+        location,
+        workingMode,
+        contractKind,
+        workingDayType,
+        salaryRange,
+        requiredSkills,
+        _id,
+      } = req.query;
 
       const searchConditions = {};
       if (title) {
         searchConditions.title = { $regex: new RegExp(title, "i") };
+      }
+      if (location) {
+        searchConditions.location = { $regex: new RegExp(location, "i") };
+      }
+      if (workingMode) {
+        searchConditions.workingMode = { $regex: new RegExp(workingMode, "i") };
+      }
+      if (contractKind) {
+        searchConditions.contractKind = {
+          $regex: new RegExp(contractKind, "i"),
+        };
+      }
+      if (workingDayType) {
+        searchConditions.workingDayType = {
+          $regex: new RegExp(workingDayType, "i"),
+        };
+      }
+      if (salaryRange) {
+        searchConditions.salaryRange = { $regex: new RegExp(salaryRange, "i") };
+      }
+      if (requiredSkills) {
+        searchConditions.requiredSkills = { $in: requiredSkills };
       }
       if (_id) {
         searchConditions._id = _id;

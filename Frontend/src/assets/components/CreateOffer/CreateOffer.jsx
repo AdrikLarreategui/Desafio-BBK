@@ -8,10 +8,8 @@ import { Button, Form } from "react-bootstrap";
 const CreateOffer = () => {
   const initialState = {
     title: "",
-    // companyName: "",
     location: "",
     workingMode: "",
-    // publishingDate: "",
     contractKind: "",
     workingDayType: "",
     salaryRange: "",
@@ -21,7 +19,6 @@ const CreateOffer = () => {
   const [formData, setFormData] = useState(initialState);
   const {
     title,
-    // companyName,
     location,
     workingMode,
     contractKind,
@@ -85,10 +82,6 @@ const CreateOffer = () => {
     setFormData(initialState);
   };
 
-  const handleChangeV = (event) => {
-    setValueSelected(event.target.value);
-  };
-
   const [inputSkill, setInputSkill] = useState("");
 
   const handleInputSkillChange = (e) => {
@@ -102,6 +95,14 @@ const CreateOffer = () => {
       });
       setInputSkill("");
     }
+  };
+  const removeSkill = (indexToRemove) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      requiredSkills: prevFormData.requiredSkills.filter(
+        (_, index) => index !== indexToRemove
+      ),
+    }));
   };
 
   return (
@@ -211,7 +212,11 @@ const CreateOffer = () => {
           </div>
           <div className="addedFieledContainer">
             {requiredSkills.map((skill, index) => (
-              <span key={index} className="addedFormField">
+              <span
+                key={index}
+                className="addedFormField"
+                onClick={() => removeSkill(index)}
+              >
                 {skill}
               </span>
             ))}

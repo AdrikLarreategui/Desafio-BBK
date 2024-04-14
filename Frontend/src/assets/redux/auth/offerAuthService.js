@@ -4,13 +4,28 @@ const API_URL = "http://localhost:8080/offers";
 
 const getAll = async () => {
   try {
-    const res = await axios.get(`${API_URL}/`);
-    return res.data;
+    const res = await axios.get(`${API_URL}/getAll`);
+    return res.data.posts;
   } catch (error) {
     res.send(error);
   }
 };
+const getAllFilter = async (filterData) => {
+  try {
+    // Construct the query string
+    const queryString = Object.keys(filterData)
+      .map(
+        (key) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(filterData[key])}`
+      )
+      .join("&");
 
+    const res = await axios.get(`${API_URL}/getAll?${queryString}`);
+    return res.data.posts;
+  } catch (error) {
+    console.error(error);
+  }
+};
 const createOffer = async (offerData) => {
   try {
     const companyToken = JSON.parse(localStorage.getItem("companyToken"));
@@ -77,6 +92,7 @@ const authService = {
   deleteOffer,
   likeOffer,
   unlikeOffer,
+  getAllFilter,
 };
 
 export default authService;

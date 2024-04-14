@@ -14,10 +14,11 @@ import NotFound from "../src/assets/components/NotFound/NotFound";
 import "bootswatch/dist/darkly/bootstrap.min.css";
 import LoginTalent from "./assets/components/Login/LoginTalent/LoginTalent";
 import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
-
-import "./App.css";
 import Talents from "./assets/components/Talents/Talents";
 import CreateOffer from "./assets/components/CreateOffer/CreateOffer";
+import Offers from "./assets/components/Offers/Offers";
+
+import "./App.css";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/company/login" element={<LoginCompany />} />
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
+          <Route path="/offers" element={<Offers />} />
 
           <Route
             path="/profile"

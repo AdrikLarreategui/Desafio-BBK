@@ -120,6 +120,13 @@ const TalentRegister = () => {
       setInputSkill("");
     }
   };
+  const removeSkill = (indexToRemove) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      skills: prevFormData.skills.filter((_, index) => index !== indexToRemove),
+    }));
+  };
+
   const addInterest = () => {
     if (inputInterest === "") {
       setInputInterest(inputInterest);
@@ -132,6 +139,14 @@ const TalentRegister = () => {
       console.log(interests);
       setInputInterest("");
     }
+  };
+  const removeInterest = (indexToRemove) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      interests: prevFormData.interests.filter(
+        (_, index) => index !== indexToRemove
+      ),
+    }));
   };
 
   const handleLanguageChange = (index, e) => {
@@ -152,13 +167,25 @@ const TalentRegister = () => {
       setInputLanguage({ language: "", proficiency: "" });
     }
   };
+  const removeLanguage = (indexToRemove) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      languages: prevFormData.languages.filter(
+        (_, index) => index !== indexToRemove
+      ),
+    }));
+  };
 
   const handleAddLanguage = () => {
     if (inputLanguage.language || inputLanguage.proficiency) {
       addLanguage();
     }
   };
-
+  const removeItem = (indexToRemove, setter) => {
+    setter((prevItems) =>
+      prevItems.filter((_, index) => index !== indexToRemove)
+    );
+  };
   return (
     <>
       <div>
@@ -232,7 +259,11 @@ const TalentRegister = () => {
               </div>
               <div className="addedFieledContainer">
                 {skills.map((skill, index) => (
-                  <span key={index} className="addedFormField">
+                  <span
+                    key={index}
+                    className="addedFormField"
+                    onClick={() => removeSkill(index)}
+                  >
                     {skill}
                   </span>
                 ))}
@@ -256,7 +287,11 @@ const TalentRegister = () => {
               </div>
               <div className="addedFieledContainer">
                 {interests.map((interest, index) => (
-                  <span key={index} className="addedFormField">
+                  <span
+                    key={index}
+                    className="addedFormField"
+                    onClick={() => removeInterest(index)}
+                  >
                     {interest}
                   </span>
                 ))}
@@ -269,7 +304,11 @@ const TalentRegister = () => {
                 {languages.map(
                   (language, index) =>
                     (language.language || language.proficiency) && (
-                      <span key={index} className="addedFormField">
+                      <span
+                        key={index}
+                        className="addedFormField"
+                        onClick={() => removeLanguage(index)}
+                      >
                         {language.language && language.proficiency
                           ? `${language.language} (${language.proficiency})`
                           : language.language || language.proficiency}

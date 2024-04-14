@@ -1,7 +1,7 @@
 const Talent = require("../models/Talent");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { uploadImage } = require('../utils/cloudinary.js')
+const { uploadImage } = require('../utils/cloudinary.js').default.default
 require("dotenv").config();
 
 const TalentController = {
@@ -20,8 +20,8 @@ const TalentController = {
 
 
 
-       // profilePicture = { public_id: await result.public_id,
-         // secure_url: await result.secure_url   }
+       // profilePicture = { public_id: result.public_id,
+         // secure_url: result.secure_url   }
         }
         
         const userData = {

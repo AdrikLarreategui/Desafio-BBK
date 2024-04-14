@@ -6,7 +6,15 @@ const Talent = require("../models/Talent");
 const OfferController = {
   async create(req, res, next) {
     try {
-      const post = await Offer.create({ ...req.body, companyId: req.user._id });
+      const company = await Company.findById(req.user._id);
+      if (!company) {
+        return res.status(404).send({ message: "Company not found" });
+      }
+      const post = await Offer.create({
+        ...req.body,
+        companyId: req.user._id,
+        companyName: company.companyName,
+      });
 
       await Company.findByIdAndUpdate(
         req.user._id,

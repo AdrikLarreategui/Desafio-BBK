@@ -224,6 +224,7 @@ const TalentRegister = () => {
                   value={inputSkill}
                   onChange={handleInputSkillChange}
                   placeholder="Añadir una habilidad"
+                  maxLength="25"
                 />
                 <Button variant="primary" type="button" onClick={addSkill}>
                   +
@@ -247,6 +248,7 @@ const TalentRegister = () => {
                   value={inputInterest}
                   onChange={handleInputInterestChange}
                   placeholder="Interests"
+                  maxLength="25"
                 />
                 <Button variant="primary" type="button" onClick={addInterest}>
                   +
@@ -282,6 +284,7 @@ const TalentRegister = () => {
                 value={inputLanguage.language}
                 onChange={handleInputLanguageChange}
                 placeholder="Language"
+                maxLength="25"
               />
 
               <div className="inputButtonContainer">
@@ -317,6 +320,7 @@ const TalentRegister = () => {
               value={aboutTheTalent}
               onChange={handleChange}
               placeholder="Sobre ti"
+              maxLength="5500"
             />
             <Form.Control
               type="email"
@@ -324,6 +328,7 @@ const TalentRegister = () => {
               value={email}
               onChange={handleChange}
               placeholder="Correo electrónico"
+              maxLength="75"
               required
             />
             <Form.Control
@@ -333,6 +338,7 @@ const TalentRegister = () => {
               onChange={handleChange}
               placeholder="Constraseña"
               required
+              maxLength="50"
             />
             <Form.Control
               type="password"
@@ -341,6 +347,7 @@ const TalentRegister = () => {
               onChange={handleChange}
               placeholder="Confirma la contraseña"
               required
+              maxLength="50"
             />
           </div>
           <Button variant="primary" type="submit">
@@ -351,52 +358,5 @@ const TalentRegister = () => {
     </>
   );
 };
-
-// const TalentRegister = () => {
-  //   const [selectedOption, setSelectedOption] = useState('');
-  //   const [showForm, setShowForm] = useState(false);
-  
-  //   const handleOptionClick = (option) => {
-  //     setSelectedOption(option);
-  //     setShowForm(true);
-  //   };
-  
-  //   const handleTalentSubmit = (data) => {
-  //     console.log("Datos registrados: ", data);
-  //   };
-  
-  //   const handleCompanySubmit = (data) => {
-  //     console.log("Datos de Empresa:", data);
-  //   };
-  
-  //   const handleReturnHome = () => {
-  //     setSelectedOption('');
-  //     setShowForm(false);
-  //     console.log("Volver a la página de inicio");
-  //   };
-  
-  //   return (
-  //     <div>
-  //       <h1>Registro</h1>
-  //       {!showForm && (
-  //         <div>
-  //           <Button variant="primary" onClick={() => handleOptionClick("talentregister")}>
-  //             Talento
-  //           </Button>
-  //           <Button variant="primary" onClick={() => handleOptionClick("companyregister")}>
-  //             Empresa
-  //           </Button>
-  //         </div>
-  //       )}
-  //       {selectedOption === "companyregister" && showForm && (
-  //         <CompanyRegister onSubmit={handleCompanySubmit} onReturn={handleReturnHome} />
-  //       )}
-  
-  //       {selectedOption === "talentregister" && showForm && (
-  //         <TalentRegister onSubmit={handleTalentSubmit} onReturn={handleReturnHome} />
-  //       )}
-  //     </div>
-  //   );
-  // }
 
 export default TalentRegister;

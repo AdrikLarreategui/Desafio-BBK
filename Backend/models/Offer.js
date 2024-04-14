@@ -6,9 +6,9 @@ const OfferSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "Company",
   },
-  // companyName: {
-
-  // },
+  companyName: {
+    type: String,
+  },
   title: {
     type: String,
     // required: [true, "Please write a title of the offer"],

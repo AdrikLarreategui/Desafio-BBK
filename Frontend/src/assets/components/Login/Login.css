@@ -9,5 +9,10 @@
     background-color: #70AF8B;
     color: #FFFFFF;
     font-weight: bold;
-    margin:15px;
+    margin: 15px;
+}
+
+input {
+
+    background-color: #FFFFFF;
 }

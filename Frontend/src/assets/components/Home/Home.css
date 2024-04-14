@@ -1,0 +1,75 @@
+button {
+
+    /* border-radius: 5%; */
+}
+
+img {}
+
+h1,
+h2 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-weight: bold;
+}
+
+p {
+    padding: 15px;
+}
+
+
+.firstSection {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.firstSection article {
+    flex: 1;
+    width: 50%;
+    padding: 15px;
+}
+
+.firstSection article p {
+    font-size: larger;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.talent {
+    background-color: #DF5E5E;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.company {
+    background-color: #70AF8B;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.secondSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.secondSection article {
+    max-width: 50%;
+}
+
+.thirdSection {
+    display: flex;
+    padding-top: 100px;
+
+}
+
+
+.foto3 {
+    margin-left: 0;
+
+}

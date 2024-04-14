@@ -100,9 +100,9 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     por q Talent Job pa organizaciones?
                   </NavDropdown.ItemText>
-                  <NavDropdown.Item as={Link} to="/companies">
+                  {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
                   <NavDropdown.Item as={Link} to="/">

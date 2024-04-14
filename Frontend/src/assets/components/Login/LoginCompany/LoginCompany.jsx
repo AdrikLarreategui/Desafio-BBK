@@ -41,7 +41,7 @@ const LoginCompany = () => {
     dispatch(loginCompany(formData));
 
     setTimeout(() => {
-      navigate("/company-profile");
+      navigate("/company/discover-talents");
     });
   };
 

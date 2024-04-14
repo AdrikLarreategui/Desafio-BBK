@@ -62,10 +62,10 @@ const CompanyController = {
         $pull: { tokens: req.headers.authorization },
       });
 
-      res.status(500).send({ message: "Log out efectuado correctamente" });
+      res.status(200).send({ message: "Log out efectuado correctamente" });
     } catch (error) {
       console.error(error);
-      res.send("Hubo un problema con el log out");
+      res.status(500).send("Hubo un problema con el log out");
     }
   },
 

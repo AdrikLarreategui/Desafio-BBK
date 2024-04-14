@@ -20,6 +20,7 @@ const loginCompany = async (userData) => {
 };
 const logoutCompany = async () => {
   const companyToken = JSON.parse(localStorage.getItem("companyToken"));
+  console.log(companyToken);
   const logoutURL = API_URL + `/companies/logout`;
 
   const res = await axios.delete(logoutURL, {

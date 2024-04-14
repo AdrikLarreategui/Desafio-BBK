@@ -1,58 +1,71 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Offer.css";
+
 import { Link } from "react-router-dom";
 // import { HeartOutlined, HeartFilled, CommentOutlined } from "@ant-design/icons";
 // import "./Post.css";
 
 const Offer = () => {
   const { offers } = useSelector((state) => state.offers);
-  const { user } = useSelector((state) => state.auth);
+
+  const { user: userTalent } = useSelector((state) => state.talentAuth);
+  const { user: userCompany } = useSelector((state) => state.companyAuth);
+
   const dispatch = useDispatch();
 
   const reversedOffers = offers.slice().reverse();
 
   const offer = reversedOffers?.map((offer, index) => {
-    // const checkTheUserId = () => {
-    //   for (const obj of offers.likes) {
-    //     if (obj.userId === user._id) {
-    //       return true;
-    //     }
-    //   }
-    //   return false;
-    // };
-    // console.log(post);
-    // const isPostedByUser = offer.userId === user._id; 
-
     const formatDate = (dateString) => {
+      if (!dateString) {
+        return "no info";
+      }
       const date = new Date(dateString);
       return date.toISOString().split("T")[0];
     };
     return (
-      <div
-        // key={offer._id}
-        // className={`card ${isPostedByUser ? "user-post" : ""}`}
-      >
-        <h2 className="title">{offer.title}</h2>
-
-        <div className="offer-info">
-          <p>User ID:{offer.userId}</p>
-          <p>Posted on: {formatDate(offer.createdAt)}</p>
+      <>
+        <div key={offer._id} className="offerCard">
+          <div className="logoContainer">
+            <img
+              src={offer.companyLogo}
+              alt="Company Logo"
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div className="offerDetails">
+            <h2>{offer.title}</h2>
+            <p>
+              <Link to="#">{offer.companyName}</Link>
+            </p>
+            <div className="offerDetailsSection">
+              <p>
+                {offer.location} | {offer.workingMode} |
+                {formatDate(offer.createdAt)}
+              </p>
+            </div>
+            <div>
+              <p>
+                {offer.content.length > 250
+                  ? `${offer.content.substring(0, 250)}...`
+                  : offer.content}{" "}
+                <span>
+                  <Link to="#">leer más</Link>
+                </span>
+              </p>
+            </div>
+            <div className="offerDetailsSection">
+              <p>
+                {offer.contractKind} | {offer.workingDayType} |{" "}
+                {offer.salaryRange} <span>€ Bruto/año</span>
+              </p>
+            </div>
+          </div>
         </div>
-        <hr></hr>
-        <p className="content ">{offer.content}</p>
-        {/* <div className="offer-footer"> */}
-          {/* <button className="likes" onClick={manageLikes}>
-            <span>Likes: {post.likes?.length} </span>
-            {isLiked ? <HeartFilled /> : <HeartOutlined />}
-          </button> */}
-          {/* <button className="comments">
-            <Link to={`/post/${post._id}`}>
-              <span>Comments: {post.commentsIds?.length} </span>
-              <CommentOutlined />
-            </Link>
-          </button> */}
-        {/* </div> */}
-      </div>
+      </>
     );
   });
 

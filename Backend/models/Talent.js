@@ -55,7 +55,12 @@ const TalentSchema = new mongoose.Schema(
     education: [],
     languages: [
       {
-        // languageId: String /*{ type: ObjectId, ref: "Skill" }*/,
+        // languageId: String /,
+        language: {
+          type: String,
+          //{ type: ObjectId, ref: "Skill" }
+          // required: [true, "Language is obligatory to indicate"],
+        },
         proficiency: {
           type: String,
           enum: [
@@ -66,7 +71,7 @@ const TalentSchema = new mongoose.Schema(
             "Avanzado",
             "Nativo",
           ],
-          // required: [true, "Level is obligatory to indicate"],
+          required: [true, "Level is obligatory to indicate"],
         },
       },
     ],

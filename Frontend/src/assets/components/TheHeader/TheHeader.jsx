@@ -70,7 +70,9 @@ const TheHeader = () => {
                       Company Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                    <Nav.Link as={Link} to="/company/createOffer">Post Offer</Nav.Link>
+                    <Nav.Link as={Link} to="/company/createOffer">
+                      Post Offer
+                    </Nav.Link>
                     <Nav.Link as={Link} to="/company/discover-talents">
                       Descubrir talento
                     </Nav.Link>
@@ -103,17 +105,9 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     ¿Por qué elegir BBK Talent Job para oganizaciones?
                   </NavDropdown.ItemText>
-                  {/* Inscríbete, versión empresas */}
-                  <NavDropdown.Item
-                    as={Link}
-                    to={companyUser ? "/profile" : "/companies/register"}
-                  >
-                    {talentUser ? "Profile" : "Inscríbete"}
-                  </NavDropdown.Item>
-                  {/*  */}
-                  <NavDropdown.Item as={Link} to="/companies">
+                  {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
                   <NavDropdown.Item as={Link} to="/">

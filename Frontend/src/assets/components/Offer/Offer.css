@@ -1,0 +1,28 @@
+.offerCard {
+  display: flex;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.logoContainer {
+  display: flex;
+  flex: 1;
+  margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.logoContainer img {
+  width: 100%;
+}
+
+.offerDetails {
+  flex: 4;
+  text-align: left;
+}
+.offerDetailsSection p {
+  color: rgb(182, 182, 182);
+}

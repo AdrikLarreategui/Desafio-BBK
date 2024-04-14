@@ -17,6 +17,7 @@ const CompanyRegister = () => {
     location: "",
     telephoneNumber: "",
     website: "",
+    password2: "",
   });
 
   const {
@@ -31,6 +32,7 @@ const CompanyRegister = () => {
     location,
     telephoneNumber,
     website,
+    password2,
   } = formData;
 
   const navigate = useNavigate();
@@ -77,26 +79,6 @@ const CompanyRegister = () => {
     <div>
       <h1>Inscribe tu organización</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Control
-            name="email"
-            type="text"
-            placeholder="email"
-            value={email}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Control
-            name="password"
-            type="text"
-            placeholder="password"
-            value={password}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
         <Form.Group controlId="formBasicCompanyCIF">
           <Form.Control
             name="cif"
@@ -104,6 +86,7 @@ const CompanyRegister = () => {
             placeholder="CIF"
             value={cif}
             onChange={handleChange}
+            maxLength="50"
           />
         </Form.Group>
         <Form.Group controlId="formBasicCompanyName">
@@ -113,6 +96,7 @@ const CompanyRegister = () => {
             placeholder="Nombre de la empresa"
             value={companyName}
             onChange={handleChange}
+            maxLength="100"
           />
         </Form.Group>
 
@@ -159,6 +143,7 @@ const CompanyRegister = () => {
             placeholder="Número de trabajadores"
             value={workersNumber}
             onChange={handleChange}
+            maxLength="5"
           />
         </Form.Group>
         <Form.Group controlId="formBasicDescription">
@@ -166,9 +151,10 @@ const CompanyRegister = () => {
             as="textarea"
             rows={3}
             name="description"
-            placeholder="description"
+            placeholder="Descripción"
             value={description}
             onChange={handleChange}
+            maxLength="5500"
           />
         </Form.Group>
         <Form.Group controlId="formBasicLocation">
@@ -187,6 +173,7 @@ const CompanyRegister = () => {
             placeholder="Número de teléfono"
             value={telephoneNumber}
             onChange={handleChange}
+            maxLength="9"
           />
         </Form.Group>
         <Form.Group controlId="formBasicWebSite">
@@ -196,6 +183,40 @@ const CompanyRegister = () => {
             placeholder="Sitio web"
             value={website}
             onChange={handleChange}
+            maxLength="50"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control
+            name="email"
+            type="text"
+            placeholder="Correo electrónico"
+            value={email}
+            onChange={handleChange}
+            required
+            maxLength="100"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Control
+            name="password"
+            type="text"
+            placeholder="Constraseña"
+            value={password}
+            onChange={handleChange}
+            required
+            maxLength="100"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword2">
+          <Form.Control
+            name="password2"
+            type="text"
+            placeholder="Confirma la contraseña"
+            value={password2}
+            onChange={handleChange}
+            required
+            maxLength="100"
           />
         </Form.Group>
         <Button variant="primary" type="submit">

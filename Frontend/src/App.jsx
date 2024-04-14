@@ -17,6 +17,7 @@ import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
 
 import "./App.css";
 import Talents from "./assets/components/Talents/Talents";
+import CreateOffer from "./assets/components/CreateOffer/CreateOffer";
 
 function App() {
   return (
@@ -27,12 +28,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/company/register" element={<CompanyRegister />} />
+          <Route path="/companies/register" element={<CompanyRegister />} />
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
           <Route path="/company/login" element={<LoginCompany />} />
           <Route path="/company/discover-talents" element={<Talents />} />
+          <Route path="/company/createOffer" element={<CreateOffer />} />
 
           <Route
             path="/profile"

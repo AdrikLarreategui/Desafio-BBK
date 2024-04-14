@@ -6,6 +6,9 @@ const OfferSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "Company",
   },
+  // companyName: {
+
+  // },
   title: {
     type: String,
     // required: [true, "Please write a title of the offer"],
@@ -18,22 +21,22 @@ const OfferSchema = new mongoose.Schema({
     type: String,
     // required: [true, "Please write a location of the offer"],
   },
-  workMode: {
+  workingMode: {
     type: String,
     //presencial, h'ibrido, teletrabajo
     // required: [true, "Please write a workMode of the offer"],
   },
-  workDay: {
+  workingDayType: {
     // dia completo, mediodia
     type: String,
     // required: [true, "Please write a workDay of the offer"],
   },
-  contract: {
+  contractKind: {
     //  contrato indefinido, formativo, otros
     type: String,
   },
 
-  salary: {
+  salaryRange: {
     type: String,
 
     // required: [true, "Please write a salary of the offer"],

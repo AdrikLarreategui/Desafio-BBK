@@ -11,7 +11,7 @@ const Talents = () => {
   useEffect(() => {
     user && dispatch(getAllTalents());
     dispatch(reset());
-  }, []);
+  }, [user]);
   return (
     <>
       <div>Talents</div>

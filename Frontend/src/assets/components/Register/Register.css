@@ -1,0 +1,14 @@
+.register-container {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(184, 181, 181);
+  }
+  .register-container-element {
+    margin: 10px;
+  }
+  .register-container-button {
+    margin: 10px;
+    width: auto;
+  }

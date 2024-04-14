@@ -25,11 +25,11 @@ const createOffer = async (offerData) => {
 
 const updateOffer = async (offerData) => {
   try {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const companyToken = JSON.parse(localStorage.getItem("companyToken"));
     const { id } = offerData;
     const res = await axios.put(`${API_URL}/id/${id}`, offerData, {
       headers: {
-        authorization: token,
+        authorization: companyToken,
       },
     });
     return res.data;
@@ -40,10 +40,10 @@ const updateOffer = async (offerData) => {
 
 const deleteOffer = async (id) => {
   try {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const companyToken = JSON.parse(localStorage.getItem("companyToken"));
     const res = await axios.delete(`${API_URL}/id/${id}`, {
       headers: {
-        authorization: token,
+        authorization: companyToken,
       },
     });
     return res.data;

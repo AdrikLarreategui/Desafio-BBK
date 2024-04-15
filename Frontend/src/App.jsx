@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./assets/components/Login/Login";
 import Admin from "../src/assets/components/Admin/Admin";
 import NotFound from "../src/assets/components/NotFound/NotFound";
-import "bootswatch/dist/darkly/bootstrap.min.css";
+//import "bootswatch/dist/darkly/bootstrap.min.css";
 import LoginTalent from "./assets/components/Login/LoginTalent/LoginTalent";
 import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
 import Talents from "./assets/components/Talents/Talents";
@@ -30,13 +30,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/company/register" element={<CompanyRegister />} />
+          <Route path="/company/register" element={<CompanyRegister />} />
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
-          <Route path="/company/login" element={<LoginCompany />} />
+
+          {/* LA ruta para logearse es COMPANY, en sigular */}
+          <Route path="/company/login" element={<LoginCompany />} />  
+          {/* LA ruta para logearse es COMPANY, en sigular */}
+
           <Route path="/company/discover-talents" element={<Talents />} />
-          <Route path="/company/createOffer" element={<CreateOffer />} />
-          <Route path="/offers" element={<Offers />} />
+          
+          {/* De nuevo, COMPANY en singular. Además, redirige al formulario de registro de empresa */}
+          <Route path="/company/createOffer" element={<CompanyRegister />} />
 
           <Route
             path="/talent/profile"

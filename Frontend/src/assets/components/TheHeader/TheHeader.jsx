@@ -54,19 +54,45 @@ const TheHeader = () => {
                       Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                    <Form inline>
-                      <FormControl
-                        type="text"
-                        placeholder="Buscar ofertas"
-                        className="mr-sm-2"
-                        onKeyUp={handleChange}
-                      />
+                  <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                  <NavDropdown.Item as={Link} to="/">
+                    Eventos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Guías
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Cursos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Artículos
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown
+                title="Career Assistant"
+                id="navbarScrollingDropdown"
+                >
+                  <NavDropdown.Item as={Link} to="/">
+                    Revisión CV
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Entrevista career
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <Form inline>
+                  <FormControl
+                    type="text"
+                    placeholder="Buscar ofertas"
+                    className="mr-sm-2"
+                    onKeyUp={handleChange}
+                  />
                     </Form>
                   </>
                 )}
+
                 {companyUser && (
                   <>
-                    <Nav.Link as={Link} to="/company-profile">
+                    <Nav.Link as={Link} to="/company/profile">
                       Company Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
@@ -103,37 +129,13 @@ const TheHeader = () => {
                   id="navbarScrollingDropdown"
                 >
                   <NavDropdown.ItemText>
-                    ¿Por qué elegir BBK Talent Job para oganizaciones?
+                    ¿Por qué elegir BBK Talent Job para organizaciones?
                   </NavDropdown.ItemText>
                   {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
                   </NavDropdown.Item> */}
                 </NavDropdown>
-                <NavDropdown title="Recursos" id="navbarScrollingDropdown">
-                  <NavDropdown.Item as={Link} to="/">
-                    Eventos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Guías
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Cursos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Artículos
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  title="Career Assistant"
-                  id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item as={Link} to="/">
-                    Revisión CV
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Entrevista career
-                  </NavDropdown.Item>
-                </NavDropdown>
+
                 <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>

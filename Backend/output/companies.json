@@ -1,58 +1,148 @@
 [
   {
-    "_id": "6619382644e7c8e956a8997e",
-    "email": "company@company.com",
-    "role": "company",
-    "companyProfile": {
-      "companyName": "Compnay",
-      "field": "Sector primario",
-      "workersNumber": "10",
-      "description": "Companies description",
-      "location": "Bilbao",
-      "telephoneNumber": "66336636",
-      "website": "www.website.c",
-      "createdOffers": [],
-      "likedTalents": []
-    },
-    "__v": 7,
     "createdOffers": [],
-    "likedTalents": []
-  },
-  {
-    "_id": "6619739e9ffb2a36e466e56e",
-    "email": "company1@company1.com",
-    "role": "company",
-    "createdOffers": [
-      "661973cf9ffb2a36e466e574",
-      "661bba0f935f34f42b50d08c",
-      "661bbc2b935f34f42b50d091",
-      "661bbcbaf82913b60a4f2f33",
-      "661bbdd2f82913b60a4f2f38",
-      "661bbf15b7c2bf40d15fc1ac",
-      "661bec1b659ca0b6c22888d4",
-      "661bec4b659ca0b6c22888f2",
-      "661bec85659ca0b6c2288940"
-    ],
     "likedTalents": [],
-    "__v": 41,
-    "updatedAt": "2024-04-14T17:30:46.897Z"
+    "_id": "660c46fcbbc6cfd8c760046e",
+    "email": "empresa1@gmail.com",
+    "role": "company",
+    "companyProfile": [],
+    "__v": 0
   },
   {
-    "_id": "661a6ea327dc4d01f201220c",
-    "email": "company3@company3.com",
+    "createdOffers": [],
+    "likedTalents": [],
+    "_id": "660c47b2c42e33ffa72bf9fe",
+    "email": "empresa2@gmail.com",
     "role": "company",
-    "companyName": "company3@company3.com",
-    "typeCompany": "Sociedad Anónima (S.A.)",
+    "companyProfile": [],
+    "__v": 0
+  },
+  {
+    "createdOffers": [],
+    "likedTalents": [],
+    "_id": "660c49c5dd3dfbb2a4aeaa6b",
+    "email": "empresa3@gmail.com",
+    "role": "company",
+    "companyProfile": [],
+    "__v": 0
+  },
+  {
+    "createdOffers": [],
+    "likedTalents": [],
+    "_id": "660c520ebd1b9943811d59ba",
+    "email": "empresa4@gmail.com",
+    "role": "company",
+    "companyProfile": [
+      {
+        "companyName": "Telepizza",
+        "typeCompany": "Empresa individual",
+        "field": "Sector secundario",
+        "workersNumber": "500",
+        "description": "Me hice a mí mismo y luego esta empresa",
+        "location": "Diego López de Haro 23",
+        "telephoneNumber": "666666666",
+        "website": "www.website.com",
+        "createdOffers": [],
+        "likedTalents": [],
+        "_id": "660c520ebd1b9943811d59bb"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "createdOffers": [],
+    "likedTalents": [],
+    "_id": "660c52b1fce0951331989789",
+    "email": "empresa5@gmail.com",
+    "role": "company",
+    "companyProfile": [
+      {
+        "companyName": "Telepi",
+        "CIF": "123456789",
+        "typeCompany": "Empresa individual",
+        "field": "Sector terciario",
+        "workersNumber": "500",
+        "description": "Me hice a mí mismo y luego esta empresa",
+        "location": "Diego López de Haro 210",
+        "telephoneNumber": "666666667",
+        "website": "www.website.com",
+        "createdOffers": [],
+        "likedTalents": [],
+        "_id": "660c52b1fce095133198978a"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "6618116e2cec59f8949ca651",
+    "email": "empresa6@gmail.com",
+    "role": "company",
+    "createdOffers": [],
+    "likedTalents": [],
+    "__v": 0
+  },
+  {
+    "_id": "6619326b2d88d34108c2aed8",
+    "email": "company10@gmail.com",
+    "role": "company",
+    "companyName": "",
+    "typeCompany": "Empresa individual",
     "field": "Sector terciario",
-    "workersNumber": "10",
-    "description": "company3@company3.com",
-    "location": "company3@company3.com",
-    "telephoneNumber": "company3@company3.com",
-    "website": "company3@company3.com",
-    "createdOffers": [
-      "661bc4c14f94cd83645a9806"
-    ],
+    "workersNumber": "",
+    "description": "",
+    "location": "",
+    "telephoneNumber": "",
+    "website": "",
+    "createdOffers": [],
     "likedTalents": [],
-    "__v": 2
+    "__v": 0
+  },
+  {
+    "_id": "6619432792bbdb13f255a8db",
+    "email": "empresa11@gmail.com",
+    "role": "company",
+    "companyName": "",
+    "typeCompany": "Sociedad Colectiva",
+    "field": "Sector primario",
+    "workersNumber": "",
+    "description": "",
+    "location": "",
+    "telephoneNumber": "",
+    "website": "",
+    "createdOffers": [],
+    "likedTalents": [],
+    "__v": 0
+  },
+  {
+    "_id": "661943ee92bbdb13f255a8dd",
+    "email": "empresa12@gmail.com",
+    "role": "company",
+    "companyName": "",
+    "typeCompany": "Sociedad limitada (S.L.)",
+    "field": "Sector primario",
+    "workersNumber": "",
+    "description": "",
+    "location": "",
+    "telephoneNumber": "",
+    "website": "",
+    "createdOffers": [],
+    "likedTalents": [],
+    "__v": 0
+  },
+  {
+    "_id": "6619457e92bbdb13f255a8df",
+    "email": "empresa13@gmail.com",
+    "role": "company",
+    "companyName": "",
+    "typeCompany": "Sociedad Anónima (S.A.)",
+    "field": "Sector cuaternario",
+    "workersNumber": "",
+    "description": "",
+    "location": "",
+    "telephoneNumber": "",
+    "website": "",
+    "createdOffers": [],
+    "likedTalents": [],
+    "__v": 0
   }
 ]

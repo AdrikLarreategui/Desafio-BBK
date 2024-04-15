@@ -389,9 +389,9 @@ const TalentRegister = () => {
               maxLength="50"
             />
           </div>
-          <Button variant="primary" type="submit">
+          <button className="talent" variant="primary" type="submit">
             Register Talent
-          </Button>
+          </button>
         </Form>
       </div>
     </>

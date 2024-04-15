@@ -10,5 +10,6 @@ router.post("/login", TalentController.login);
 router.delete("/logout", authentication, TalentController.logout);
 router.get("/getAll", authentication, TalentController.getAll);
 router.delete("/delete/:_id", authentication, isAdmin, TalentController.delete);
+router.put("/update/:_id", authentication, TalentController.update);
 
 module.exports = router;

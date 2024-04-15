@@ -7,6 +7,18 @@ const registerTalent = async (userData) => {
   return res.data;
 };
 
+const updateTalent = async(userData) =>{
+  const res = await axios.put(`${API_URL}/talents/update/${id}`, userData, 
+{
+    headers: {
+      authorization: talentToken,
+    },
+  })
+  return res.data
+}
+
+
+
 const loginTalent = async (userData) => {
   const res = await axios.post(`${API_URL}/talents/login`, userData);
 
@@ -36,5 +48,6 @@ const authService = {
   loginTalent,
   registerTalent,
   logoutTalent,
+  updateTalent
 };
 export default authService;

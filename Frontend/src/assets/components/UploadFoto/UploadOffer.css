@@ -1,0 +1,7 @@
+.imageContainer {
+  width: 400px;
+  background-color: gray;
+}
+.imageContainer img {
+  width: 400px;
+}

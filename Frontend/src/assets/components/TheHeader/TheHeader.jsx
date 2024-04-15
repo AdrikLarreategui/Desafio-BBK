@@ -18,7 +18,7 @@ const TheHeader = () => {
 
   const onLogout = (event) => {
     event.preventDefault();
-    // talentUser && (logoutTalent())
+    // (talentUser && logoutTalent()) || companyUser(dispatch(logoutCompany()));
 
     dispatch(logoutTalent()) && dispatch(logoutCompany());
 

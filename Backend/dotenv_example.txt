@@ -1,0 +1,11 @@
+PORT = 9999
+
+MONGO_URI = "xxxxxxxx"
+
+JWT_SECRET = "xxxxxxxx"
+
+CLOUD_NAME = "xxxxxxxx"
+
+API_KEY_CLOUDINARY = "xxxxxxxx"
+  
+API_SECRET_CLOUDINARY = "xxxxxxxx"

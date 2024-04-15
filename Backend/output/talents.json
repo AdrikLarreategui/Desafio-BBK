@@ -28,12 +28,6 @@
     "languages": []
   },
   {
-    "education": [],
-    "skills": [],
-    "interests": [],
-    "awards": [],
-    "likedOffers": [],
-    "appliedOffers": [],
     "_id": "6614171ecddbca6e8dceb2ef",
     "email": "talento111@talento111.com",
     "role": "talent",
@@ -46,8 +40,16 @@
       "appliedOffers": [],
       "languages": []
     },
-    "__v": 0,
-    "languages": []
+    "__v": 5,
+    "appliedOffers": [],
+    "awards": [],
+    "education": [],
+    "interests": [],
+    "languages": [],
+    "likedOffers": [],
+    "skills": [],
+    "updatedAt": "2024-04-15T18:18:18.838Z",
+    "profileImg": "https://res.cloudinary.com/djjfysb3d/image/upload/v1713204976/images/ugm8qequiftpqyfuzq6k.png"
   },
   {
     "_id": "6614231a5d4eae9759efd147",

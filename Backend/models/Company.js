@@ -55,6 +55,7 @@ const CompanySchema = new mongoose.Schema(
     telephoneNumber: String,
     website: String,
     //Luego hacer que incluya .com/.es/.eus
+    profileImg: String,
     createdOffers: [{ type: ObjectId, ref: "Offer" }],
     likedTalents: [
       {

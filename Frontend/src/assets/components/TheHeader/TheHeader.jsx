@@ -51,7 +51,7 @@ const TheHeader = () => {
                 {talentUser && (
                   <>
                     <Nav.Link as={Link} to="/profile">
-                      Perfil de talento
+                      Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                   <NavDropdown title="Recursos" id="navbarScrollingDropdown">
@@ -92,14 +92,12 @@ const TheHeader = () => {
 
                 {companyUser && (
                   <>
-                    <Nav.Link as={Link} to="/company-profile">
-                      Perfil de la organización
                     <Nav.Link as={Link} to="/company/profile">
                       Company Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
-                      Crear Oferta de trabajo
+                      Post Offer
                     </Nav.Link>
                     <Nav.Link as={Link} to="/company/discover-talents">
                       Descubrir talento
@@ -132,14 +130,10 @@ const TheHeader = () => {
                 >
                   <NavDropdown.ItemText>
                     ¿Por qué elegir BBK Talent Job para organizaciones?
-                    ¿Por qué elegir BBK Talent Job para organizaciones?
                   </NavDropdown.ItemText>
                   {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
                   </NavDropdown.Item> */}
-                   <NavDropdown.Item as={Link} to="/companies/register">
-                    Inscríbete
-                  </NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Link as={Link} to="/login">

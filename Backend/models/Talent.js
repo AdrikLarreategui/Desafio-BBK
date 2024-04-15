@@ -75,7 +75,8 @@ const TalentSchema = new mongoose.Schema(
         },
       },
     ],
-    profilePicture: { public_id: "String", secure_url: "String"},    skills: [],
+    profilePicture: { public_id: { type: String, }, secure_url:{ type: String, } },
+    skills: [],
 
     interests: [],
 

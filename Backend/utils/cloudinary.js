@@ -1,12 +1,12 @@
 require("dotenv").config();
 //require("dotenv").config({ path: "../.env" });
-const { v2 } = require('cloudinary');
+import { v2 } from 'cloudinary';
 const { cloudinary } = v2;
 
 //PETA
-dotenv.config()
+//dotenv.config()
 
-const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('../config/config');
+import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } from '../config/config';
 
 cloudinary.config({ 
   cloud_name: CLOUDINARY_CLOUD_NAME || '', 
@@ -16,7 +16,9 @@ cloudinary.config({
 });
 console.log(CLOUDINARY_CLOUD_NAME)
 
-export default cloudinary
+module.exports = cloudinary
+
+
 
 async function uploadImage(filePath){
   return await cloudinary.uploader.upload(filePath, 
@@ -25,4 +27,4 @@ async function uploadImage(filePath){
 })
 }
 
-module.exports = { uploadImage }
+export default { uploadImage }

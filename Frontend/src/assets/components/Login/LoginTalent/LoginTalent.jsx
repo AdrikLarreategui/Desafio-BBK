@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginTalent, reset } from "../../../redux/auth/talentAuthSlice";
+import "./LoginTalent.css"
 
 const LoginTalent = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const LoginTalent = () => {
         onChange={onChange}
         required
       />
-      <button type="submit">Login</button>
+      <button className="talent" type="submit">Login</button>
     </form>
   );
 };

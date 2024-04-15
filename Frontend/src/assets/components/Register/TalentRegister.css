@@ -23,6 +23,7 @@
   margin-bottom: 10px;
   max-width: 400px;
 }
+
 .inputButtonContainer {
   display: flex;
   align-items: center;
@@ -31,4 +32,11 @@
 
 .inputButtonContainer .btn {
   margin-left: 10px;
+}
+
+.talent {
+  background-color: #DF5E5E;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 15px;
 }

@@ -7,6 +7,8 @@ import TalentRegister from "./assets/components/Register/TalentRegister";
 import TheHeader from "./assets/components/TheHeader/TheHeader";
 import Home from "../src/assets/components/Home/Home";
 import Profile from "../src/assets/components/Profile/Profile";
+import TalentProfile from "./assets/components/Profile/TalentProfile/TalentProfile";
+import CompanyProfile from "./assets/components/Profile/CompanyProfile/CompanyProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./assets/components/Login/Login";
 import Admin from "../src/assets/components/Admin/Admin";
@@ -29,17 +31,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/companies/register" element={<CompanyRegister />} />
+          <Route path="/company/register" element={<CompanyRegister />} />
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
           <Route path="/company/login" element={<LoginCompany />} />
-
           <Route path="/company/discover-talents" element={<Talents />} />
-
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
-
           <Route
             path="/talent/profile"
             element={
@@ -56,6 +55,8 @@ function App() {
               // </CompanyPrivateZone>
             }
           />
+          <Route path="/talent/profile" element={<TalentProfile />} />
+          <Route path="/company/profile" element={<CompanyProfile />} />
           <Route
             path="/admin"
             element={

@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+//import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Login.css"
 
 const Login = () => {
   return (
     <>
-      <div>Login</div>
+      <h2>Login</h2>
 
       <div>
-        <Button as={Link} to="/talent/login" variant="primary">
-          Talento
-        </Button>
-
-        <Button as={Link} to="/company/login" variant="primary">
-          Empresa
-        </Button>
+        <Link to="/talent/login">
+          <button className="talent">TALENTO</button>
+        </Link>
+        <Link to="/company/login">
+          <button className="company">ORGANIZACIÓN</button>
+        </Link>
+     
       </div>
     </>
   );

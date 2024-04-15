@@ -3,7 +3,9 @@ button {
     /* border-radius: 5%; */
 }
 
-img {}
+img {
+    max-width: 100%;
+}
 
 h1,
 h2 {
@@ -56,10 +58,18 @@ p {
 .secondSection {
     display: flex;
     flex-direction: row;
+    /*  background-color: #d3d6d8; */
 }
 
 .secondSection article {
-    max-width: 50%;
+    width: 50%;
+    border-radius: 1px solid green;
+}
+
+.secondSection article img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .thirdSection {

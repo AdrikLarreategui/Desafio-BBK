@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginCompany } from "../../../redux/auth/companyAuthSlice";
+import "./LoginCompany.css"
 
 const LoginCompany = () => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const LoginCompany = () => {
         onChange={onChange}
         required
       />
-      <button type="submit">Login</button>
+      <button className="company" type="submit">Login</button>
     </form>
   );
 };

@@ -47,8 +47,8 @@ function App() {
               //  </PrivateZone>
             }
           />
-          <Route path="/profile/talent" element={<TalentProfile/>}/>
-          <Route path="/profile/company" element={<CompanyProfile/>}/>
+          <Route path="/talent/profile" element={<TalentProfile />} />
+          <Route path="/company/profile" element={<CompanyProfile />} />
           <Route
             path="/admin"
             element={

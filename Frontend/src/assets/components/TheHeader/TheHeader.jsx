@@ -92,7 +92,7 @@ const TheHeader = () => {
 
                 {companyUser && (
                   <>
-                    <Nav.Link as={Link} to="/company-profile">
+                    <Nav.Link as={Link} to="/company/profile">
                       Company Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>

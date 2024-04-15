@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux'
 
 const TalentProfile = () => {
 
-    const { talentUser } = useSelector((state) => state.talentAuth);
-
+    // const { talentUser } = useSelector((state) => state.talentAuth);
+    const talentUser = JSON.parse(localStorage.getItem('talentUser'))
+    console.log(talentUser)
     return (
         <>
             <section>

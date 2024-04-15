@@ -103,11 +103,14 @@ const TheHeader = () => {
                   id="navbarScrollingDropdown"
                 >
                   <NavDropdown.ItemText>
-                    ¿Por qué elegir BBK Talent Job para oganizaciones?
+                    ¿Por qué elegir BBK Talent Job para organizaciones?
                   </NavDropdown.ItemText>
                   {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
                   </NavDropdown.Item> */}
+                   <NavDropdown.Item as={Link} to="/companies/register">
+                    Inscríbete
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
                   <NavDropdown.Item as={Link} to="/">

@@ -201,7 +201,7 @@ const CompanyRegister = () => {
           <Form.Control
             name="password"
             type="text"
-            placeholder="Constraseña"
+            placeholder="Contraseña"
             value={password}
             onChange={handleChange}
             required

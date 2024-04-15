@@ -64,6 +64,7 @@ const TheHeader = () => {
                     </Form>
                   </>
                 )}
+
                 {companyUser && (
                   <>
                     <Nav.Link as={Link} to="/company-profile">
@@ -145,5 +146,5 @@ const TheHeader = () => {
     </nav>
   );
 };
-
+ 
 export default TheHeader;

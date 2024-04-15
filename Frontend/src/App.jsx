@@ -17,8 +17,7 @@ import LoginCompany from "./assets/components/Login/LoginCompany/LoginCompany";
 import Talents from "./assets/components/Talents/Talents";
 import CreateOffer from "./assets/components/CreateOffer/CreateOffer";
 import Offers from "./assets/components/Offers/Offers";
-import TalentProfile from "./assets/components/Profile/TalentProfile/TalentProfile"
-import CompanyProfile from "./assets/components/Profile/CompanyProfile/CompanyProfile"
+
 import "./App.css";
 
 function App() {
@@ -35,14 +34,12 @@ function App() {
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
-          {/* LA ruta para logearse es COMPANY, en sigular */}
           <Route path="/company/login" element={<LoginCompany />} />
-          {/* LA ruta para logearse es COMPANY, en sigular */}
-          <Route path="/talent/profile" element={<TalentProfile />} />
-          <Route path="/company/profile" element={<CompanyProfile />} />
+
           <Route path="/company/discover-talents" element={<Talents />} />
-          {/* De nuevo, COMPANY en singular. Además, redirige al formulario de registro de empresa */}
-          <Route path="/company/createOffer" element={<CompanyRegister />} />
+
+          <Route path="/company/createOffer" element={<CreateOffer />} />
+          <Route path="/offers" element={<Offers />} />
 
           <Route
             path="/profile"

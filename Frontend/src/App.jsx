@@ -33,15 +33,12 @@ function App() {
           <Route path="/talent/register" element={<TalentRegister />} />
           <Route path="/login" element={<Login />} />
           <Route path="/talent/login" element={<LoginTalent />} />
-
-          {/* LA ruta para logearse es COMPANY, en sigular */}
-          <Route path="/company/login" element={<LoginCompany />} />  
-          {/* LA ruta para logearse es COMPANY, en sigular */}
+          <Route path="/company/login" element={<LoginCompany />} />
 
           <Route path="/company/discover-talents" element={<Talents />} />
-          
-          {/* De nuevo, COMPANY en singular. Además, redirige al formulario de registro de empresa */}
-          <Route path="/company/createOffer" element={<CompanyRegister />} />
+
+          <Route path="/company/createOffer" element={<CreateOffer />} />
+          <Route path="/offers" element={<Offers />} />
 
           <Route
             path="/talent/profile"

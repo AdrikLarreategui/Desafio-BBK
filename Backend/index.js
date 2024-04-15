@@ -22,24 +22,19 @@ app.use(typeError);
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));
 
 const Talent = require("./models/Talent");
-const Company = require("./models/Company");
-// Replace with your User model
+const Offer = require("./models/Offer");
 
-cron.schedule("* * * * *", async () => {
+cron.schedule("*/5 * * * *", async () => {
   const talents = await Talent.find({});
-  const companies = await Company.find({});
+  const offers = await Offer.find({});
 
   fs.writeFileSync("./output/talents.json", JSON.stringify(talents, null, 2));
-  fs.writeFileSync(
-    "./output/companies.json",
-    JSON.stringify(companies, null, 2)
-  );
+  fs.writeFileSync("./output/offers.json", JSON.stringify(offers, null, 2));
 
   const parser = new Parser();
   const csvTalents = parser.parse(talents);
-  const csvCompanies = parser.parse(companies);
+  const csvOffers = parser.parse(offers); // Corrected here
 
-  // Write CSV file
   fs.writeFileSync("./output/talents.csv", csvTalents);
-  fs.writeFileSync("./output/companies.csv", csvCompanies);
+  fs.writeFileSync("./output/offers.csv", csvOffers);
 });

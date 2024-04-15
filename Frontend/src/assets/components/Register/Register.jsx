@@ -1,63 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
-import TalentRegister from "./TalentRegister";
-import CompanyRegister from "./CompanyRegister";
-import { registerTalent, reset } from "../../redux/auth/talentAuthSlice"
-import { registerCompany } from "../../redux/auth/companyAuthSlice"
-import { useDispatch } from 'react-redux'
+import { Link } from "react-router-dom";
 
 const Register = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const [showForm, setShowForm] = useState(false);
-
-  const dispatch = useDispatch()
-
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    setShowForm(true);
-  };
-
-  const handleTalentSubmit = (data) => {
-    console.log("Datos registrados: ", data);
-    dispatch(registerTalent(data))
-  };
-
-  const handleCompanySubmit = (data) => {
-    console.log("Datos de Empresa:", data);
-    dispatch(registerCompany(data))
-  };
-
-  const handleReturnHome = () => {
-    setSelectedOption('');
-    setShowForm(false);
-    console.log("Volver a la página de inicio");
-  };
-
   return (
     <div>
       <h1>Registro</h1>
-      {!showForm && (
-        <div>
-          <Button variant="primary" onClick={() => handleOptionClick("talentregister")}>
-            Talento
-          </Button>
-          <Button variant="primary" onClick={() => handleOptionClick("companyregister")}>
-            Empresa
-          </Button>
-        </div>
-      )}
-      {selectedOption === "companyregister" && showForm && (
-        <CompanyRegister onSubmit={handleCompanySubmit} onReturn={handleReturnHome} />
-      )}
-
-      {selectedOption === "talentregister" && showForm && (
-        <TalentRegister onSubmit={handleTalentSubmit} onReturn={handleReturnHome} />
-      )}
+      <div>
+        <Button as={Link} to="/talent/register" variant="primary">
+          Talento
+        </Button>
+        <Button as={Link} to="/company/register" variant="primary">
+          Empresa
+        </Button>
+      </div>
     </div>
   );
-}
+};
 
 export default Register;
-
-
-

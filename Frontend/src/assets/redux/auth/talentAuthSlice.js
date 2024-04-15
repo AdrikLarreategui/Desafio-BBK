@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import talentAuthService from "./talentAuthService";
 
-const user = JSON.parse(localStorage.getItem("user"));
-const token = JSON.parse(localStorage.getItem("token"));
+const talentUser = JSON.parse(localStorage.getItem("talentUser"));
+const talentToken = JSON.parse(localStorage.getItem("talentToken"));
 
 const initialState = {
-  user: user ? user : null,
-  token: token ? token : null,
+  user: talentUser ? talentUser : null,
+  token: talentToken ? talentToken : null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -25,13 +25,16 @@ export const registerTalent = createAsyncThunk(
   }
 );
 
-export const loginTalent = createAsyncThunk("talentAuth/login", async (user) => {
-  try {
-    return await talentAuthService.loginTalent(user);
-  } catch (error) {
-    return rejectWithValue(error.response.data);
+export const loginTalent = createAsyncThunk(
+  "talentAuth/login",
+  async (user) => {
+    try {
+      return await talentAuthService.loginTalent(user);
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-});
+);
 export const logoutTalent = createAsyncThunk("talentAuth/logout", async () => {
   try {
     return await talentAuthService.logoutTalent();

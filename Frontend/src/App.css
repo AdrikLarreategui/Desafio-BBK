@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Raleway', sans-serif; /* Reemplaza 'TuFuente' con el nombre de tu fuente */
 }
 
 .logo {

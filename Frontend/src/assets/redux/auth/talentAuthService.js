@@ -12,21 +12,20 @@ const loginTalent = async (userData) => {
 
   if (res.data) {
     const lastToken = res.data.tokens[res.data.tokens.length - 1];
-    localStorage.setItem("user", JSON.stringify(res.data.user));
-    localStorage.setItem("token", JSON.stringify(lastToken));
+    localStorage.setItem("talentUser", JSON.stringify(res.data.user));
+    localStorage.setItem("talentToken", JSON.stringify(lastToken));
   }
   return res.data;
 };
 const logoutTalent = async () => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const talentToken = JSON.parse(localStorage.getItem("talentToken"));
   const logoutURL = API_URL + `/talents/logout`;
 
   const res = await axios.delete(logoutURL, {
     headers: {
-      authorization: token,
+      authorization: talentToken,
     },
   });
-
   if (res.data) {
     localStorage.clear();
   }

@@ -5,19 +5,23 @@ import { useEffect, useState } from "react";
 import { logoutTalent } from "../../redux/auth/talentAuthSlice";
 import { logoutCompany } from "../../redux/auth/companyAuthSlice";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const TheHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.talentAuth);
-  //  const { company } = useSelector((state) => state.companyAuth)
+  const { user: talentUser } = useSelector((state) => state.talentAuth);
+  const { user: companyUser } = useSelector((state) => state.companyAuth);
 
   const [text, setText] = useState("");
 
   const onLogout = (event) => {
     event.preventDefault();
-    dispatch(logoutTalent()) || dispatch(logoutCompany());
+    // talentUser && (logoutTalent())
+
+    dispatch(logoutTalent()) && dispatch(logoutCompany());
+
     navigate("/login");
   };
 
@@ -31,26 +35,50 @@ const TheHeader = () => {
   // const isAdmin = user?.role === 'admin'
   // const [hover, setHover] = useState(false);
   // const [activeIndex, setActiveIndex] = useState(false);
+  const isLoggedIn = !!talentUser || !!companyUser;
 
   return (
     <nav>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <Navbar.Brand href="/">BBK Talent Job</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          BBK Talent Job
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            {user ? (
+            {isLoggedIn ? (
               <>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-                <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                <Form inline>
-                  <FormControl
-                    type="text"
-                    placeholder="Buscar ofertas"
-                    className="mr-sm-2"
-                    onKeyUp={handleChange}
-                  />
-                </Form>
+                {talentUser && (
+                  <>
+                    <Nav.Link as={Link} to="/profile">
+                      Profile
+                    </Nav.Link>
+                    <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                    <Form inline>
+                      <FormControl
+                        type="text"
+                        placeholder="Buscar ofertas"
+                        className="mr-sm-2"
+                        onKeyUp={handleChange}
+                      />
+                    </Form>
+                  </>
+                )}
+
+                {companyUser && (
+                  <>
+                    <Nav.Link as={Link} to="/company-profile">
+                      Company Profile
+                    </Nav.Link>
+                    <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                    <Nav.Link as={Link} to="/company/createOffer">
+                      Post Offer
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/company/discover-talents">
+                      Descubrir talento
+                    </Nav.Link>
+                  </>
+                )}
               </>
             ) : (
               <>
@@ -58,11 +86,17 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     ¿Por qué BBK Talent Job?
                   </NavDropdown.ItemText>
-                  <NavDropdown.Item href="/offers">
+                  <NavDropdown.Item as={Link} to="/offers">
                     Descubre ofertas
                   </NavDropdown.Item>
-                  <NavDropdown.Item href={user ? "/profile" : "/register"}>
-                    {user ? "Profile" : "Inscríbete"}
+                  {/* {<NavDropdown.Item >
+                  href={user ? "/talent/offers}
+                  {</NavDropdown.Item>} */}
+                  <NavDropdown.Item
+                    as={Link}
+                    to={talentUser ? "/profile" : "/talent/register"}
+                  >
+                    {talentUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown
@@ -70,27 +104,40 @@ const TheHeader = () => {
                   id="navbarScrollingDropdown"
                 >
                   <NavDropdown.ItemText>
-                    por q Talent Job pa organizaciones?
+                    ¿Por qué elegir BBK Talent Job para oganizaciones?
                   </NavDropdown.ItemText>
-                  <NavDropdown.Item href="/companies">
+                  {/* <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown title="Recursos" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="/">Eventos</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Guías</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Cursos</NavDropdown.Item>
-                  <NavDropdown.Item href="/">Artículos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Eventos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Guías
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Cursos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
+                    Artículos
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown
                   title="Career Assistant"
                   id="navbarScrollingDropdown"
                 >
-                  <NavDropdown.Item href="/">Revisión CV</NavDropdown.Item>
-                  <NavDropdown.Item href="/">
+                  <NavDropdown.Item as={Link} to="/">
+                    Revisión CV
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/">
                     Entrevista career
                   </NavDropdown.Item>
                 </NavDropdown>
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
               </>
             )}
           </Nav>
@@ -99,5 +146,5 @@ const TheHeader = () => {
     </nav>
   );
 };
-
+ 
 export default TheHeader;

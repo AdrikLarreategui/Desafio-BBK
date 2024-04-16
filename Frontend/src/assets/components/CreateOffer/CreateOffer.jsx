@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createOffer } from "../../redux/auth/offerAuthSlice";
 import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import UploadFoto from "../UploadFoto/UploadFoto";
 // import "./CreateOffer.css";
 
 const CreateOffer = () => {
@@ -226,6 +227,7 @@ const CreateOffer = () => {
           Publicar
         </Button>
       </Form>
+      <UploadFoto />
     </div>
   );
 };

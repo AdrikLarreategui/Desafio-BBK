@@ -32,9 +32,23 @@ const logoutTalent = async () => {
   return res.data;
 };
 
+const updateTalentImg = async (formData) => {
+  const talentToken = JSON.parse(localStorage.getItem("talentToken"));
+  const updateImg = API_URL + `/uploads/image`;
+
+  const res = await axios.put(updateImg, formData, {
+    headers: {
+      authorization: talentToken,
+    },
+  });
+  console.log(res.data.file.path);
+  return res.data.file.path;
+};
+
 const authService = {
   loginTalent,
   registerTalent,
   logoutTalent,
+  updateTalentImg,
 };
 export default authService;

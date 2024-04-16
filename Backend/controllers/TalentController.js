@@ -103,6 +103,23 @@ const TalentController = {
         .send({ message: "There was a problem deleting the user" });
     }
   },
+  async update(req, res) {
+    try {
+      console.log('estoy en update')
+      const talent = await Talent.findByIdAndUpdate(
+        req.params._id,
+        req.body,
+        { new: true },
+      );
+      if(!talent) {
+        return res.send({ message: "Talent not found" });
+      }
+      res.send(talent);
+    } 
+    catch (error) {
+      console.error(error);
+    }
+  },
 };
 
 module.exports = TalentController;

@@ -6,7 +6,8 @@ const { Parser } = require("json2csv");
 const { dbConnection } = require("./config/config");
 const { typeError } = require("./middlewares/errors");
 
-require("dotenv").config();
+// const { authentication } = require("./middlewares/authentication");
+
 const cors = require("cors");
 
 const PORT = process.env.PORT;
@@ -18,6 +19,7 @@ app.use("/users", require("./routes/users"));
 app.use("/talents", require("./routes/talents"));
 app.use("/companies", require("./routes/companies"));
 app.use("/offers", require("./routes/offers"));
+app.use("/uploads", require("./routes/uploads"));
 app.use(typeError);
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));
 

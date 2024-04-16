@@ -1,5 +1,4 @@
 const Offer = require("../models/Offer");
-// const User = require("../models/User");
 const Company = require("../models/Company");
 const Talent = require("../models/Talent");
 

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import offerService from "./offerAuthService";
+// import offerService from "./offerAuthService";
 
 const initialState = {
   offers: [],

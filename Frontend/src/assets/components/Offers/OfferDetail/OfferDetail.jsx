@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { getById } from "../../../redux/auth/offerAuthSlice";
-import { getById } from '../../../redux/auth/companyAuthSlice'
+// import { getById } from '../../../redux/auth/companyAuthSlice'
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

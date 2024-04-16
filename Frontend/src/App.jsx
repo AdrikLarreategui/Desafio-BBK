@@ -37,8 +37,9 @@ function App() {
           <Route path="/talent/login" element={<LoginTalent />} />
           <Route path="/company/login" element={<LoginCompany />} />
           <Route path="/company/discover-talents" element={<Talents />} />
-          <Route path="/company/createOffer" element={<CreateOffer />} />
+          {/* <Route path="/company/createOffer" element={<CreateOffer />} /> */}
           <Route path="/offers" element={<Offers />} />
+          {/* <Route path="/offers/detail" element={<OfferDetail />} /> */}
           <Route
             path="/talent/profile"
             element={

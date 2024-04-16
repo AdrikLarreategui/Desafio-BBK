@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { like, unlike } from '../../redux/auth/offerAuthSlice'
+import OfferDetail  from '../Offers/OfferDetail/OfferDetail'
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./Offer.css";
 
@@ -19,6 +19,9 @@ const Offer = () => {
 
   const reversedOffers = offers.slice().reverse();
 
+  
+  useEffect(() => {});
+  
   const offer = reversedOffers?.map((offer, index) => {
     const formatDate = (dateString) => {
       if (!dateString) {

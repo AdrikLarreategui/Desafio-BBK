@@ -51,41 +51,9 @@ const TheHeader = () => {
                 {talentUser && (
                   <>
                     <Nav.Link as={Link} to="/profile">
-                      Perfil
+                      Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                  <NavDropdown title="Recursos" id="navbarScrollingDropdown">
-                  <NavDropdown.Item as={Link} to="/">
-                    Eventos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Guías
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Cursos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Artículos
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                title="Career Assistant"
-                id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item as={Link} to="/">
-                    Revisión de CV gratuita
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Entrevista con Career Assistant
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Form inline>
-                  <FormControl
-                    type="text"
-                    placeholder="Buscar ofertas"
-                    className="mr-sm-2"
-                    onKeyUp={handleChange}
-                  />
                     <NavDropdown title="Recursos" id="navbarScrollingDropdown">
                       <NavDropdown.Item as={Link} to="/">
                         Eventos
@@ -125,14 +93,14 @@ const TheHeader = () => {
                 {companyUser && (
                   <>
                     <Nav.Link as={Link} to="/company/profile">
-                      Perfil de la organización
+                      Company Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
-                      Crear oferta de trabajo
+                      Post Offer
                     </Nav.Link>
                     <Nav.Link as={Link} to="/company/discover-talents">
-                      Descubrir talento disponible
+                      Descubrir talento
                     </Nav.Link>
                   </>
                 )}

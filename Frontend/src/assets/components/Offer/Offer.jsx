@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import { like, unlike } from '../../redux/auth/offerAuthSlice'
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./Offer.css";
 
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const Offer = () => {
   const { offers } = useSelector((state) => state.offers);
+  const { user } = useSelector((state) => state.auth);
 
   const { user: userTalent } = useSelector((state) => state.talentAuth);
   const { user: userCompany } = useSelector((state) => state.companyAuth);

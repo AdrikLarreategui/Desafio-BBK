@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "_id": "661c0896827c71f2e7133d84",
+    "companyId": "661af33a1a13dec93277f42d",
+    "companyName": "Patatas S.L.",
+    "title": "Venta de patatas",
+    "content": "Venta de patatas",
+    "location": "Bilbao",
+    "workingMode": "Presencial",
+    "workingDayType": "Completa",
+    "contractKind": "De duración determinada",
+    "salaryRange": "18.000-20.000",
+    "requiredSkills": [],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661c0c1c827c71f2e7133d8a",
+    "companyId": "661af33a1a13dec93277f42d",
+    "companyName": "Patatas S.L.",
+    "title": "Alquiler de patatas",
+    "content": "Te dejo una patata y me la devuelves luego.",
+    "location": "Igorre",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Parcial/mañana",
+    "contractKind": "De duración determinada",
+    "salaryRange": "19.000",
+    "requiredSkills": [],
+    "likes": [],
+    "__v": 0
+  }
+]

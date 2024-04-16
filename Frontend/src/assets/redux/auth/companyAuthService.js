@@ -20,7 +20,7 @@ const loginCompany = async (userData) => {
 };
 const logoutCompany = async () => {
   const companyToken = JSON.parse(localStorage.getItem("companyToken"));
-  console.log(companyToken);
+
   const logoutURL = API_URL + `/companies/logout`;
 
   const res = await axios.delete(logoutURL, {
@@ -35,10 +35,24 @@ const logoutCompany = async () => {
   return res.data;
 };
 
+const updateCompanyImg = async (formData) => {
+  const companyToken = JSON.parse(localStorage.getItem("companyToken"));
+  const updateImg = API_URL + `/uploads/image`;
+
+  const res = await axios.put(updateImg, formData, {
+    headers: {
+      authorization: companyToken,
+    },
+  });
+  console.log(res.data.file.path);
+  return res.data.file.path;
+};
+
 const authService = {
   registerCompany,
   loginCompany,
   logoutCompany,
+  updateCompanyImg,
 };
 
 export default authService;

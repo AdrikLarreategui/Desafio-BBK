@@ -47,6 +47,16 @@ export const logoutCompany = createAsyncThunk(
     }
   }
 );
+export const updateCompanyImg = createAsyncThunk(
+  "companyAuth/updateCompanyImg",
+  async (formData) => {
+    try {
+      return await companyAuthService.updateCompanyImg(formData);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const authSlice = createSlice({
   name: "companyAuth",
@@ -82,6 +92,10 @@ export const authSlice = createSlice({
       .addCase(logoutCompany.fulfilled, (state, action) => {
         state.user = null;
         state.token = null;
+      })
+      .addCase(updateCompanyImg.fulfilled, (state, action) => {
+        state.user.profileImg = action.payload;
+        console.log(action.payload);
       });
   },
 });

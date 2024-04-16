@@ -43,6 +43,17 @@ export const logoutTalent = createAsyncThunk("talentAuth/logout", async () => {
   }
 });
 
+export const updateTalentImg = createAsyncThunk(
+  "talentAuth/updateTalentImg",
+  async (formData) => {
+    try {
+      return await talentAuthService.updateTalentImg(formData);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "talentAuth",
   initialState,
@@ -77,6 +88,10 @@ export const authSlice = createSlice({
       .addCase(logoutTalent.fulfilled, (state, action) => {
         state.user = null;
         state.token = null;
+      })
+      .addCase(updateTalentImg.fulfilled, (state, action) => {
+        state.user.profileImg = action.payload;
+        console.log(action.payload);
       });
   },
 });

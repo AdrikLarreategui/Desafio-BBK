@@ -78,7 +78,7 @@ const TalentProfile = () => {
                         ))}</p>
                     <p>Sobre mí: {talentUser.aboutTheTalent}</p>
 
-                //SACAR FOTO DE CLOUDINARY
+                {/* //SACAR FOTO DE CLOUDINARY */}
                     {/* <p>{talentUser.profileImg}</p> */}
                     {/*                     <p>Ofertas guardadas: {talentUser.likedOffers}</p>
                     

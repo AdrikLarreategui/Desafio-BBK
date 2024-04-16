@@ -39,16 +39,16 @@ function App() {
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
-          <Route
+      {/*     <Route
             path="/talent/profile"
             element={
               // <TalentPrivateZone>
               <Profile />
               // </TalentPrivateZone>
             }
-          />
+          /> */}
           <Route
-            path="/company/profile"
+            path="/profile"
             element={
               // <CompanyPrivateZone>
               <Profile />

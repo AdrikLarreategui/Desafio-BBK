@@ -18,6 +18,7 @@ const loginCompany = async (userData) => {
   }
   return res.data;
 };
+
 const logoutCompany = async () => {
   const companyToken = JSON.parse(localStorage.getItem("companyToken"));
   console.log(companyToken);

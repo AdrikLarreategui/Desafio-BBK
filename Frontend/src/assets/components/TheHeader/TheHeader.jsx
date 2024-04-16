@@ -20,7 +20,7 @@ const TheHeader = () => {
     event.preventDefault();
     // talentUser && (logoutTalent())
 
-    dispatch(logoutTalent()) && dispatch(logoutCompany());
+    dispatch(logoutTalent()) && dispatch(logoutCompany())
 
     navigate("/login");
   };
@@ -54,38 +54,38 @@ const TheHeader = () => {
                       Profile
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                  <NavDropdown title="Recursos" id="navbarScrollingDropdown">
-                  <NavDropdown.Item as={Link} to="/">
-                    Eventos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Guías
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Cursos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Artículos
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                title="Career Assistant"
-                id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item as={Link} to="/">
-                    Revisión CV
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/">
-                    Entrevista career
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Form inline>
-                  <FormControl
-                    type="text"
-                    placeholder="Buscar ofertas"
-                    className="mr-sm-2"
-                    onKeyUp={handleChange}
-                  />
+                    <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                      <NavDropdown.Item as={Link} to="/">
+                        Eventos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/">
+                        Guías
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/">
+                        Cursos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/">
+                        Artículos
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown
+                      title="Career Assistant"
+                      id="navbarScrollingDropdown"
+                    >
+                      <NavDropdown.Item as={Link} to="/">
+                        Revisión CV
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/">
+                        Entrevista career
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                    <Form inline>
+                      <FormControl
+                        type="text"
+                        placeholder="Buscar ofertas"
+                        className="mr-sm-2"
+                        onKeyUp={handleChange}
+                      />
                     </Form>
                   </>
                 )}

@@ -6,7 +6,7 @@ const TalentProfile = () => {
 
     // const { talentUser } = useSelector((state) => state.talentAuth);
     const talentUser = JSON.parse(localStorage.getItem('talentUser'))
-    console.log(talentUser)
+
     return (
         <>
             <section>
@@ -42,19 +42,47 @@ const TalentProfile = () => {
                         Formación : {talentUser.education}
                     </p>
                     <p>
-                        Idiomas : {talentUser.languages}
+                        Idiomas :
+                        {talentUser.languages.map((language, index) => (
+                            <span key={index}>
+                                <p>
+                                    {language.language} ({language.proficiency})
+                                </p>
+                            </span>
+                        ))}
+
+
+                        {/*
+                         {talentUser.languages}
                         {talentUser.languages.language}
                         {talentUser.languages.proficiency}
+                    */}
                     </p>
-                    <p>Skills: {talentUser.skills}</p>
-                    <p>Intereses: {talentUser.interests}</p>
+                    <p>Skills: {talentUser.skills.map((skill, index) => (
+
+                        <span key={index}>
+                            <p>
+                                {skill}
+                            </p>
+                        </span>
+
+                    ))}</p>
+                    <p>Intereses: 
+                        {talentUser.interests.map((interest, index)=>(
+                            <span key={index}>
+                                <p>
+                                {interest}
+                                </p>
+                            </span>
+
+                        ))}</p>
                     <p>Sobre mí: {talentUser.aboutTheTalent}</p>
-                
+
                 //SACAR FOTO DE CLOUDINARY
                     {/* <p>{talentUser.profileImg}</p> */}
-                    <p>Ofertas guardadas: {talentUser.likedOffers}</p>
+                    {/*                     <p>Ofertas guardadas: {talentUser.likedOffers}</p>
                     
-                    <p>Ofertas solicitadas: {talentUser.appliedOffers}</p>
+                    <p>Ofertas solicitadas: {talentUser.appliedOffers}</p> */}
                 </article>
 
             </section>

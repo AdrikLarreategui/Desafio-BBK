@@ -124,18 +124,22 @@ const TheHeader = () => {
                     {talentUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown
-                  title="Organizaciones"
-                  id="navbarScrollingDropdown"
-                >
+                <NavDropdown title="Organizaciones" id="navbarScrollingDropdown">
                   <NavDropdown.ItemText>
                     ¿Por qué elegir BBK Talent Job para organizaciones?
                   </NavDropdown.ItemText>
-                  {/* <NavDropdown.Item as={Link} to="/companies">
+                  <NavDropdown.Item as={Link} to="/companies">
                     Explora perfiles
-                  </NavDropdown.Item> */}
-                </NavDropdown>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={companyUser ? "/profile" : "/company/register"}
+                  >
+                    {companyUser ? "Profile" : "Inscríbete"}
+                  </NavDropdown.Item>
 
+                    </NavDropdown>
+                  
                 <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>

@@ -189,7 +189,7 @@ const TalentRegister = () => {
   return (
     <>
       <div>
-        <h1>Register Talent</h1>
+        <h1>Registrar Talento</h1>
         <Form onSubmit={handleSubmit}>
           <div>
             <Form.Control

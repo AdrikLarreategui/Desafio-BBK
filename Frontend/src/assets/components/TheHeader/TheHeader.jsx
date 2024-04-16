@@ -51,7 +51,7 @@ const TheHeader = () => {
                 {talentUser && (
                   <>
                     <Nav.Link as={Link} to="/profile">
-                      Profile
+                      Perfil
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                   <NavDropdown title="Recursos" id="navbarScrollingDropdown">
@@ -73,10 +73,10 @@ const TheHeader = () => {
                 id="navbarScrollingDropdown"
                 >
                   <NavDropdown.Item as={Link} to="/">
-                    Revisión CV
+                    Revisión de CV gratuita
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/">
-                    Entrevista career
+                    Entrevista con Career Assistant
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Form inline>
@@ -93,14 +93,14 @@ const TheHeader = () => {
                 {companyUser && (
                   <>
                     <Nav.Link as={Link} to="/company/profile">
-                      Company Profile
+                      Perfil de la organización
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
-                      Post Offer
+                      Crear oferta de trabajo
                     </Nav.Link>
                     <Nav.Link as={Link} to="/company/discover-talents">
-                      Descubrir talento
+                      Descubrir talento disponible
                     </Nav.Link>
                   </>
                 )}

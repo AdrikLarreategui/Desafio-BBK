@@ -1,0 +1,81 @@
+[
+  {
+    "_id": "661ad1ccaab6d5aade241c80",
+    "email": "adrian15186@hotmail.com",
+    "role": "talent",
+    "name": "Adrián",
+    "surnames": "Larreategui Madariaga",
+    "telephone": 615009298,
+    "birthdate": "2000-03-14T00:00:00.000Z",
+    "education": [
+      "Bellas Artes"
+    ],
+    "languages": [
+      {
+        "proficiency": "Avanzado",
+        "_id": "661ad1ccaab6d5aade241c81"
+      }
+    ],
+    "skills": [
+      "trabajo bajo presión"
+    ],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "Patatas",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-13T18:41:16.839Z",
+    "updatedAt": "2024-04-13T18:41:16.839Z",
+    "__v": 0
+  },
+  {
+    "_id": "661bf562827c71f2e7133d77",
+    "email": "Prueba@Prueba.com",
+    "role": "talent",
+    "name": "Prueba",
+    "surnames": "Prueba",
+    "telephone": 111111111,
+    "birthdate": "2001-01-01T00:00:00.000Z",
+    "education": [
+      "Prueba"
+    ],
+    "languages": [],
+    "skills": [
+      "trabajo bajo presión",
+      "Prueba"
+    ],
+    "interests": [
+      "Música",
+      "Prueba"
+    ],
+    "awards": [],
+    "aboutTheTalent": "Prueba",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-14T15:25:22.795Z",
+    "updatedAt": "2024-04-14T15:25:22.795Z",
+    "__v": 0
+  },
+  {
+    "_id": "661d0ff592ad3be21453708f",
+    "email": "prueba1@gmail.com",
+    "role": "talent",
+    "name": "prueba1",
+    "surnames": "prueba1",
+    "telephone": 222222222,
+    "birthdate": "2002-02-02T00:00:00.000Z",
+    "education": [
+      "prueba1"
+    ],
+    "languages": [],
+    "skills": [],
+    "interests": [],
+    "awards": [],
+    "aboutTheTalent": "",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-15T11:31:01.273Z",
+    "updatedAt": "2024-04-16T14:48:44.750Z",
+    "__v": 8
+  }
+]

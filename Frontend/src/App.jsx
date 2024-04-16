@@ -40,11 +40,19 @@ function App() {
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
           <Route
-            path="/profile"
+            path="/talent/profile"
             element={
-              //<PrivateZone>
+              // <TalentPrivateZone>
               <Profile />
-              //  </PrivateZone>
+              // </TalentPrivateZone>
+            }
+          />
+          <Route
+            path="/company/profile"
+            element={
+              // <CompanyPrivateZone>
+              <Profile />
+              // </CompanyPrivateZone>
             }
           />
           <Route path="/talent/profile" element={<TalentProfile />} />

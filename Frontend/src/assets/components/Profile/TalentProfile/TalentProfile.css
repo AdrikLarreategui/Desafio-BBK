@@ -1,0 +1,38 @@
+section.tp>article>img {
+    max-width: 80%;
+
+}
+
+.tp {
+    text-align: right;
+}
+
+
+
+@media (min-width: 768px) {
+
+
+    .tp {
+
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

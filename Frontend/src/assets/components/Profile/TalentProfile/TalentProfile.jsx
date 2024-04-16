@@ -49,8 +49,11 @@ const TalentProfile = () => {
                     <p>Skills: {talentUser.skills}</p>
                     <p>Intereses: {talentUser.interests}</p>
                     <p>Sobre mí: {talentUser.aboutTheTalent}</p>
-                    <p>{talentUser.profileImg}</p>
+                
+                //SACAR FOTO DE CLOUDINARY
+                    {/* <p>{talentUser.profileImg}</p> */}
                     <p>Ofertas guardadas: {talentUser.likedOffers}</p>
+                    
                     <p>Ofertas solicitadas: {talentUser.appliedOffers}</p>
                 </article>
 

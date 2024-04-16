@@ -17,8 +17,6 @@ const updateTalent = async(userData) =>{
   return res.data
 }
 
-
-
 const loginTalent = async (userData) => {
   const res = await axios.post(`${API_URL}/talents/login`, userData);
 

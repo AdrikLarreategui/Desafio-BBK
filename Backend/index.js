@@ -30,13 +30,19 @@ cron.schedule("*/5 * * * *", async () => {
   const talents = await Talent.find({});
   const offers = await Offer.find({});
 
-  fs.writeFileSync("./output/talents.json", JSON.stringify(talents, null, 2));
-  fs.writeFileSync("./output/offers.json", JSON.stringify(offers, null, 2));
+  fs.writeFileSync(
+    "./output/tabla_perfiles.json",
+    JSON.stringify(talents, null, 2)
+  );
+  fs.writeFileSync(
+    "./output/tabla_ofertas.json",
+    JSON.stringify(offers, null, 2)
+  );
 
   const parser = new Parser();
   const csvTalents = parser.parse(talents);
   const csvOffers = parser.parse(offers); // Corrected here
 
-  fs.writeFileSync("./output/talents.csv", csvTalents);
-  fs.writeFileSync("./output/offers.csv", csvOffers);
+  fs.writeFileSync("./output/tabla_perfiles.csv", csvTalents);
+  fs.writeFileSync("./output/tabla_ofertas.csv", csvOffers);
 });

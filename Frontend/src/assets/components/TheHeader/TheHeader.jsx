@@ -93,11 +93,11 @@ const TheHeader = () => {
                 {companyUser && (
                   <>
                     <Nav.Link as={Link} to="/company/profile">
-                      Company Profile
+                      Perfil de la organización
                     </Nav.Link>
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
-                      Post Offer
+                      Redactar oferta de trabajo
                     </Nav.Link>
                     <Nav.Link as={Link} to="/company/discover-talents">
                       Descubrir talento

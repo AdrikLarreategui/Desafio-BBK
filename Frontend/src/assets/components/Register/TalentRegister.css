@@ -40,3 +40,53 @@
   font-weight: bold;
   margin: 15px;
 }
+
+
+form {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+
+  margin: 10px;
+}
+
+button {
+  width: 200px;
+}
+
+.tr>article>img {
+  max-width: 80%;
+}
+
+section.tr {
+
+  padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+  section.tr {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .tr>article {
+
+    max-width: 40%;
+    display: flex;
+  }
+
+  section.tr div {
+    display: block;
+  }
+
+
+
+
+
+}

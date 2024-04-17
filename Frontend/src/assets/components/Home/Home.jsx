@@ -66,11 +66,10 @@ const Home = () => {
           </div>
         </article>
 
-        <article>
           <article>
             <img src={foto2} alt="" />
           </article>
-        </article>
+      
 
       </section>
       <section className="thirdSection">
@@ -107,8 +106,8 @@ const Home = () => {
           conocimientos, crecimiento y nuevas experiencias.
         </p>
       </section>
-      <section className="fifthSection">
 
+      <section className="fifthSection">
         <article>
           <article>
             <img src={foto4} alt="" />
@@ -131,6 +130,7 @@ const Home = () => {
             </div>
           </div>
         </article>
+        
         <article>
           <article>
             <img src={foto5} alt="" />
@@ -152,7 +152,45 @@ const Home = () => {
               </Link>
             </div>
           </div>
+        </article>
+      </section>
 
+        <section className="sixthSection">
+          <h2>Top organizaciones que ya forman
+            parte de BBK Talent Job</h2>
+            <div>
+
+
+            </div>
+
+        </section>
+
+      <section className="seventhSection">
+
+        <article>
+
+          <h2>
+            Únete a la plataforma
+            de talento joven de
+            Bizkaia
+          </h2>
+          <div className="buttons">
+            <div>
+              <Link to="/talent/register">
+                <button className="talent">SOY TALENTO</button>
+              </Link>
+            </div>
+            <div>
+              <Link to="/company/register">
+                <button className="company">SOY ORGANIZACION</button>
+              </Link>
+
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <img src={foto6} alt="" />
         </article>
       </section>
     </>

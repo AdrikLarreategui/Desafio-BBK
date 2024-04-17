@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 //import { talentUser } from "../../../redux/auth/talentAuthSlice"
-
+const foto12 = "../images/foto12.jpg"
 const TalentProfile = () => {
 
     // const { talentUser } = useSelector((state) => state.talentAuth);
@@ -9,7 +9,10 @@ const TalentProfile = () => {
 
     return (
         <>
-            <section>
+            <section className="tp">
+                <article>
+                    <img src={foto12} alt="" />
+                </article>
                 <article>
                     <h2>
                         Datos personales

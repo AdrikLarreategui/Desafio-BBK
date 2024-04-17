@@ -10,6 +10,24 @@ input {
     margin: 10px;
 }
 
-button {
+button.talent {
     width: 200px;
+}
+
+.loginTalent>article>img {
+    max-width: 80%;
+}
+
+.loginTalent {
+
+    padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .loginTalent {
+        padding-top: 35px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginCompany } from "../../../redux/auth/companyAuthSlice";
+const foto8 = "../images/foto8.jpg"
 import "./LoginCompany.css"
 
 const LoginCompany = () => {
@@ -47,25 +48,35 @@ const LoginCompany = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="email"
-        name="email"
-        placeholder="email"
-        value={email}
-        onChange={onChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        placeholder="password"
-        onChange={onChange}
-        required
-      />
-      <button className="company" type="submit">Login</button>
-    </form>
+<>
+<section className="loginCompany">
+
+<article>
+  <img src={foto8} alt="" />
+</article>
+<div>
+  <form onSubmit={onSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          value={email}
+          onChange={onChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          placeholder="password"
+          onChange={onChange}
+          required
+        />
+        <button className="company" type="submit">Login</button>
+      </form>
+        </div>
+</section>
+</>
   );
 };
 

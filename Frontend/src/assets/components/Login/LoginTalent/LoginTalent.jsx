@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginTalent, reset } from "../../../redux/auth/talentAuthSlice";
+const foto7 =  "../images/foto7.jpg"
 import "./LoginTalent.css"
+const foto6 = "images/foto6.jpg"
 
 const LoginTalent = () => {
   const navigate = useNavigate();
@@ -41,25 +43,36 @@ const LoginTalent = () => {
     dispatch(loginTalent(formData));
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="email"
-        name="email"
-        placeholder="email"
-        value={email}
-        onChange={onChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        placeholder="password"
-        onChange={onChange}
-        required
-      />
-      <button className="talent" type="submit">Login</button>
-    </form>
+    <>
+    <section className="loginTalent">
+
+    <article>
+      <img src={foto7} alt="" />
+    </article>
+    
+    <div>    
+        <form onSubmit={onSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            value={email}
+            onChange={onChange}
+            required
+            />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="password"
+            onChange={onChange}
+            required
+            />
+          <button className="talent" type="submit">Login</button>
+        </form>
+      </div>
+    </section>
+        </>
   );
 };
 export default LoginTalent;

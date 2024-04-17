@@ -3,3 +3,48 @@
     color: #FFFFFF;
     font-weight: bold;
 }
+
+form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+
+    margin: 10px;
+}
+
+button {
+    width: 200px;
+}
+
+.cr>article>img {
+    max-width: 80%;
+}
+
+section.cr {
+
+    padding-top: 15px;
+    text-align: right;
+}
+
+@media (min-width: 768px) {
+    section.cr {
+        padding-top: 35px;
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .cr>article {
+
+        max-width: 40%;
+        display: flex;
+    }
+
+    section.cr div {
+        display: block;
+    }
+}

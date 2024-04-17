@@ -10,6 +10,23 @@ input {
     margin: 10px;
 }
 
-button {
+.company {
     width: 200px;
+}
+
+.loginCompany>article>img {
+    max-width: 80%;
+}
+
+.loginCompany {
+    padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .loginCompany {
+        padding-top: 35px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

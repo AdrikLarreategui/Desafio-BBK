@@ -41,21 +41,22 @@ function App() {
           <Route path="/offers" element={<Offers />} />
           {/* <Route path="/offers/detail" element={<OfferDetail />} /> */}
           <Route
+              /*     <Route
             path="/talent/profile"
             element={
               // <TalentPrivateZone>
               <Profile />
               // </TalentPrivateZone>
             }
-          />
-          <Route
-            path="/company/profile"
-            element={
-              // <CompanyPrivateZone>
-              <Profile />
-              // </CompanyPrivateZone>
-            }
-          />
+          */
+          /> 
+
+          <Route path="/profile" element={
+            // <CompanyPrivateZone>
+            <Profile />
+            // </CompanyPrivateZone>
+          }
+        />
           <Route path="/talent/profile" element={<TalentProfile />} />
           <Route path="/company/profile" element={<CompanyProfile />} />
           <Route

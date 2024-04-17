@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { registerTalent } from "../../redux/auth/talentAuthSlice";
+const foto10 = "../images/foto10.jpg";
 import "./TalentRegister.css";
 
 const TalentRegister = () => {
@@ -188,212 +189,224 @@ const TalentRegister = () => {
   };
   return (
     <>
-      <div>
         <h1>Registrar Talento</h1>
-        <Form onSubmit={handleSubmit}>
-          <div>
-            <Form.Control
-              type="text"
-              name="dni"
-              value={dni}
-              onChange={handleChange}
-              placeholder="DNI/NIE/Pasaporte"
-              maxLength="25"
-            />
-            <Form.Control
-              type="text"
-              name="name"
-              value={name}
-              onChange={handleChange}
-              placeholder="Nombre"
-              maxLength="25"
-            />
-            <Form.Control
-              type="text"
-              name="surnames"
-              value={surnames}
-              onChange={handleChange}
-              placeholder="Apellidos"
-              maxLength="50"
-            />
-            <Form.Control
-              className="no-spinners"
-              type="number"
-              name="telephone"
-              value={telephone}
-              onChange={handleChange}
-              placeholder="Teléfono"
-              maxLength="9"
-            />
-            <Form.Control
-              type={dateInputType}
-              name="birthdate"
-              value={birthdate}
-              onChange={handleChange}
-              placeholder="Fecha de nacimiento"
-              onFocus={() => setDateInputType("date")}
-              onBlur={() => setDateInputType("text")}
-            />
-            <Form.Control
-              type="text"
-              name="education"
-              value={education}
-              onChange={handleChange}
-              placeholder="Formación"
-              maxLength="150"
-            />
+      <section className="tr">
+
+        <article>
+          <img src={foto10} alt="" />
+        </article>
+
+        <div>
+          <Form onSubmit={handleSubmit}>
             <div>
-              <h3>Habilidades</h3>
-              <div className="inputButtonContainer">
-                <Form.Control
-                  type="text"
-                  name="skills"
-                  value={inputSkill}
-                  onChange={handleInputSkillChange}
-                  placeholder="Añadir una habilidad"
-                  maxLength="25"
+              <Form.Control
+                type="text"
+                name="dni"
+                value={dni}
+                onChange={handleChange}
+                placeholder="DNI/NIE/Pasaporte"
+                maxLength="25"
                 />
-                <Button variant="primary" type="button" onClick={addSkill}>
-                  +
-                </Button>
+              <Form.Control
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                placeholder="Nombre"
+                maxLength="25"
+                />
+              <Form.Control
+                type="text"
+                name="surnames"
+                value={surnames}
+                onChange={handleChange}
+                placeholder="Apellidos"
+                maxLength="50"
+                />
+            </div>
+
+              <div>
+
+              <Form.Control
+                className="no-spinners"
+                type="number"
+                name="telephone"
+                value={telephone}
+                onChange={handleChange}
+                placeholder="Teléfono"
+                maxLength="9"
+                />
+              <Form.Control
+                type={dateInputType}
+                name="birthdate"
+                value={birthdate}
+                onChange={handleChange}
+                placeholder="Fecha de nacimiento"
+                onFocus={() => setDateInputType("date")}
+                onBlur={() => setDateInputType("text")}
+              />
+              <Form.Control
+                type="text"
+                name="education"
+                value={education}
+                onChange={handleChange}
+                placeholder="Formación"
+                maxLength="150"
+              />
               </div>
-              <div className="addedFieledContainer">
-                {skills.map((skill, index) => (
-                  <span
+
+                <h3>Habilidades</h3>
+                <div className="inputButtonContainer">
+                  <Form.Control
+                    type="text"
+                    name="skills"
+                    value={inputSkill}
+                    onChange={handleInputSkillChange}
+                    placeholder="Añadir una habilidad"
+                    maxLength="25"
+                    />
+                  <Button variant="primary" type="button" onClick={addSkill}>
+                    +
+                  </Button>
+                </div>
+                <div className="addedFieledContainer">
+                  {skills.map((skill, index) => (
+                    <span
                     key={index}
                     className="addedFormField"
                     onClick={() => removeSkill(index)}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+            
 
-            <div>
-              <h3>Intereses</h3>
-              <div className="inputButtonContainer">
+              <div>
+                <h3>Intereses</h3>
+                <div className="inputButtonContainer">
+                  <Form.Control
+                    type="text"
+                    name="interests"
+                    value={inputInterest}
+                    onChange={handleInputInterestChange}
+                    placeholder="Interests"
+                    maxLength="25"
+                  />
+                  <Button variant="primary" type="button" onClick={addInterest}>
+                    +
+                  </Button>
+                </div>
+                <div className="addedFieledContainer">
+                  {interests.map((interest, index) => (
+                    <span
+                      key={index}
+                      className="addedFormField"
+                      onClick={() => removeInterest(index)}
+                    >
+                      {interest}
+                    </span>
+                  ))}
+                </div>
+              
+            </div>
+              <div>
+                <h3>Idiomas</h3>
+                <div className="addedFieledContainer">
+                  {languages.map(
+                    (language, index) =>
+                      (language.language || language.proficiency) && (
+                        <span
+                          key={index}
+                          className="addedFormField"
+                          onClick={() => removeLanguage(index)}
+                        >
+                          {language.language && language.proficiency
+                            ? `${language.language} (${language.proficiency})`
+                            : language.language || language.proficiency}
+                        </span>
+                      )
+                  )}
+                </div>
+
                 <Form.Control
                   type="text"
-                  name="interests"
-                  value={inputInterest}
-                  onChange={handleInputInterestChange}
-                  placeholder="Interests"
+                  name="language"
+                  value={inputLanguage.language}
+                  onChange={handleInputLanguageChange}
+                  placeholder="Language"
                   maxLength="25"
                 />
-                <Button variant="primary" type="button" onClick={addInterest}>
-                  +
-                </Button>
-              </div>
-              <div className="addedFieledContainer">
-                {interests.map((interest, index) => (
-                  <span
-                    key={index}
-                    className="addedFormField"
-                    onClick={() => removeInterest(index)}
-                  >
-                    {interest}
-                  </span>
-                ))}
-              </div>
-            </div>
 
-            <div>
-              <h3>Idiomas</h3>
-              <div className="addedFieledContainer">
-                {languages.map(
-                  (language, index) =>
-                    (language.language || language.proficiency) && (
-                      <span
-                        key={index}
-                        className="addedFormField"
-                        onClick={() => removeLanguage(index)}
-                      >
-                        {language.language && language.proficiency
-                          ? `${language.language} (${language.proficiency})`
-                          : language.language || language.proficiency}
-                      </span>
-                    )
-                )}
-              </div>
-
-              <Form.Control
-                type="text"
-                name="language"
-                value={inputLanguage.language}
-                onChange={handleInputLanguageChange}
-                placeholder="Language"
-                maxLength="25"
-              />
-
-              <div className="inputButtonContainer">
-                <Form.Control
-                  as="select"
-                  name="proficiency"
-                  value={inputLanguage.proficiency}
-                  onChange={handleInputLanguageChange}
-                  placeholder="Nivel"
+                <div className="inputButtonContainer">
+                  <Form.Control
+                    as="select"
+                    name="proficiency"
+                    value={inputLanguage.proficiency}
+                    onChange={handleInputLanguageChange}
+                    placeholder="Nivel"
                   // required
-                >
-                  <option value="">Nivel</option>
-                  {languageLevels.map((type, index) => (
-                    <option key={index} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </Form.Control>
-                <Button
-                  variant="primary"
-                  type="button"
-                  onClick={handleAddLanguage}
-                >
-                  +
-                </Button>
-              </div>
+                  >
+                    <option value="">Nivel</option>
+                    {languageLevels.map((type, index) => (
+                      <option key={index} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </Form.Control>
+                  <Button
+                    variant="primary"
+                    type="button"
+                    onClick={handleAddLanguage}
+                  >
+                    +
+                  </Button>
+              
+                  </div>
+              <Form.Control
+                as="textarea"
+                rows={4}
+                name="aboutTheTalent"
+                value={aboutTheTalent}
+                onChange={handleChange}
+                placeholder="Sobre ti"
+                maxLength="5500"
+              />
+              <Form.Control
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Correo electrónico"
+                maxLength="75"
+                required
+              />
+              <Form.Control
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Constraseña"
+                required
+                maxLength="50"
+              />
+              <Form.Control
+                type="password"
+                name="password2"
+                value={password2}
+                onChange={handleChange}
+                placeholder="Confirma la contraseña"
+                required
+                maxLength="50"
+              />
             </div>
-
-            <Form.Control
-              as="textarea"
-              rows={4}
-              name="aboutTheTalent"
-              value={aboutTheTalent}
-              onChange={handleChange}
-              placeholder="Sobre ti"
-              maxLength="5500"
-            />
-            <Form.Control
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-              placeholder="Correo electrónico"
-              maxLength="75"
-              required
-            />
-            <Form.Control
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleChange}
-              placeholder="Constraseña"
-              required
-              maxLength="50"
-            />
-            <Form.Control
-              type="password"
-              name="password2"
-              value={password2}
-              onChange={handleChange}
-              placeholder="Confirma la contraseña"
-              required
-              maxLength="50"
-            />
-          </div>
-          <button className="talent" variant="primary" type="submit">
-            Register Talent
-          </button>
-        </Form>
-      </div>
+            <button className="talent" variant="primary" type="submit">
+              Registrar Talento
+            </button>
+          </Form>
+        </div>
+                
+      </section>
     </>
   );
 };

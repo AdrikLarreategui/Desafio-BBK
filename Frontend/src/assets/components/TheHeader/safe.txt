@@ -1,0 +1,262 @@
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutTalent } from "../../redux/auth/talentAuthSlice";
+import { logoutCompany } from "../../redux/auth/companyAuthSlice";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Container,
+} from "react-bootstrap";
+
+import "./TheHeader.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const logo = "/images/LOGO_BBK_Talent_Job.png"; // Ensure this path is correct and accessible
+
+const TheHeader = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user: talentUser } = useSelector((state) => state.talentAuth);
+  const { user: companyUser } = useSelector((state) => state.companyAuth);
+  const [text, setText] = useState("");
+
+  const onLogout = (event) => {
+    event.preventDefault();
+    if (talentUser) dispatch(logoutTalent());
+    if (companyUser) dispatch(logoutCompany());
+    navigate("/login");
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+    if (e.key === "Enter") {
+      navigate(`/search/${text}`);
+    }
+  };
+
+  const isLoggedIn = !!talentUser || !!companyUser;
+
+  return (
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="light"
+      variant="light"
+      sticky="top"
+      className="navigationBarMain"
+    >
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <img
+            src={logo}
+            width="140"
+            className="d-inline-block align-center"
+            alt="BBK Talent Job logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          style={{ width: "90px" }}
+        />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            {isLoggedIn ? (
+              <>
+                {talentUser && (
+                  <>
+                    <Nav.Link as={Link} to="/profile" className="navText">
+                      Perfil
+                    </Nav.Link>
+                    <Nav.Link onClick={onLogout} className="navText">
+                      Logout
+                    </Nav.Link>
+                    <NavDropdown
+                      title="Recursos"
+                      id="career-resources-dropdown"
+                    >
+                      <NavDropdown.Item
+                        className="text-center navText"
+                        as={Link}
+                        to="/events"
+                      >
+                        Eventos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        className="text-center navText"
+                        as={Link}
+                        to="/guides"
+                      >
+                        Guías
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        className="text-center navText"
+                        as={Link}
+                        to="/courses"
+                      >
+                        Cursos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        className="text-center navText"
+                        as={Link}
+                        to="/articles"
+                      >
+                        Artículos
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown
+                      className="text-center"
+                      title="Talento"
+                      id="basic-nav-dropdown"
+                    >
+                      <NavDropdown.Item
+                        as={Link}
+                        to="/offers"
+                        className="navText"
+                      >
+                        Descubre ofertas
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </>
+                )}
+                {companyUser && (
+                  <>
+                    <Nav.Link
+                      className="navText"
+                      as={Link}
+                      to="/company/profile"
+                    >
+                      Perfil
+                    </Nav.Link>
+                    <Nav.Link className="navText" onClick={onLogout}>
+                      Logout
+                    </Nav.Link>
+                    <Nav.Link
+                      className="navText"
+                      as={Link}
+                      to="/company/createOffer"
+                    >
+                      Post Offer
+                    </Nav.Link>
+                    <NavDropdown
+                      title="Organizaciones"
+                      id="basic-nav-dropdown-org"
+                    >
+                      <NavDropdown.Item
+                        className="navText"
+                        as={Link}
+                        to="/companies"
+                      >
+                        Explora perfiles
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        className="navText"
+                        as={Link}
+                        to={
+                          companyUser ? "/company/profile" : "/company/register"
+                        }
+                      >
+                        {companyUser ? "Profile" : "Inscríbete"}
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </>
+                )}
+                {/* <NavDropdown title="Talento" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to="/offers">
+                    Descubre ofertas
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={talentUser ? "/profile" : "/talent/register"}
+                  >
+                    {talentUser ? "Profile" : "Inscríbete"}
+                  </NavDropdown.Item>
+                </NavDropdown> */}
+              </>
+            ) : (
+              <>
+                <NavDropdown title="Talento" id="basic-nav-dropdown">
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to="/offers"
+                  >
+                    Descubre ofertas
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={talentUser ? "/profile" : "/talent/register"}
+                    className="text-center navText"
+                  >
+                    {talentUser ? "Profile" : "Inscríbete"}
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Organizaciones" id="basic-nav-dropdown-org">
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/companies"
+                    className="text-center navText"
+                  >
+                    Explora perfiles
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to={companyUser ? "/company/profile" : "/company/register"}
+                  >
+                    {companyUser ? "Profile" : "Inscríbete"}
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Recursos" id="career-resources-dropdown">
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to="/events"
+                  >
+                    Eventos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to="/guides"
+                  >
+                    Guías
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to="/courses"
+                  >
+                    Cursos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-center navText"
+                    as={Link}
+                    to="/articles"
+                  >
+                    Artículos
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            )}
+          </Nav>
+          {!isLoggedIn && (
+            <Nav className="ml-auto">
+              <Nav.Link className="navText" as={Link} to="/login">
+                Login
+              </Nav.Link>
+              <Nav.Link className="navText" as={Link} to="/register">
+                Register
+              </Nav.Link>
+            </Nav>
+          )}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default TheHeader;

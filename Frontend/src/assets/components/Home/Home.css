@@ -1,85 +1,78 @@
 button {
-
-    /* border-radius: 5%; */
+  /* border-radius: 5%; */
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 h1,
 h2 {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    font-weight: bold;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-weight: bold;
 }
 
 p {
-    padding: 15px;
+  padding: 15px;
 }
 
-
 .firstSection {
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .firstSection article {
-    flex: 1;
-    width: 50%;
-    padding: 15px;
+  flex: 1;
+  width: 50%;
+  padding: 15px;
 }
 
 .firstSection article p {
-    font-size: larger;
+  font-size: larger;
 }
 
-
 .buttons {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .talent {
-    background-color: #DF5E5E;
-    color: #FFFFFF;
-    font-weight: bold;
+  background-color: #df5e5e;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .company {
-    background-color: #70AF8B;
-    color: #FFFFFF;
-    font-weight: bold;
+  background-color: #70af8b;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .secondSection {
-    display: flex;
-    flex-direction: row;
-    /*  background-color: #d3d6d8; */
+  display: flex;
+  flex-direction: row;
+  /*  background-color: #d3d6d8; */
 }
 
 .secondSection article {
-    width: 50%;
-    border-radius: 1px solid green;
+  width: 50%;
+  border-radius: 1px solid green;
 }
 
 .secondSection article img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .thirdSection {
-    display: flex;
-    padding-top: 100px;
-
+  display: flex;
+  padding-top: 100px;
 }
 
-
 .foto3 {
-    margin-left: 0;
-
+  margin-left: 0;
 }

@@ -1,18 +1,19 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Register.css"
 
 const Register = () => {
   return (
     <div>
-      <h1>Registro</h1>
+      <h2 className="h2reg">Registro</h2>
       <div>
-        <Button as={Link} to="/talent/register" variant="primary">
+        <button className="talent" as={Link} to="/talent/register" variant="primary">
           Talento
-        </Button>
-        <Button as={Link} to="/company/register" variant="primary">
+        </button>
+        <button className="company" as={Link} to="/company/register" variant="primary">
           Empresa
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -1,19 +1,46 @@
 .register-container {
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(184, 181, 181);
-  }
-  .register-container-element {
-    margin: 10px;
-  }
-  .register-container-button {
-    margin: 10px;
-    width: auto;
-  }
-input{
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(184, 181, 181);
+}
+
+.register-container-element {
+  margin: 10px;
+}
+
+.register-container-button {
+  margin: 10px;
+  width: auto;
+}
+
+input {
 
   background-color: #FFFFFF;
   color: #455057;
+}
+
+.h2reg {
+
+  margin-top: 35px;
+
+  text-decoration: underline;
+  text-decoration-color: #455057;
+
+
+}
+
+.talent {
+  background-color: #DF5E5E;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.company {
+  background-color: #70AF8B;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 15px;
 }

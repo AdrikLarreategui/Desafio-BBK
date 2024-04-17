@@ -81,6 +81,10 @@ section.tr {
 
 h2.tr {
   margin-top: 35px;
+
+  text-decoration: underline;
+  text-decoration-color: #DF5E5E;
+
 }
 
 

@@ -48,35 +48,36 @@ const LoginCompany = () => {
   };
 
   return (
-<>
-<section className="loginCompany">
+    <>
+      <h2 className="lc">Login Company</h2>
+      <section className="loginCompany">
 
-<article>
-  <img src={foto8} alt="" />
-</article>
-<div>
-  <form onSubmit={onSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          value={email}
-          onChange={onChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="password"
-          onChange={onChange}
-          required
-        />
-        <button className="company" type="submit">Login</button>
-      </form>
+        <article>
+          <img src={foto8} alt="" />
+        </article>
+        <div>
+          <form onSubmit={onSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={onChange}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="password"
+              onChange={onChange}
+              required
+            />
+            <button className="company" type="submit">Login</button>
+          </form>
         </div>
-</section>
-</>
+      </section>
+    </>
   );
 };
 

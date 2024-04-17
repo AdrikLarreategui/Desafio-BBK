@@ -40,7 +40,11 @@ section.cr {
     flex-direction: colu
 }
 
-h2.cr {
+.h2cr {
+
+    margin-top: 35px;
+    text-decoration: underline;
+    text-decoration-color: #70AF8B;
     margin-top: 35px;
 }
 

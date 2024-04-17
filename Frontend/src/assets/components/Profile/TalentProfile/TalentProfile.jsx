@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 //import { talentUser } from "../../../redux/auth/talentAuthSlice"
 const foto12 = "../images/foto12.jpg"
+import "./TalentProfile.css"
 const TalentProfile = () => {
 
     // const { talentUser } = useSelector((state) => state.talentAuth);
@@ -9,40 +10,37 @@ const TalentProfile = () => {
 
     return (
         <>
+            <h2 className="h2tp">
+                Datos personales
+            </h2>
             <section className="tp">
-                <article>
+                <article className="fototp">
                     <img src={foto12} alt="" />
                 </article>
                 <article>
-                    <h2>
-                        Datos personales
-                    </h2>
                     <p>
-                        email: {talentUser.email}
+                        Email: {talentUser.email}
                     </p>
                     <p>
-                        password
+                        Apellido: {talentUser.surnames}
                     </p>
                     <p>
-                        surnames: {talentUser.surnames}
+                        Teléfono: {talentUser.telephone}
                     </p>
                     <p>
-                        {talentUser.telephone}
+                        Fecha de nacimiento: {talentUser.birthdate}
                     </p>
                     <p>
-                        {talentUser.birthdate}
+                        Dirección: {talentUser.streetAddress}
                     </p>
                     <p>
-                        {talentUser.streetAddress}
+                        Ciudad: {talentUser.city}
                     </p>
                     <p>
-                        {talentUser.city}
+                        Código postal: {talentUser.postalCode}
                     </p>
                     <p>
-                        código postal : {talentUser.postalCode}
-                    </p>
-                    <p>
-                        Formación : {talentUser.education}
+                        Formación: {talentUser.education}
                     </p>
                     <p>
                         Idiomas :
@@ -54,12 +52,6 @@ const TalentProfile = () => {
                             </span>
                         ))}
 
-
-                        {/*
-                         {talentUser.languages}
-                        {talentUser.languages.language}
-                        {talentUser.languages.proficiency}
-                    */}
                     </p>
                     <p>Skills: {talentUser.skills.map((skill, index) => (
 
@@ -70,18 +62,18 @@ const TalentProfile = () => {
                         </span>
 
                     ))}</p>
-                    <p>Intereses: 
-                        {talentUser.interests.map((interest, index)=>(
+                    <p>Intereses:
+                        {talentUser.interests.map((interest, index) => (
                             <span key={index}>
                                 <p>
-                                {interest}
+                                    {interest}
                                 </p>
                             </span>
 
                         ))}</p>
                     <p>Sobre mí: {talentUser.aboutTheTalent}</p>
 
-                {/* //SACAR FOTO DE CLOUDINARY */}
+                    {/* //SACAR FOTO DE CLOUDINARY */}
                     {/* <p>{talentUser.profileImg}</p> */}
                     {/*                     <p>Ofertas guardadas: {talentUser.likedOffers}</p>
                     

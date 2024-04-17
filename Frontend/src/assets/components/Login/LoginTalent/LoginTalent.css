@@ -18,10 +18,24 @@ button.talent {
     max-width: 80%;
 }
 
+.loginTalent>article {
+
+    max-width: 60%;
+}
+
 .loginTalent {
 
     padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+h2.lt{
+        text-decoration: underline;
+        text-decoration-color: #DF5E5E;
+}
+
 
 @media (min-width: 768px) {
     .loginTalent {

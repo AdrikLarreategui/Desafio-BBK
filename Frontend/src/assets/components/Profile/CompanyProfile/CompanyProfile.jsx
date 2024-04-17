@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 //import {  } from "../../../redux/auth/companyAuthSlice"
+import "./CompanyProfile.css"
+const foto13 = "../images/foto13.jpg"
 
 const CompanyProfile = () => {
 
@@ -8,16 +10,19 @@ const CompanyProfile = () => {
 
     return (
         <>
-            <section>
-                <article>
                     <h2>
-                        Datos personales
+                        Datos de la organización
                     </h2>
+            <section className='cp'>
+                <article>
+                    <img src={foto13} alt="" />
+                </article>
+                <article>
                     <p>
                         email: {companyUser.email}
                     </p>
                     <p>
-                        CIF: {companyUser.CIF}
+                        CIF: {companyUser.cif}
                     </p>
                     <p>
                         Número de teléfono: {companyUser.telephoneNumber}

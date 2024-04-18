@@ -284,7 +284,8 @@ const UpdateTalent = () => {
                                 maxLength="9"
                             />
                             <Form.Control
-                                type={dateInputType}
+                                type="date"
+                                //{dateInputType}
                                 name="birthdate"
                                 value={user.birthdate}
                                 onChange={handleChange}
@@ -304,14 +305,14 @@ const UpdateTalent = () => {
 
                         <h3>Habilidades</h3>
                         <div className="inputButtonContainer">
-                            {/*      <Form.Control
+                            <Form.Control
                                 type="text"
                                 name="skills"
-                                value={user.kills}
+                                value={user.skills}
                                 onChange={handleInputSkillChange}
                                 placeholder="Añadir una habilidad"
                                 maxLength="25"
-                            /> */}
+                            />
                             <Button variant="primary" type="button" onClick={addSkill}>
                                 +
                             </Button>
@@ -448,7 +449,7 @@ const UpdateTalent = () => {
                             />
                         </div>
                         <button className="talent" variant="primary" type="submit">
-                            Inscribirme
+                            Editar perfil
                         </button>
                     </Form>
                 </div>

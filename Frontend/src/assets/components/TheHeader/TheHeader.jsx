@@ -6,6 +6,10 @@ import { logoutTalent } from "../../redux/auth/talentAuthSlice";
 import { logoutCompany } from "../../redux/auth/companyAuthSlice";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 
+const logo = "/images/LOGO_BBK_Talent_Job.png";
+const defaultProfileImage = "/images/profile-pic.JPG";
+
+import "./TheHeader.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const TheHeader = () => {
@@ -14,13 +18,20 @@ const TheHeader = () => {
   const { user: talentUser } = useSelector((state) => state.talentAuth);
   const { user: companyUser } = useSelector((state) => state.companyAuth);
 
+  // const userCompany = JSON.parse(localStorage.getItem("talentUser"));
+
   const [text, setText] = useState("");
+
+  const { isLoading } = useSelector((state) => state.talentAuth);
 
   const onLogout = (event) => {
     event.preventDefault();
-    // (talentUser && logoutTalent()) || companyUser(dispatch(logoutCompany()));
-
-    dispatch(logoutTalent()) && dispatch(logoutCompany())
+    if (talentUser) {
+      dispatch(logoutTalent());
+    }
+    if (companyUser) {
+      dispatch(logoutCompany());
+    }
 
     navigate("/login");
   };
@@ -31,6 +42,53 @@ const TheHeader = () => {
       navigate(`/search/${text}`);
     }
   };
+  const [imageSrc, setImageSrc] = useState(defaultProfileImage);
+  const [nameInProfile, setNameInProfile] = useState("Hello, User!");
+
+  const profileNavImage = () => {
+    let user;
+    if (talentUser) {
+      user = talentUser;
+    } else if (companyUser) {
+      user = companyUser;
+    }
+
+    return user && user.profileImg ? user.profileImg : defaultProfileImage;
+  };
+
+  // useEffect(() => {
+  //   let user;
+  //   if (talentUser) {
+  //     user = talentUser;
+  //     setNameInProfile(user.name);
+  //   } else if (companyUser) {
+  //     user = companyUser;
+  //     setNameInProfile(user.companyName);
+  //   }
+  //   if (user && user.profileImg) {
+  //     setImageSrc(user.profileImg);
+  //   }
+  //   if (user && !user.profileImg) {
+  //     setImageSrc(defaultProfileImage);
+  //   }
+  // }, [talentUser, companyUser]);
+
+  useEffect(() => {
+    let activeUser = talentUser || companyUser;
+    let profileName = "Hello, User!";
+    let profileImage = defaultProfileImage;
+
+    const routeToImg = "user.profileImg";
+    console.log(activeUser);
+
+    if (activeUser) {
+      profileName = activeUser.name || activeUser.companyName;
+      profileImage = activeUser.profileImg || defaultProfileImage;
+    }
+
+    setNameInProfile(profileName);
+    setImageSrc(profileImage);
+  }, [talentUser, companyUser]);
 
   // const isAdmin = user?.role === 'admin'
   // const [hover, setHover] = useState(false);
@@ -41,20 +99,67 @@ const TheHeader = () => {
     <nav>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand as={Link} to="/">
-          BBK Talent Job
+          <img
+            src={logo}
+            width="140"
+            className="d-inline-block align-center"
+            alt="BBK Talent Job logo"
+          />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          className="text-center"
+          style={{ width: "90px" }}
+        />
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="navigationBarMain"
+        >
           <Nav>
             {isLoggedIn ? (
               <>
                 {talentUser && (
                   <>
-                    <Nav.Link as={Link} to="/profile">
-                      Profile
-                    </Nav.Link>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        padding: "0",
+                        margin: "0",
+                      }}
+                    >
+                      <Nav.Link
+                        style={{ display: "flex", alignItems: "baseline" }}
+                        as={Link}
+                        to="/profile"
+                      >
+                        <div className="navImageContainer">
+                          <img
+                            // src={profileNavImage()}
+                            src={imageSrc}
+                            className="d-inline-block align-center"
+                            alt="profile-img"
+                            style={{
+                              borderRadius: "50%",
+                              width: "30px",
+                              height: "30px",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
+                        <span style={{ marginLeft: "1px" }}>
+                          {" "}
+                          <strong>{nameInProfile}</strong>
+                        </span>
+                      </Nav.Link>
+                    </div>
+
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
-                    <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                    <NavDropdown
+                      className="text-center"
+                      title="Recursos"
+                      id="navbarScrollingDropdown"
+                    >
                       <NavDropdown.Item as={Link} to="/">
                         Eventos
                       </NavDropdown.Item>
@@ -69,9 +174,13 @@ const TheHeader = () => {
                       </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown
+                      className="text-center"
                       title="Career Assistant"
                       id="navbarScrollingDropdown"
                     >
+                      <NavDropdown.Item as={Link} to="/offers">
+                        Descubre ofertas
+                      </NavDropdown.Item>
                       <NavDropdown.Item as={Link} to="/">
                         Revisión CV
                       </NavDropdown.Item>
@@ -79,22 +188,39 @@ const TheHeader = () => {
                         Entrevista career
                       </NavDropdown.Item>
                     </NavDropdown>
-                    <Form inline>
-                      <FormControl
-                        type="text"
-                        placeholder="Buscar ofertas"
-                        className="mr-sm-2"
-                        onKeyUp={handleChange}
-                      />
-                    </Form>
+                    <Nav.Link as={Link} to="/offers">
+                      Descubre ofertas
+                    </Nav.Link>
                   </>
                 )}
 
                 {companyUser && (
                   <>
-                    <Nav.Link as={Link} to="/company/profile">
-                      Perfil de la organización
-                    </Nav.Link>
+                    <div>
+                      <Nav.Link
+                        style={{ display: "flex", alignItems: "baseline" }}
+                        as={Link}
+                        to="/company/profile"
+                      >
+                        <div className="navImageContainer">
+                          <img
+                            src={profileNavImage()}
+                            className="d-inline-block align-center"
+                            alt="profile-img"
+                            style={{
+                              borderRadius: "50%",
+                              width: "30px",
+                              height: "30px",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
+                        <span style={{ marginLeft: "1px" }}>
+                          <strong>{companyUser.companyName}</strong>
+                        </span>
+                      </Nav.Link>
+                    </div>
+
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
                       Redactar oferta de trabajo
@@ -111,12 +237,11 @@ const TheHeader = () => {
                   <NavDropdown.ItemText>
                     ¿Por qué BBK Talent Job?
                   </NavDropdown.ItemText>
+
                   <NavDropdown.Item as={Link} to="/offers">
                     Descubre ofertas
                   </NavDropdown.Item>
-                  {/* {<NavDropdown.Item >
-                  href={user ? "/talent/offers}
-                  {</NavDropdown.Item>} */}
+
                   <NavDropdown.Item
                     as={Link}
                     to={talentUser ? "/profile" : "/talent/register"}
@@ -124,7 +249,10 @@ const TheHeader = () => {
                     {talentUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown title="Organizaciones" id="navbarScrollingDropdown">
+                <NavDropdown
+                  title="Organizaciones"
+                  id="navbarScrollingDropdown"
+                >
                   <NavDropdown.ItemText>
                     ¿Por qué elegir BBK Talent Job para organizaciones?
                   </NavDropdown.ItemText>
@@ -137,12 +265,18 @@ const TheHeader = () => {
                   >
                     {companyUser ? "Profile" : "Inscríbete"}
                   </NavDropdown.Item>
+                </NavDropdown>
 
-                    </NavDropdown>
-                  
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
+                {!isLoggedIn && (
+                  <Nav className="ml-auto">
+                    <Nav.Link className="navText" as={Link} to="/login">
+                      Login
+                    </Nav.Link>
+                    <Nav.Link className="navText" as={Link} to="/register">
+                      Register
+                    </Nav.Link>
+                  </Nav>
+                )}
               </>
             )}
           </Nav>

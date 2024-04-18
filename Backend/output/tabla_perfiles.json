@@ -7,64 +7,11 @@
     "education": [],
     "interests": [],
     "awards": [],
-    "aboutTheTalent": "Patatas",
     "likedOffers": [],
     "appliedOffers": [],
     "skills": [],
     "__v": 0,
-    "languages": [],
-    "createdAt": "2024-04-13T18:41:16.839Z",
-    "updatedAt": "2024-04-13T18:41:16.839Z"
-  },
-  {
-    "_id": "661bf562827c71f2e7133d77",
-    "email": "Prueba@Prueba.com",
-    "role": "talent",
-    "name": "Prueba",
-    "surnames": "Prueba",
-    "telephone": 111111111,
-    "birthdate": "2001-01-01T00:00:00.000Z",
-    "education": [
-      "Prueba"
-    ],
-    "languages": [],
-    "skills": [
-      "trabajo bajo presión",
-      "Prueba"
-    ],
-    "interests": [
-      "Música",
-      "Prueba"
-    ],
-    "awards": [],
-    "aboutTheTalent": "Prueba",
-    "likedOffers": [],
-    "appliedOffers": [],
-    "createdAt": "2024-04-14T15:25:22.795Z",
-    "updatedAt": "2024-04-14T15:25:22.795Z",
-    "__v": 0
-  },
-  {
-    "_id": "661d0ff592ad3be21453708f",
-    "email": "prueba1@gmail.com",
-    "role": "talent",
-    "name": "prueba1",
-    "surnames": "prueba1",
-    "telephone": 222222222,
-    "birthdate": "2002-02-02T00:00:00.000Z",
-    "education": [
-      "prueba1"
-    ],
-    "languages": [],
-    "skills": [],
-    "interests": [],
-    "awards": [],
-    "aboutTheTalent": "",
-    "likedOffers": [],
-    "appliedOffers": [],
-    "createdAt": "2024-04-15T11:31:01.273Z",
-    "updatedAt": "2024-04-17T16:44:56.213Z",
-    "__v": 10
+    "languages": []
   },
   {
     "_id": "660a759d0029f133e7a8a020",
@@ -74,7 +21,6 @@
     "education": [],
     "interests": [],
     "awards": [],
-    "aboutTheTalent": "Licenciada en Filosofía. Busco mi primer empleo en áreas como Recursos Humanos, Logística o Administración. Trabajo muy bien en equipo.",
     "likedOffers": [],
     "appliedOffers": [],
     "skills": [],

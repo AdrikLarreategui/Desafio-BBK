@@ -41,11 +41,7 @@ function App() {
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
-<<<<<<< HEAD
           <Route path="/offer/:id" element={<OfferDetail />} />
-
-=======
->>>>>>> dev-production
           {/*     <Route
             path="/talent/profile"
             element={
@@ -65,7 +61,6 @@ function App() {
           <Route path="/talent/profile" element={<TalentProfile />} />
           <Route path="/talent/update" element={<UpdateTalent />} />
           <Route path="/company/profile" element={<CompanyProfile />} />
-
           <Route
             path="/admin"
             element={

@@ -522,5 +522,41 @@
     "createdAt": "2024-04-16T11:26:39.664Z",
     "updatedAt": "2024-04-16T15:40:04.800Z",
     "__v": 4
+  },
+  {
+    "_id": "66214ae4d941e8f155341ac8",
+    "email": "gotitxu@hotmail.com",
+    "role": "talent",
+    "name": "Olatz",
+    "surnames": "Goti",
+    "telephone": 620801984,
+    "birthdate": "1986-06-27T00:00:00.000Z",
+    "education": [
+      "carrera"
+    ],
+    "languages": [
+      {
+        "language": "inglés",
+        "proficiency": "Intermedio-Alto",
+        "_id": "66214ae4d941e8f155341ac9"
+      }
+    ],
+    "skills": [
+      "a",
+      "b",
+      "c"
+    ],
+    "interests": [
+      "a",
+      "b",
+      "c"
+    ],
+    "awards": [],
+    "aboutTheTalent": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "likedOffers": [],
+    "appliedOffers": [],
+    "createdAt": "2024-04-18T16:31:32.873Z",
+    "updatedAt": "2024-04-18T16:36:32.140Z",
+    "__v": 1
   }
 ]

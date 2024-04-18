@@ -8,6 +8,7 @@ const registerTalent = async (userData) => {
 };
 
 const updateTalent = async(userData) =>{
+  const talentToken = JSON.parse(localStorage.getItem("talentToken"));
   const res = await axios.put(`${API_URL}/talents/update/${id}`, userData, 
 {
     headers: {

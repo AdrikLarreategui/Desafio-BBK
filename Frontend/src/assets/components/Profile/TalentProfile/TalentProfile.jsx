@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //import { talentUser } from "../../../redux/auth/talentAuthSlice"
 const foto12 = "../images/foto12.jpg"
 const edit = "../images/edit.png"
@@ -7,11 +7,16 @@ import "./TalentProfile.css"
 import UpdateTalent from "../UpdateTalentProfil/UpdateTalentProfile";
 import { useNavigate } from "react-router-dom";
 
+
 const TalentProfile = () => {
 
     const navigate = useNavigate()
     const { user } = useSelector((state) => state.talentAuth);
     //const talentUser = JSON.parse(localStorage.getItem('talentUser'))
+
+
+
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -49,7 +54,7 @@ const TalentProfile = () => {
                     </p>
                     <p>
                         Idiomas :
-                        {user.languages.map((language, index) => (
+                        {user && user.languages.map((language, index) => (
                             <span key={index}>
                                 <p>
                                     {language.language} ({language.proficiency})
@@ -58,7 +63,7 @@ const TalentProfile = () => {
                         ))}
 
                     </p>
-                    <p>Skills: {user.skills.map((skill, index) => (
+                    <p>Skills: {user && user.skills.map((skill, index) => (
 
                         <span key={index}>
                             <p>
@@ -68,7 +73,7 @@ const TalentProfile = () => {
 
                     ))}</p>
                     <p>Intereses:
-                        {user.interests.map((interest, index) => (
+                        {user && user.interests.map((interest, index) => (
                             <span key={index}>
                                 <p>
                                     {interest}

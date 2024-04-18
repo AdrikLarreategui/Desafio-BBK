@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { updateTalentProfile, reset } from '../../../redux/auth/talentAuthSlice'
-
 import { useNavigate } from "react-router-dom"
+import { Button, Form } from "react-bootstrap";
+import "./UpdateTalentProfile.css"
+const foto14 = "../images/foto14.jpg"
 
 
 const UpdateTalent = () => {
 
-    const { user } = useSelector((state) => state.auth)
-
+    const { user } = useSelector((state) => state.talentAuth);
+    console.log(user)
     const initialState = {
         dni: user.dni,
         name: user.name,
@@ -19,11 +21,13 @@ const UpdateTalent = () => {
         password: user.password,
         password2: user.password,
         education: user.education,
-        skills: user.skills,
-        interests: talent.interests,
-        languages: talent.languages,
-        aboutTheTalent: talent.aboutTheTalent,
-    } = formData;
+        /*  skills: user.skills,
+         interests: user.interests,
+         languages: user.languages, */
+        aboutTheTalent: user.aboutTheTalent,
+    }
+
+    const [formData, setFormData] = useState(initialState)
 
     const { isSuccess, message, isError } = useSelector(
         (state) => state.talentAuth
@@ -40,14 +44,23 @@ const UpdateTalent = () => {
 
 
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    /*    const handleChange = (e) => {
+           const { name, value } = e.target;
+   
+           setFormData({
+               ...formData,
+               [name]: value,
+           });
+       }; */
 
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    const handleChange = (e) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+
+
 
     const handleFieldChange = (field, index, property, e) => {
         const newValue = [...formData[field]];
@@ -159,24 +172,34 @@ const UpdateTalent = () => {
     };
 
     const dispatch = useDispatch()
-    const [form] = Form.useForm()
 
     //    const { isSuccess, message, isError } = useSelector((state) => state.post)
 
     useEffect(() => {
-        const talent = {
-            ...talent,
-        }
-        form.setFieldsValue(talent)
+        setFormData({
+            dni: user.dni,
+            name: user.name,
+            surnames: user.surnames,
+            telephone: user.telephone,
+            birthdate: user.birthdate,
+            email: user.email,
+            password: user.password,
+            password2: user.password,
+            education: user.education,
+            /*   skills: user.skills,
+              interests: user.interests,
+              languages: user.languages, */
+            aboutTheTalent: user.aboutTheTalent,
+        })
     },
-        [post])
+        [user])
 
 
     /*
     if (isSuccess) {
         notification.success(
             {
-                message: 'Post created',
+                message: 'User updated',
                 description: message
             })
     }
@@ -192,19 +215,15 @@ const UpdateTalent = () => {
 [isSuccess, isError, message])
 */
 
-    const token = JSON.parse(localStorage.getItem('token'))
+    //   const token = JSON.parse(localStorage.getItem('token'))
     const navigate = useNavigate()
 
 
-    /*   const handleChange = (e) => {
-            setFormData((prevState) => ({
-                ...prevState,
-                [e.target.name]: e.target.value,
-            }))
-        }
-    */
+
+
+
     const handleSubmit = (values) => {
-        const talentWithId = { ...values, id: talent._id }
+        const talentWithId = { ...values, id: talentUser._id }
         //e.preventDefault()
         //   console.log(postWithId)
         //        console.log(values)
@@ -217,11 +236,11 @@ const UpdateTalent = () => {
     return (
 
         <>
-            <h2 className="tr">Registro del Talent</h2>
-            <section className="tr">
+            <h2 className="tr">Edita tu perfil</h2>
+            <section className="utp">
 
-                <article>
-                    <img src={foto10} alt="" />
+                <article className="fotoUpdate">
+                    <img src={foto14} alt="" />
                 </article>
 
                 <div>
@@ -230,7 +249,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="text"
                                 name="dni"
-                                value={dni}
+                                value={user.dni}
                                 onChange={handleChange}
                                 placeholder="DNI/NIE/Pasaporte"
                                 maxLength="25"
@@ -238,7 +257,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="text"
                                 name="name"
-                                value={name}
+                                value={user.name}
                                 onChange={handleChange}
                                 placeholder="Nombre"
                                 maxLength="25"
@@ -246,7 +265,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="text"
                                 name="surnames"
-                                value={surnames}
+                                value={user.surnames}
                                 onChange={handleChange}
                                 placeholder="Apellidos"
                                 maxLength="50"
@@ -259,7 +278,7 @@ const UpdateTalent = () => {
                                 className="no-spinners"
                                 type="number"
                                 name="telephone"
-                                value={telephone}
+                                value={user.telephone}
                                 onChange={handleChange}
                                 placeholder="Teléfono"
                                 maxLength="9"
@@ -267,7 +286,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type={dateInputType}
                                 name="birthdate"
-                                value={birthdate}
+                                value={user.birthdate}
                                 onChange={handleChange}
                                 placeholder="Fecha de nacimiento"
                                 onFocus={() => setDateInputType("date")}
@@ -276,7 +295,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="text"
                                 name="education"
-                                value={education}
+                                value={user.education}
                                 onChange={handleChange}
                                 placeholder="Formación"
                                 maxLength="150"
@@ -285,20 +304,20 @@ const UpdateTalent = () => {
 
                         <h3>Habilidades</h3>
                         <div className="inputButtonContainer">
-                            <Form.Control
+                            {/*      <Form.Control
                                 type="text"
                                 name="skills"
-                                value={inputSkill}
+                                value={user.kills}
                                 onChange={handleInputSkillChange}
                                 placeholder="Añadir una habilidad"
                                 maxLength="25"
-                            />
+                            /> */}
                             <Button variant="primary" type="button" onClick={addSkill}>
                                 +
                             </Button>
                         </div>
                         <div className="addedFieledContainer">
-                            {skills.map((skill, index) => (
+                            {/*  {user.skills.map((skill, index) => (
                                 <span
                                     key={index}
                                     className="addedFormField"
@@ -306,7 +325,7 @@ const UpdateTalent = () => {
                                 >
                                     {skill}
                                 </span>
-                            ))}
+                            ))} */}
                         </div>
 
 
@@ -326,7 +345,7 @@ const UpdateTalent = () => {
                                 </Button>
                             </div>
                             <div className="addedFieledContainer">
-                                {interests.map((interest, index) => (
+                                {/*   {user.interests.map((interest, index) => (
                                     <span
                                         key={index}
                                         className="addedFormField"
@@ -334,14 +353,14 @@ const UpdateTalent = () => {
                                     >
                                         {interest}
                                     </span>
-                                ))}
+                                ))} */}
                             </div>
 
                         </div>
                         <div>
                             <h3>Idiomas</h3>
                             <div className="addedFieledContainer">
-                                {languages.map(
+                                {/*  {user.languages.map(
                                     (language, index) =>
                                         (language.language || language.proficiency) && (
                                             <span
@@ -354,7 +373,7 @@ const UpdateTalent = () => {
                                                     : language.language || language.proficiency}
                                             </span>
                                         )
-                                )}
+                                )} */}
                             </div>
 
                             <Form.Control
@@ -367,7 +386,7 @@ const UpdateTalent = () => {
                             />
 
                             <div className="inputButtonContainer">
-                                <Form.Control
+                                {/*         <Form.Control
                                     as="select"
                                     name="proficiency"
                                     value={inputLanguage.proficiency}
@@ -381,7 +400,7 @@ const UpdateTalent = () => {
                                             {type}
                                         </option>
                                     ))}
-                                </Form.Control>
+                                </Form.Control> */}
                                 <Button
                                     variant="primary"
                                     type="button"
@@ -395,7 +414,7 @@ const UpdateTalent = () => {
                                 as="textarea"
                                 rows={4}
                                 name="aboutTheTalent"
-                                value={aboutTheTalent}
+                                value={user.aboutTheTalent}
                                 onChange={handleChange}
                                 placeholder="Sobre ti"
                                 maxLength="5500"
@@ -403,7 +422,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="email"
                                 name="email"
-                                value={email}
+                                value={user.email}
                                 onChange={handleChange}
                                 placeholder="Correo electrónico"
                                 maxLength="75"
@@ -412,7 +431,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="password"
                                 name="password"
-                                value={password}
+                                value={user.password}
                                 onChange={handleChange}
                                 placeholder="Constraseña"
                                 required
@@ -421,7 +440,7 @@ const UpdateTalent = () => {
                             <Form.Control
                                 type="password"
                                 name="password2"
-                                value={password2}
+                                value={user.password2}
                                 onChange={handleChange}
                                 placeholder="Confirma la contraseña"
                                 required

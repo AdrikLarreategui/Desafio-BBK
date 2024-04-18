@@ -59,12 +59,11 @@ export const updateTalentProfile = createAsyncThunk("talentAuth/updateProfileTal
 async(formData) =>{
   try{
     return await talentAuthService.updateTalent(formData)
-
   }
 catch(error){
   console.error(error)
-}
-}
+  }
+  }
 )
 
 export const authSlice = createSlice({
@@ -105,8 +104,12 @@ export const authSlice = createSlice({
       .addCase(updateTalentImg.fulfilled, (state, action) => {
         state.user.profileImg = action.payload;
         console.log(action.payload);
-      });
-  },
+
+      })
+      .addCase(updateTalentProfile.fulfilled, (state, action) =>{
+        state.user = action.payload;
+      })
+    },
 });
 
 export const { reset } = authSlice.actions;

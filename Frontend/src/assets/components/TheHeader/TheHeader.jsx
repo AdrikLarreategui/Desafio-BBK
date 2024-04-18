@@ -18,15 +18,20 @@ const TheHeader = () => {
   const { user: talentUser } = useSelector((state) => state.talentAuth);
   const { user: companyUser } = useSelector((state) => state.companyAuth);
 
+  // const userCompany = JSON.parse(localStorage.getItem("talentUser"));
+
   const [text, setText] = useState("");
 
   const { isLoading } = useSelector((state) => state.talentAuth);
 
   const onLogout = (event) => {
     event.preventDefault();
-    // (talentUser && logoutTalent()) || companyUser(dispatch(logoutCompany()));
-
-    dispatch(logoutTalent()) && dispatch(logoutCompany());
+    if (talentUser) {
+      dispatch(logoutTalent());
+    }
+    if (companyUser) {
+      dispatch(logoutCompany());
+    }
 
     navigate("/login");
   };
@@ -50,22 +55,40 @@ const TheHeader = () => {
 
     return user && user.profileImg ? user.profileImg : defaultProfileImage;
   };
-  let user;
+
+  // useEffect(() => {
+  //   let user;
+  //   if (talentUser) {
+  //     user = talentUser;
+  //     setNameInProfile(user.name);
+  //   } else if (companyUser) {
+  //     user = companyUser;
+  //     setNameInProfile(user.companyName);
+  //   }
+  //   if (user && user.profileImg) {
+  //     setImageSrc(user.profileImg);
+  //   }
+  //   if (user && !user.profileImg) {
+  //     setImageSrc(defaultProfileImage);
+  //   }
+  // }, [talentUser, companyUser]);
+
   useEffect(() => {
-    if (talentUser) {
-      user = talentUser;
-      setNameInProfile(user.name);
-    } else if (companyUser) {
-      user = companyUser;
-      setNameInProfile(user.companyName);
+    let activeUser = talentUser || companyUser;
+    let profileName = "Hello, User!";
+    let profileImage = defaultProfileImage;
+
+    const routeToImg = "user.profileImg";
+    console.log(activeUser);
+
+    if (activeUser) {
+      profileName = activeUser.name || activeUser.companyName;
+      profileImage = activeUser.profileImg || defaultProfileImage;
     }
-    if (user && user.profileImg) {
-      setImageSrc(user.profileImg);
-    }
-    if (user && !user.profileImg) {
-      setImageSrc(defaultProfileImage);
-    }
-  }, [user]);
+
+    setNameInProfile(profileName);
+    setImageSrc(profileImage);
+  }, [talentUser, companyUser]);
 
   // const isAdmin = user?.role === 'admin'
   // const [hover, setHover] = useState(false);
@@ -173,23 +196,15 @@ const TheHeader = () => {
 
                 {companyUser && (
                   <>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        padding: "0",
-                        margin: "0",
-                      }}
-                    >
+                    <div>
                       <Nav.Link
-                        style={{ display: "flex", alignItems: "baseline" }}
+                        style={{ display: "flex", alignItems: "center" }}
                         as={Link}
-                        to="/profile"
+                        to="/company/profile"
                       >
                         <div className="navImageContainer">
                           <img
-                            // src={profileNavImage()}
-                            src={imageSrc}
+                            src={profileNavImage()}
                             className="d-inline-block align-center"
                             alt="profile-img"
                             style={{
@@ -201,8 +216,7 @@ const TheHeader = () => {
                           />
                         </div>
                         <span style={{ marginLeft: "1px" }}>
-                          {" "}
-                          <strong>{nameInProfile}</strong>
+                          <strong>{companyUser.companyName}</strong>
                         </span>
                       </Nav.Link>
                     </div>

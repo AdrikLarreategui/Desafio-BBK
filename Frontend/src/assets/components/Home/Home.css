@@ -27,8 +27,13 @@ img {
 }
 
 .secondSection h3 {
+<<<<<<< HEAD
   padding-top: 15px;
   padding-bottom: 15px;
+=======
+    padding-top: 15px;
+    padding-bottom: 15px;
+>>>>>>> dev-production
 }
 
 .thirdSection {

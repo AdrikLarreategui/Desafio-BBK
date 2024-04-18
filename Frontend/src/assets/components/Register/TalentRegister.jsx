@@ -189,7 +189,7 @@ const TalentRegister = () => {
   };
   return (
     <>
-        <h1>Register Talent</h1>
+      <h2 className="tr">Registro del Talent</h2>
       <section className="tr">
 
         <article>
@@ -206,7 +206,7 @@ const TalentRegister = () => {
                 onChange={handleChange}
                 placeholder="DNI/NIE/Pasaporte"
                 maxLength="25"
-                />
+              />
               <Form.Control
                 type="text"
                 name="name"
@@ -214,7 +214,7 @@ const TalentRegister = () => {
                 onChange={handleChange}
                 placeholder="Nombre"
                 maxLength="25"
-                />
+              />
               <Form.Control
                 type="text"
                 name="surnames"
@@ -222,10 +222,10 @@ const TalentRegister = () => {
                 onChange={handleChange}
                 placeholder="Apellidos"
                 maxLength="50"
-                />
+              />
             </div>
 
-              <div>
+            <div>
 
               <Form.Control
                 className="no-spinners"
@@ -235,7 +235,7 @@ const TalentRegister = () => {
                 onChange={handleChange}
                 placeholder="Teléfono"
                 maxLength="9"
-                />
+              />
               <Form.Control
                 type={dateInputType}
                 name="birthdate"
@@ -253,116 +253,116 @@ const TalentRegister = () => {
                 placeholder="Formación"
                 maxLength="150"
               />
-              </div>
-
-                <h3>Habilidades</h3>
-                <div className="inputButtonContainer">
-                  <Form.Control
-                    type="text"
-                    name="skills"
-                    value={inputSkill}
-                    onChange={handleInputSkillChange}
-                    placeholder="Añadir una habilidad"
-                    maxLength="25"
-                    />
-                  <Button variant="primary" type="button" onClick={addSkill}>
-                    +
-                  </Button>
-                </div>
-                <div className="addedFieledContainer">
-                  {skills.map((skill, index) => (
-                    <span
-                    key={index}
-                    className="addedFormField"
-                    onClick={() => removeSkill(index)}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-            
-
-              <div>
-                <h3>Intereses</h3>
-                <div className="inputButtonContainer">
-                  <Form.Control
-                    type="text"
-                    name="interests"
-                    value={inputInterest}
-                    onChange={handleInputInterestChange}
-                    placeholder="Interests"
-                    maxLength="25"
-                  />
-                  <Button variant="primary" type="button" onClick={addInterest}>
-                    +
-                  </Button>
-                </div>
-                <div className="addedFieledContainer">
-                  {interests.map((interest, index) => (
-                    <span
-                      key={index}
-                      className="addedFormField"
-                      onClick={() => removeInterest(index)}
-                    >
-                      {interest}
-                    </span>
-                  ))}
-                </div>
-              
             </div>
-              <div>
-                <h3>Idiomas</h3>
-                <div className="addedFieledContainer">
-                  {languages.map(
-                    (language, index) =>
-                      (language.language || language.proficiency) && (
-                        <span
-                          key={index}
-                          className="addedFormField"
-                          onClick={() => removeLanguage(index)}
-                        >
-                          {language.language && language.proficiency
-                            ? `${language.language} (${language.proficiency})`
-                            : language.language || language.proficiency}
-                        </span>
-                      )
-                  )}
-                </div>
 
+            <h3>Habilidades</h3>
+            <div className="inputButtonContainer">
+              <Form.Control
+                type="text"
+                name="skills"
+                value={inputSkill}
+                onChange={handleInputSkillChange}
+                placeholder="Añadir una habilidad"
+                maxLength="25"
+              />
+              <Button variant="primary" type="button" onClick={addSkill}>
+                +
+              </Button>
+            </div>
+            <div className="addedFieledContainer">
+              {skills.map((skill, index) => (
+                <span
+                  key={index}
+                  className="addedFormField"
+                  onClick={() => removeSkill(index)}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+
+            <div>
+              <h3>Intereses</h3>
+              <div className="inputButtonContainer">
                 <Form.Control
                   type="text"
-                  name="language"
-                  value={inputLanguage.language}
-                  onChange={handleInputLanguageChange}
-                  placeholder="Language"
+                  name="interests"
+                  value={inputInterest}
+                  onChange={handleInputInterestChange}
+                  placeholder="Interests"
                   maxLength="25"
                 />
+                <Button variant="primary" type="button" onClick={addInterest}>
+                  +
+                </Button>
+              </div>
+              <div className="addedFieledContainer">
+                {interests.map((interest, index) => (
+                  <span
+                    key={index}
+                    className="addedFormField"
+                    onClick={() => removeInterest(index)}
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
 
-                <div className="inputButtonContainer">
-                  <Form.Control
-                    as="select"
-                    name="proficiency"
-                    value={inputLanguage.proficiency}
-                    onChange={handleInputLanguageChange}
-                    placeholder="Nivel"
-                  // required
-                  >
-                    <option value="">Nivel</option>
-                    {languageLevels.map((type, index) => (
-                      <option key={index} value={type}>
-                        {type}
-                      </option>
-                    ))}
-                  </Form.Control>
-                  <Button
-                    variant="primary"
-                    type="button"
-                    onClick={handleAddLanguage}
-                  >
-                    +
-                  </Button>
-              
-                  </div>
+            </div>
+            <div>
+              <h3>Idiomas</h3>
+              <div className="addedFieledContainer">
+                {languages.map(
+                  (language, index) =>
+                    (language.language || language.proficiency) && (
+                      <span
+                        key={index}
+                        className="addedFormField"
+                        onClick={() => removeLanguage(index)}
+                      >
+                        {language.language && language.proficiency
+                          ? `${language.language} (${language.proficiency})`
+                          : language.language || language.proficiency}
+                      </span>
+                    )
+                )}
+              </div>
+
+              <Form.Control
+                type="text"
+                name="language"
+                value={inputLanguage.language}
+                onChange={handleInputLanguageChange}
+                placeholder="Language"
+                maxLength="25"
+              />
+
+              <div className="inputButtonContainer">
+                <Form.Control
+                  as="select"
+                  name="proficiency"
+                  value={inputLanguage.proficiency}
+                  onChange={handleInputLanguageChange}
+                  placeholder="Nivel"
+                // required
+                >
+                  <option value="">Nivel</option>
+                  {languageLevels.map((type, index) => (
+                    <option key={index} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </Form.Control>
+                <Button
+                  variant="primary"
+                  type="button"
+                  onClick={handleAddLanguage}
+                >
+                  +
+                </Button>
+
+              </div>
               <Form.Control
                 as="textarea"
                 rows={4}
@@ -401,11 +401,11 @@ const TalentRegister = () => {
               />
             </div>
             <button className="talent" variant="primary" type="submit">
-              Register Talent
+              Inscribirme
             </button>
           </Form>
         </div>
-                
+
       </section>
     </>
   );

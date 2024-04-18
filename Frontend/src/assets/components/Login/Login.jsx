@@ -7,7 +7,7 @@ import "./Login.css"
 const Login = () => {
   return (
     <>
-      <h2>Login</h2>
+      <h2 className="lg">Login</h2>
     <section className="firstLogin">
       <article className="foto9">
         <img src={foto9} alt="" />

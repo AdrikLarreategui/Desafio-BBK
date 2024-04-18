@@ -44,6 +44,7 @@ const LoginTalent = () => {
   };
   return (
     <>
+    <h2 className="lt">Login Talent</h2>
     <section className="loginTalent">
 
     <article>

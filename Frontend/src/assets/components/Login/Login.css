@@ -11,7 +11,7 @@
     color: #FFFFFF;
     font-weight: bold;
     margin: 15px;
-    width:200px;
+    width: 200px;
 }
 
 input {
@@ -28,9 +28,25 @@ form {
     align-items: center;
 }
 
+.firstLogin>.foto9 {
 
-button {
+    max-width: 60%;
 }
+
+.firstLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lg {
+    text-decoration: underline;
+    text-decoration-color: #455057;
+}
+
+
+button {}
 
 .foto9 img {
     max-width: 80%;
@@ -45,6 +61,12 @@ h2 {
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-around;
+    }
+
+    .foto9 {
+
+        max-width: 40%;
     }
 
     button {

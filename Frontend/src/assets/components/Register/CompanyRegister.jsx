@@ -78,12 +78,12 @@ const CompanyRegister = () => {
 
   return (
     <>
+          <h2 className="h2cr">Inscribe tu organización</h2>
       <section className="cr">
         <article>
           <img src={foto11} alt="" />
         </article>
         <div>
-          <h1>Inscribe tu organización</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicCompanyCIF">
               <Form.Control

@@ -198,7 +198,7 @@ const TheHeader = () => {
                   <>
                     <div>
                       <Nav.Link
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{ display: "flex", alignItems: "baseline" }}
                         as={Link}
                         to="/company/profile"
                       >

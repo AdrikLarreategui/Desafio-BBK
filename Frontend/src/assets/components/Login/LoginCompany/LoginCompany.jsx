@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginCompany } from "../../../redux/auth/companyAuthSlice";
-const foto8 = "../images/foto8.jpg"
-import "./LoginCompany.css"
+const foto8 = "../images/foto8.jpg";
+import "./LoginCompany.css";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
@@ -49,13 +49,15 @@ const LoginCompany = () => {
 
   return (
     <>
-      <h2 className="lc">Login Company</h2>
+      {/* <h2 className="lc">Login Company</h2> */}
       <section className="loginCompany">
-
         <article>
           <img src={foto8} alt="" />
         </article>
         <div>
+          <h2 className="lt" style={{ paddingBottom: "40px" }}>
+            Acceso de Organización
+          </h2>
           <form onSubmit={onSubmit}>
             <input
               type="email"
@@ -73,8 +75,18 @@ const LoginCompany = () => {
               onChange={onChange}
               required
             />
-            <button className="company" type="submit">Login</button>
+            <Link>¿No recuerdas tu contraseña?</Link>
+            <button className="company" type="submit">
+              Login
+            </button>
           </form>
+          <hr></hr>
+          <p>
+            No tienes cuenta? <Link to="/talent/register">¡Únete!</Link>
+          </p>
+          <p>
+            <Link to="/talent/login">Accesso de Talentos </Link>
+          </p>
         </div>
       </section>
     </>

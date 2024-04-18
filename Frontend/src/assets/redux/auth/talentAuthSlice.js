@@ -68,15 +68,20 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loginTalent.fulfilled, (state, action) => {
-        state.user = action.payload;
+        //18.04.2024 changed from action.payload to action.payload.user
+        state.user = action.payload.user;
         state.token = action.payload.tokens[action.payload.tokens.length - 1];
+        state.isLoading = false;
         state.isSuccess = true;
       })
       .addCase(loginTalent.rejected, (state, action) => {
         state.isError = true;
+        state.isLoading = false;
         // state.message = action.payload;
       })
-
+      .addCase(loginTalent.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(registerTalent.fulfilled, (state, action) => {
         state.isSuccess = true;
         // state.message = action.payload.message;

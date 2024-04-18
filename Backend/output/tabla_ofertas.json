@@ -1,198 +1,321 @@
 [
   {
-    "_id": "661c0896827c71f2e7133d84",
-    "companyId": "661af33a1a13dec93277f42d",
-    "companyName": "Patatas S.L.",
-    "title": "Venta de patatas",
-    "content": "Venta de patatas",
+    "_id": "6619394844e7c8e956a89984",
+    "title": "Offer",
+    "content": "Best Offer",
     "location": "Bilbao",
+    "workMode": "remote",
+    "workDay": "fullday",
+    "contract": "indefenido",
+    "salary": "30000",
+    "requiredSkills": [
+      "programming"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661939bf0681268e90850f14",
+    "title": "Offer",
+    "content": "Best Offer",
+    "location": "Bilbao",
+    "workMode": "remote",
+    "workDay": "fullday",
+    "contract": "indefenido",
+    "salary": "30000",
+    "requiredSkills": [
+      "programming"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661939c8a9c5777959dbb531",
+    "title": "NEW OFFER BRO",
+    "content": "Best Offer",
+    "location": "Bilbao",
+    "workMode": "remote",
+    "workDay": "fullday",
+    "contract": "indefenido",
+    "salary": "30000",
+    "requiredSkills": [
+      "programming"
+    ],
+    "likes": [
+      {
+        "like": true,
+        "_id": "66195f73f643a5f784dd89ba"
+      },
+      {
+        "like": true,
+        "_id": "66195f7bf643a5f784dd89c1"
+      },
+      {
+        "like": true,
+        "_id": "66195f86f643a5f784dd89c9"
+      },
+      {
+        "like": true,
+        "_id": "66195fcc21ca62944a25f40f"
+      },
+      {
+        "like": true,
+        "_id": "66196041f67e37fcda7ae64a"
+      },
+      {
+        "like": true,
+        "_id": "66196046f67e37fcda7ae655"
+      },
+      {
+        "like": true,
+        "_id": "66196153cd678241fd47efe7"
+      },
+      {
+        "like": true,
+        "_id": "66196157cd678241fd47eff3"
+      },
+      {
+        "like": true,
+        "_id": "66196159cd678241fd47f000"
+      },
+      {
+        "like": true,
+        "_id": "66196161cd678241fd47f012"
+      },
+      {
+        "like": true,
+        "_id": "66196162cd678241fd47f021"
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "661973cf9ffb2a36e466e574",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "NEW OFFER BRO",
+    "content": "Best Offer",
+    "location": "Bilbao",
+    "workMode": "remote",
+    "workDay": "fullday",
+    "contract": "indefenido",
+    "salary": "30000",
+    "requiredSkills": [
+      "programming"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661bba0f935f34f42b50d08c",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "WERWER",
+    "content": "SADASDASD",
+    "location": "EWREWR",
     "workingMode": "Presencial",
-    "workingDayType": "Completa",
+    "workingDayType": "Parcial/indiferente",
     "contractKind": "De duración determinada",
-    "salaryRange": "18.000-20.000",
     "requiredSkills": [],
     "likes": [],
     "__v": 0
   },
   {
-    "_id": "661c0c1c827c71f2e7133d8a",
-    "companyId": "661af33a1a13dec93277f42d",
-    "companyName": "Patatas S.L.",
-    "title": "Alquiler de patatas",
-    "content": "Te dejo una patata y me la devuelves luego.",
-    "location": "Igorre",
-    "workingMode": "Híbrido (semipresencial)",
+    "_id": "661bbc2b935f34f42b50d091",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "Title",
+    "content": "lalalalallalalala",
+    "location": "Bilbao",
+    "workingMode": "Remoto",
+    "workingDayType": "Completa",
+    "contractKind": "Indefinido",
+    "requiredSkills": [
+      "sddsaasdasd",
+      "asdasd",
+      "asdasd",
+      "asdasd",
+      "asdasd"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661bbcbaf82913b60a4f2f33",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "Title",
+    "content": "lalalalallalalala",
+    "location": "Bilbao",
+    "workingMode": "Remoto",
+    "workingDayType": "Completa",
+    "contractKind": "Indefinido",
+    "requiredSkills": [
+      "sddsaasdasd",
+      "asdasd",
+      "asdasd",
+      "asdasd",
+      "asdasd"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661bbdd2f82913b60a4f2f38",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "offerOverview",
+    "content": "offerOverview",
+    "location": "offerOverview",
+    "workingMode": "Remoto",
+    "workingDayType": "Parcial/indiferente",
+    "contractKind": "Indefinido",
+    "requiredSkills": [
+      "offerOverview",
+      "offerOverview",
+      "offerOverview"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661bbf15b7c2bf40d15fc1ac",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "check",
+    "content": "check",
+    "location": "check",
+    "workingMode": "Remoto",
+    "workingDayType": "Parcial/indiferente",
+    "contractKind": "De duración determinada",
+    "salaryRange": "20000",
+    "requiredSkills": [
+      "check"
+    ],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661bec1b659ca0b6c22888d4",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "Lorem ipsum dolor",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia metus metus, pretium scelerisque nisi pellentesque hendrerit. Integer bibendum felis et nibh posuere, eget cursus ligula auctor. Morbi vel nunc convallis odio posuere consectetur. Vestibulum sollicitudin venenatis eros eu malesuada. Vivamus ut hendrerit mi, nec placerat ipsum. Nullam efficitur, diam a facilisis finibus, erat dui viverra orci, et fermentum ligula tellus nec risus. Sed scelerisque scelerisque feugiat. Nulla facilisi.\n\nMorbi eget elit magna. Aenean luctus quis mi eu feugiat. Sed luctus ut turpis at aliquam. Pellentesque quis fermentum massa. Praesent lobortis nec lorem vitae hendrerit. Nam a viverra nisi. Phasellus metus orci, gravida nec vehicula vitae, rutrum maximus purus. Fusce dictum auctor auctor.\n\nCurabitur iaculis neque sit amet bibendum bibendum. Nulla scelerisque, sem eget congue lobortis, libero sapien eleifend ipsum, sollicitudin volutpat mi neque eu tellus. Pellentesque posuere tortor sit amet libero faucibus, et placerat neque tristique. Aenean consequat eu leo eu ullamcorper. Morbi in euismod tellus. Praesent eget est ut quam mattis consectetur non et nisi. Fusce facilisis lectus leo, sit amet congue nisi dignissim sit amet. Aliquam erat volutpat. Sed at placerat odio. In eget lorem nisl. Vestibulum porta consectetur turpis, vel pretium eros. Sed non dolor magna.\n\nIn aliquet diam auctor risus gravida, nec imperdiet dolor congue. Integer id orci sed lorem faucibus ornare. Morbi faucibus, dui quis vehicula vulputate, lorem elit vehicula nisi, eu sagittis massa nisi fermentum urna. Fusce volutpat, est eu facilisis convallis, elit sem fringilla libero, eget commodo enim orci vel ligula. Cras sit amet magna nisi. Quisque tincidunt erat quis turpis varius, vel tempor tortor efficitur. Maecenas sed quam euismod, posuere erat venenatis, commodo elit. Morbi accumsan eget felis viverra condimentum. Sed iaculis ut justo vel suscipit. Vestibulum id iaculis ligula, vitae tincidunt dolor. Phasellus fringilla ipsum eu nisl tristique consectetur. Duis cursus diam nec tellus tristique tincidunt eu non tortor.\n\nNunc et libero non sem vestibulum pretium. Pellentesque aliquam ligula nibh. Donec at lobortis neque. Vestibulum malesuada pulvinar erat euismod imperdiet. Ut at venenatis nulla, quis suscipit dolor. Morbi eget nisi at arcu finibus rhoncus sit amet eget elit. In rutrum elementum nisi id porttitor. Vestibulum et laoreet diam. Etiam convallis elit in risus sodales sagittis. Vivamus blandit augue at pulvinar porta. Proin dictum mauris vel vulputate venenatis. Nunc tempus, arcu auctor sollicitudin ultricies, erat risus sodales nulla, et sagittis felis orci non nisl. Phasellus tempor vehicula tempor. Nulla vitae porta erat.",
+    "location": "Duis aute irure dolor",
+    "workingMode": "Remoto",
+    "workingDayType": "Parcial/mañana",
+    "contractKind": "Otros contratos",
+    "salaryRange": "100000",
+    "requiredSkills": [],
+    "likes": [],
+    "createdAt": "2024-04-14T14:45:47.326Z",
+    "updatedAt": "2024-04-14T14:45:47.326Z",
+    "__v": 0
+  },
+  {
+    "_id": "661bec4b659ca0b6c22888f2",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "Morbi eget elit magna",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia metus metus, pretium scelerisque nisi pellentesque hendrerit. Integer bibendum felis et nibh posuere, eget cursus ligula auctor. Morbi vel nunc convallis odio posuere consectetur. Vestibulum sollicitudin venenatis eros eu malesuada. Vivamus ut hendrerit mi, nec placerat ipsum. Nullam efficitur, diam a facilisis finibus, erat dui viverra orci, et fermentum ligula tellus nec risus. Sed scelerisque scelerisque feugiat. Nulla facilisi.\n\nMorbi eget elit magna. Aenean luctus quis mi eu feugiat. Sed luctus ut turpis at aliquam. Pellentesque quis fermentum massa. Praesent lobortis nec lorem vitae hendrerit. Nam a viverra nisi. Phasellus metus orci, gravida nec vehicula vitae, rutrum maximus purus. Fusce dictum auctor auctor.\n\nCurabitur iaculis neque sit amet bibendum bibendum. Nulla scelerisque, sem eget congue lobortis, libero sapien eleifend ipsum, sollicitudin volutpat mi neque eu tellus. Pellentesque posuere tortor sit amet libero faucibus, et placerat neque tristique. Aenean consequat eu leo eu ullamcorper. Morbi in euismod tellus. Praesent eget est ut quam mattis consectetur non et nisi. Fusce facilisis lectus leo, sit amet congue nisi dignissim sit amet. Aliquam erat volutpat. Sed at placerat odio. In eget lorem nisl. Vestibulum porta consectetur turpis, vel pretium eros. Sed non dolor magna.\n\nIn aliquet diam auctor risus gravida, nec imperdiet dolor congue. Integer id orci sed lorem faucibus ornare. Morbi faucibus, dui quis vehicula vulputate, lorem elit vehicula nisi, eu sagittis massa nisi fermentum urna. Fusce volutpat, est eu facilisis convallis, elit sem fringilla libero, eget commodo enim orci vel ligula. Cras sit amet magna nisi. Quisque tincidunt erat quis turpis varius, vel tempor tortor efficitur. Maecenas sed quam euismod, posuere erat venenatis, commodo elit. Morbi accumsan eget felis viverra condimentum. Sed iaculis ut justo vel suscipit. Vestibulum id iaculis ligula, vitae tincidunt dolor. Phasellus fringilla ipsum eu nisl tristique consectetur. Duis cursus diam nec tellus tristique tincidunt eu non tortor.\n\nNunc et libero non sem vestibulum pretium. Pellentesque aliquam ligula nibh. Donec at lobortis neque. Vestibulum malesuada pulvinar erat euismod imperdiet. Ut at venenatis nulla, quis suscipit dolor. Morbi eget nisi at arcu finibus rhoncus sit amet eget elit. In rutrum elementum nisi id porttitor. Vestibulum et laoreet diam. Etiam convallis elit in risus sodales sagittis. Vivamus blandit augue at pulvinar porta. Proin dictum mauris vel vulputate venenatis. Nunc tempus, arcu auctor sollicitudin ultricies, erat risus sodales nulla, et sagittis felis orci non nisl. Phasellus tempor vehicula tempor. Nulla vitae porta erat.",
+    "location": "Morbi eget elit magna",
+    "workingMode": "Remoto",
+    "workingDayType": "",
+    "contractKind": "Indefinido",
+    "salaryRange": "",
+    "requiredSkills": [],
+    "likes": [],
+    "createdAt": "2024-04-14T14:46:35.968Z",
+    "updatedAt": "2024-04-14T14:46:35.968Z",
+    "__v": 0
+  },
+  {
+    "_id": "661bec85659ca0b6c2288940",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "sdafsdfsdfsdf",
+    "content": "dsfsdfsdfsdfsdf",
+    "location": "dsfsdfsdf",
+    "workingMode": "Remoto",
+    "workingDayType": "Indiferente",
+    "contractKind": "Otros contratos",
+    "salaryRange": "",
+    "requiredSkills": [
+      "Morbi eget elit magna"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-14T14:47:33.528Z",
+    "updatedAt": "2024-04-14T14:47:33.528Z",
+    "__v": 0
+  },
+  {
+    "_id": "661d2b2e2a257f2f8482dafa",
+    "companyId": "6619739e9ffb2a36e466e56e",
+    "title": "Titulo",
+    "content": "sdfsdfsdfsdf",
+    "location": "sdfsdf",
+    "workingMode": "Remoto",
     "workingDayType": "Parcial/mañana",
     "contractKind": "De duración determinada",
-    "salaryRange": "19.000",
-    "requiredSkills": [],
-    "likes": [],
-    "__v": 0
-  },
-  {
-    "_id": "661e59c8f80ed19aae5ed9bf",
-    "companyId": "661e537fc75895a41a6ef36d",
-    "companyName": "Frascos Hacha",
-    "title": "Logístico",
-    "content": "En dependencia de Gerencia, buscamos una persona para trabajar en el departamento logístico",
-    "location": "Lamiako",
-    "workingMode": "Híbrido (semipresencial)",
-    "workingDayType": "Completa",
-    "contractKind": "Indefinido",
-    "salaryRange": "22.000",
+    "salaryRange": "20000",
     "requiredSkills": [
-      "Mentalidad organizativa"
+      "sdfsdfsdsdf",
+      "sdfsdfsdf",
+      "sdfsdfsdf"
     ],
     "likes": [],
-    "createdAt": "2024-04-16T10:58:16.916Z",
-    "updatedAt": "2024-04-16T10:58:16.916Z",
+    "createdAt": "2024-04-15T13:27:10.613Z",
+    "updatedAt": "2024-04-15T13:27:10.613Z",
     "__v": 0
   },
   {
-    "_id": "66210e2f43656ae5204cf96d",
-    "companyId": "6620faf212652c3b4ddd994a",
-    "companyName": "Tractores Augusto",
-    "title": "Mecánico tractorista",
-    "content": "En dependencia del Gerente, buscamos un mecánico para revisión, puesta a punto y reparación de las unidades presentes en el taller. \nLocalización: Barrika.\nSueldo de 25.000€ brutos anuales en 12 pagas.\nPuesto: indefinido tras tres meses a prueba.",
-    "location": "Barrika",
-    "workingMode": "Presencial",
-    "workingDayType": "Completa",
-    "contractKind": "Indefinido",
-    "salaryRange": "25.000",
-    "requiredSkills": [
-      "Trabajo en equipo",
-      "Improvisación",
-      "Habilidad manual"
-    ],
-    "likes": [],
-    "createdAt": "2024-04-18T12:12:31.872Z",
-    "updatedAt": "2024-04-18T12:12:31.872Z",
-    "__v": 0
-  },
-  {
-    "_id": "66211100ed7cfd5e8b501550",
-    "companyId": "6620faf212652c3b4ddd994a",
-    "companyName": "Tractores Augusto",
-    "title": "Administrativo",
-    "content": "Tractores Augusto busca dos personas para el departamento administrativo durante la temporada de primavera, verano y comienzos de otoño. \nEn tanto una persona tendrá turno parcial de mañana, la otra hará lo propio durante las tardes",
-    "location": "Barrika",
-    "workingMode": "Híbrido (semipresencial)",
-    "workingDayType": "Parcial/indiferente",
-    "contractKind": "De duración determinada",
-    "salaryRange": "22.000",
-    "requiredSkills": [
-      "Excel",
-      "Trato con clientes y proveedores",
-      "Resolución de problemas"
-    ],
-    "likes": [],
-    "createdAt": "2024-04-18T12:24:32.444Z",
-    "updatedAt": "2024-04-18T12:24:32.444Z",
-    "__v": 0
-  },
-  {
-    "_id": "66211584d290ba23f15d89e8",
-    "companyId": "661f8faa0a4f238fdecef8ad",
-    "companyName": "Evolad",
-    "title": "Desarrollador Front-End",
-    "content": "En Evolad buscamos tres programadores junior para la creación de páginas web (tanto front como back) para terceros. Ofrecemos desarrollo personal y crecimiento. Para la contratación se hará una prueba técnica a cargo de nuestro Technical Chief, Evgeny\nEvolad es una start-up que proporciona servicios externos a las empresas más potentes de Bizkaia... y a todas las demás, si hace falta.\n",
-    "location": "Ea",
+    "_id": "661ea0dba34a81482f68818b",
+    "companyId": "661e9d8d535f2b8b273d8807",
+    "companyName": "Emresa S.L.",
+    "title": "Junior Fullstack MERN ",
+    "content": "Estamos buscando un Desarrollador de MERN Stack capacitado para unirse a nuestro equipo dinámico en Sunrise Agronomics. En este rol, serás responsable de desarrollar y mantener nuestras aplicaciones web para mejorar nuestras operaciones agrícolas. El candidato ideal tendrá un sólido entendimiento de MongoDB, Express.js, React.js y Node.js, junto con experiencia en servicios en la nube e integración de API RESTful. Esta posición ofrece la oportunidad de trabajar en proyectos de vanguardia en un ambiente de apoyo e innovación. Únete a nosotros para revolucionar la agricultura sostenible con tu expertise técnico.\nResponsabilidades Clave:\n\nDesarrollar y mantener aplicaciones web utilizando el stack MERN (MongoDB, Express.js, React.js, Node.js).\nImplementar componentes de interfaz de usuario y flujos de trabajo utilizando React.js.\nCrear código y librerías reutilizables para uso futuro.\nAsegurar la viabilidad técnica de los diseños UI/UX.\nOptimizar aplicaciones para maximizar velocidad y escalabilidad.\nColaborar con otros miembros del equipo y partes interesadas.\nCalificaciones:\n\nTítulo universitario en Ciencias de la Computación, Tecnología de la Información o campo relacionado.\nComprensión competente de scripting del lado del cliente y frameworks de JavaScript, incluido jQuery.\nExperiencia con flujos de trabajo de React.js (como Flux o Redux).\nFamiliaridad con las especificaciones más nuevas de EcmaScript.\nExperiencia con bibliotecas de estructura de datos (e.g., Immutable.js).\nEl conocimiento de React isomórfico es un plus.\nExperiencia con servicios RESTful.\nExperiencia en servicios en la nube (AWS, Azure) y tecnologías de base de datos (MongoDB, SQL).\nComprensión competente de herramientas de versionado de código, como Git.\nLo Que Ofrecemos:\n\nPaquete salarial competitivo.\nSeguro de salud, dental y visión.\nOpciones de plan de jubilación.\nHorarios de trabajo flexibles.\nAmbiente de trabajo dinámico con la oportunidad de trabajar en nuevos proyectos emocionantes en el sector agrícola.",
+    "location": "Bilbao",
     "workingMode": "Remoto",
-    "workingDayType": "Intensiva mañana",
-    "contractKind": "Indefinido",
-    "salaryRange": "30.000",
-    "requiredSkills": [
-      "Javascript",
-      "React",
-      "Node.js",
-      "Redux",
-      "CSS"
-    ],
-    "likes": [],
-    "createdAt": "2024-04-18T12:43:48.056Z",
-    "updatedAt": "2024-04-18T12:43:48.056Z",
-    "__v": 0
-  },
-  {
-    "_id": "66212ccc2c5e017e0de0ab00",
-    "companyId": "661af33a1a13dec93277f42d",
-    "companyName": "Patatas S.L.",
-    "title": "Temporero",
-    "content": "En Patatas S.L. necesitamos gente para trabajar durante la temporada de recogida de la patata para la obtener el fruto, clasificarlo y embolsarlo. ",
-    "location": "Busturialdea",
-    "workingMode": "Presencial",
     "workingDayType": "Completa",
-    "contractKind": "De duración determinada",
-    "salaryRange": "27.000",
+    "contractKind": "Indefinido",
+    "salaryRange": "25000",
     "requiredSkills": [
-      "Manejo de maquinaria pesada",
-      "Trabajo pesado"
+      "MERN"
     ],
     "likes": [],
-    "createdAt": "2024-04-18T14:23:08.121Z",
-    "updatedAt": "2024-04-18T14:23:08.121Z",
+    "createdAt": "2024-04-16T16:01:31.859Z",
+    "updatedAt": "2024-04-16T16:01:31.859Z",
     "__v": 0
   },
   {
-    "_id": "66212f36b55c0676055536f4",
-    "companyId": "6621051e86fdd4c713603d62",
-    "companyName": "English Academy Bilbao",
-    "title": "Transición digital",
-    "content": "En English academy Bilbao buscamos una persona joven, con conocimiento de Marketing Digital, para realizar una campaña publicitaria de nuestra academia tanto en medios digitales como tradicionales. Buscamos un enforque nuevo y fresco.",
+    "_id": "661ea161a34a81482f688191",
+    "companyId": "661e9d8d535f2b8b273d8807",
+    "companyName": "Emresa S.L.",
+    "title": "Tractorista de primera",
+    "content": "Estamos en búsqueda de un Tractorista experimentado para unirse a nuestro equipo en Empresa S.L. En este puesto, serás responsable de operar maquinaria agrícola pesada, incluidos tractores, para apoyar las operaciones de cultivo y mantenimiento de campos en nuestras instalaciones. Buscamos a alguien con experiencia comprobada en manejo de tractores, conocimiento de prácticas agrícolas modernas y un fuerte compromiso con la seguridad y la eficiencia.",
     "location": "Bilbao",
     "workingMode": "Híbrido (semipresencial)",
-    "workingDayType": "Intensiva tarde",
-    "contractKind": "Formativo",
-    "salaryRange": "25.000",
+    "workingDayType": "Completa",
+    "contractKind": "Indefinido",
+    "salaryRange": "50000",
     "requiredSkills": [
-      "Redes Sociales",
-      "Búsqueda de objetivos",
-      "Buyer Persona",
-      "Google Ads"
+      "carnet",
+      "tractor"
     ],
     "likes": [],
-    "createdAt": "2024-04-18T14:33:26.992Z",
-    "updatedAt": "2024-04-18T14:33:26.992Z",
+    "createdAt": "2024-04-16T16:03:45.617Z",
+    "updatedAt": "2024-04-16T16:03:45.617Z",
     "__v": 0
   },
   {
-    "_id": "662130c3c5e23d0907316542",
-    "companyId": "662107dcfc564bc08344bb76",
-    "companyName": "SopelaAbentura",
-    "title": "Persona para ciberseguridad",
-    "content": "En Sopela Abentura buscamos una persona con conocimientos de cibersguridad para nuestros equipos informáticos. Posibilidad de trabajar desde casa, a jornada parcial. El horario será a conveniencia del trabajdor, pero se prefiere que sea matutino.",
-    "location": "Sopela",
-    "workingMode": "Remoto",
+    "_id": "661ea1ec57052970beb4262f",
+    "companyId": "661e9d8d535f2b8b273d8807",
+    "companyName": "Emresa S.L.",
+    "title": "Becario/a",
+    "content": "Empresa S.L. busca incorporar a una Becaria para la oficina, quien apoyará en diversas tareas administrativas y de gestión de proyectos. Esta posición es ideal para estudiantes recientes o candidatos que estén iniciando su carrera profesional y deseen ganar experiencia valiosa en un entorno dinámico y profesional.",
+    "location": "Getxo",
+    "workingMode": "Presencial",
     "workingDayType": "Parcial/indiferente",
     "contractKind": "Fijo discontinuo",
-    "salaryRange": "18.000",
+    "salaryRange": "",
     "requiredSkills": [
-      "Improvisación",
-      "Resolución de conflictos"
+      "WORD",
+      "Inglés"
     ],
     "likes": [],
-    "createdAt": "2024-04-18T14:40:03.519Z",
-    "updatedAt": "2024-04-18T14:40:03.519Z",
-    "__v": 0
-  },
-  {
-    "_id": "662133d10d875493c4c965ac",
-    "companyId": "6621318fc5e23d090731654a",
-    "companyName": "BBK Fundazioa",
-    "title": "Personal para Data Science",
-    "content": "En la fundación BBK estamos en el proceso de selección para nuestro frupo de Data Science, con vistas a afrontar los nuevos retos  en los que se encuentra inmersa la sociedad Bizkaina. \nDentro de nuestro departamento, pasarás a formar parte de un grupo joven orientado a que mejores tus capacidades,",
-    "location": "Bilbao",
-    "workingMode": "Híbrido (semipresencial)",
-    "workingDayType": "Completa",
-    "contractKind": "Formativo",
-    "salaryRange": "26.000",
-    "requiredSkills": [
-      "Trabajo en equipo",
-      "Bases de datos"
-    ],
-    "likes": [],
-    "createdAt": "2024-04-18T14:53:05.409Z",
-    "updatedAt": "2024-04-18T14:53:05.409Z",
+    "createdAt": "2024-04-16T16:06:04.144Z",
+    "updatedAt": "2024-04-16T16:06:04.144Z",
     "__v": 0
   }
 ]

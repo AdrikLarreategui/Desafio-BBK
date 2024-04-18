@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginTalent, reset } from "../../../redux/auth/talentAuthSlice";
-const foto7 =  "../images/foto7.jpg"
-import "./LoginTalent.css"
-const foto6 = "images/foto6.jpg"
+const foto7 = "../images/foto7.jpg";
+import "./LoginTalent.css";
+const foto6 = "images/foto6.jpg";
 
 const LoginTalent = () => {
   const navigate = useNavigate();
@@ -44,36 +44,49 @@ const LoginTalent = () => {
   };
   return (
     <>
-    <h2 className="lt">Login Talent</h2>
-    <section className="loginTalent">
+      {/* <h2 className="lt">Login Talent</h2> */}
+      <section className="loginTalent">
+        <article>
+          <img src={foto7} alt="" />
+        </article>
 
-    <article>
-      <img src={foto7} alt="" />
-    </article>
-    
-    <div>    
-        <form onSubmit={onSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={onChange}
-            required
+        <div>
+          <h2 className="lt" style={{ paddingBottom: "40px" }}>
+            Acceso de Talento
+          </h2>
+          <form onSubmit={onSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={onChange}
+              required
             />
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="password"
-            onChange={onChange}
-            required
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="password"
+              onChange={onChange}
+              required
             />
-          <button className="talent" type="submit">Login</button>
-        </form>
-      </div>
-    </section>
-        </>
+            <Link>¿No recuerdas tu contraseña?</Link>
+            <button className="talent" type="submit">
+              Login
+            </button>
+          </form>
+          <hr></hr>
+
+          <p>
+            No tienes cuenta? <Link to="/talent/register">¡Únete!</Link>
+          </p>
+          <p>
+            <Link to="/company/login">Accesso de Organizaciónes </Link>
+          </p>
+        </div>
+      </section>
+    </>
   );
 };
 export default LoginTalent;

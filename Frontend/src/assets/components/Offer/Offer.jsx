@@ -28,7 +28,7 @@ const Offer = () => {
     };
     return (
       <>
-        <div key={offer._id} className="offerCard">
+        {/* <div key={offer._id} className="offerCard">
           <div className="logoContainer">
             <img
               src={offer.companyLogo}
@@ -63,6 +63,44 @@ const Offer = () => {
                 {offer.salaryRange} <span>€ Bruto/año</span>
               </p>
             </div>
+          </div>
+        </div> */}
+
+        <div class="jobListingCard">
+          <div class="jobListingHeader">
+            <img
+              class="cardCompanyLogo"
+              src={offer.companyLogo}
+              alt="Company Logo"
+              // style={{ width: "100%" }}
+            />
+            <div class="cardJobTitle">{offer.title}</div>
+
+            <div class="cardCompanyName">
+              <span style={{ marginLeft: "10px" }}>OFFER COMPANY BRUH</span>
+            </div>
+            <div class="locationTimeContainer">
+              <span class="jobLocation">{offer.location}</span>
+              <span class="postingTime">{formatDate(offer.createdAt)}</span>
+              {/* <span class="badgeNew">Nueva</span> */}
+            </div>
+          </div>
+          <div class="jobListingContent">
+            <p>
+              {offer.content.length > 250
+                ? `${offer.content.substring(0, 250)}...`
+                : offer.content}
+              <span>
+                <Link to="#">leer más</Link>
+              </span>
+            </p>
+          </div>
+          <div class="jobListingFooter">
+            <span class="employmentType">{offer.contractKind}</span>
+            <span class="jobWorkload">{offer.workingDayType}</span>
+            <span class="salaryRange">
+              {offer.salaryRange} <span>€ Bruto/año</span>
+            </span>
           </div>
         </div>
       </>

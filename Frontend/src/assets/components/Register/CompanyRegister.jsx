@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerCompany } from "../../redux/auth/companyAuthSlice";
+import "./CompanyRegister.css"
 const foto11 = "../images/foto11.jpg"
 
 const CompanyRegister = () => {
@@ -78,7 +79,7 @@ const CompanyRegister = () => {
 
   return (
     <>
-          <h2 className="h2cr">Inscribe tu organización</h2>
+      <h2 className="h2cr">Inscribe tu organización</h2>
       <section className="cr">
         <article>
           <img src={foto11} alt="" />

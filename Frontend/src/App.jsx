@@ -8,6 +8,7 @@ import TheHeader from "./assets/components/TheHeader/TheHeader";
 import Home from "../src/assets/components/Home/Home";
 import Profile from "../src/assets/components/Profile/Profile";
 import TalentProfile from "./assets/components/Profile/TalentProfile/TalentProfile";
+import UpdateTalent from "./assets/components/Profile/UpdateTalentProfil/UpdateTalentProfile";
 import CompanyProfile from "./assets/components/Profile/CompanyProfile/CompanyProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./assets/components/Login/Login";
@@ -40,8 +41,11 @@ function App() {
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
+<<<<<<< HEAD
           <Route path="/offer/:id" element={<OfferDetail />} />
 
+=======
+>>>>>>> dev-production
           {/*     <Route
             path="/talent/profile"
             element={
@@ -59,7 +63,9 @@ function App() {
             }
           />
           <Route path="/talent/profile" element={<TalentProfile />} />
+          <Route path="/talent/update" element={<UpdateTalent />} />
           <Route path="/company/profile" element={<CompanyProfile />} />
+
           <Route
             path="/admin"
             element={

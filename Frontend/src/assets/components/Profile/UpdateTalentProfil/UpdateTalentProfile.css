@@ -1,0 +1,30 @@
+.fotoUpdate {
+    max-width: 60%;
+}
+
+.fotoUpdate>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+
+
+    .utp {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+
+    .utp>article.fotoUpdate {
+        max-width: 40%;
+    }
+
+    .fotoUpdate>img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,12 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //import { talentUser } from "../../../redux/auth/talentAuthSlice"
 const foto12 = "../images/foto12.jpg"
+const edit = "../images/edit.png"
 import "./TalentProfile.css"
+import UpdateTalent from "../UpdateTalentProfil/UpdateTalentProfile";
+import { useNavigate } from "react-router-dom";
+
+
 const TalentProfile = () => {
 
-    // const { talentUser } = useSelector((state) => state.talentAuth);
-    const talentUser = JSON.parse(localStorage.getItem('talentUser'))
+    const navigate = useNavigate()
+    const { user } = useSelector((state) => state.talentAuth);
+    //const talentUser = JSON.parse(localStorage.getItem('talentUser'))
+
+
+
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -19,32 +29,32 @@ const TalentProfile = () => {
                 </article>
                 <article>
                     <p>
-                        Email: {talentUser.email}
+                        Email: {user.email}
                     </p>
                     <p>
-                        Apellido: {talentUser.surnames}
+                        Apellido: {user.surnames}
                     </p>
                     <p>
-                        Teléfono: {talentUser.telephone}
+                        Teléfono: {user.telephone}
                     </p>
                     <p>
-                        Fecha de nacimiento: {talentUser.birthdate}
+                        Fecha de nacimiento: {user.birthdate}
                     </p>
                     <p>
-                        Dirección: {talentUser.streetAddress}
+                        Dirección: {user.streetAddress}
                     </p>
                     <p>
-                        Ciudad: {talentUser.city}
+                        Ciudad: {user.city}
                     </p>
                     <p>
-                        Código postal: {talentUser.postalCode}
+                        Código postal: {user.postalCode}
                     </p>
                     <p>
-                        Formación: {talentUser.education}
+                        Formación: {user.education}
                     </p>
                     <p>
                         Idiomas :
-                        {talentUser.languages.map((language, index) => (
+                        {user && user.languages.map((language, index) => (
                             <span key={index}>
                                 <p>
                                     {language.language} ({language.proficiency})
@@ -53,7 +63,7 @@ const TalentProfile = () => {
                         ))}
 
                     </p>
-                    <p>Skills: {talentUser.skills.map((skill, index) => (
+                    <p>Skills: {user && user.skills.map((skill, index) => (
 
                         <span key={index}>
                             <p>
@@ -63,7 +73,7 @@ const TalentProfile = () => {
 
                     ))}</p>
                     <p>Intereses:
-                        {talentUser.interests.map((interest, index) => (
+                        {user && user.interests.map((interest, index) => (
                             <span key={index}>
                                 <p>
                                     {interest}
@@ -71,7 +81,7 @@ const TalentProfile = () => {
                             </span>
 
                         ))}</p>
-                    <p>Sobre mí: {talentUser.aboutTheTalent}</p>
+                    <p>Sobre mí: {user.aboutTheTalent}</p>
 
                     {/* //SACAR FOTO DE CLOUDINARY */}
                     {/* <p>{talentUser.profileImg}</p> */}
@@ -79,7 +89,7 @@ const TalentProfile = () => {
                     
                     <p>Ofertas solicitadas: {talentUser.appliedOffers}</p> */}
                 </article>
-
+                <img src={edit} onClick={() => navigate('/talent/update')} />
             </section>
         </>
     )

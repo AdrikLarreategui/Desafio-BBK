@@ -4,6 +4,7 @@ import talentAuthService from "./talentAuthService";
 const talentUser = JSON.parse(localStorage.getItem("talentUser"));
 const talentToken = JSON.parse(localStorage.getItem("talentToken"));
 
+
 const initialState = {
   user: talentUser ? talentUser : null,
   token: talentToken ? talentToken : null,
@@ -54,6 +55,17 @@ export const updateTalentImg = createAsyncThunk(
   }
 );
 
+export const updateTalentProfile = createAsyncThunk("talentAuth/updateProfileTalent", 
+async(formData) =>{
+  try{
+    return await talentAuthService.updateTalent(formData)
+  }
+catch(error){
+  console.error(error)
+  }
+  }
+)
+
 export const authSlice = createSlice({
   name: "talentAuth",
   initialState,
@@ -97,8 +109,12 @@ export const authSlice = createSlice({
       .addCase(updateTalentImg.fulfilled, (state, action) => {
         state.user.profileImg = action.payload;
         console.log(action.payload);
-      });
-  },
+
+      })
+      .addCase(updateTalentProfile.fulfilled, (state, action) =>{
+        state.user = action.payload;
+      })
+    },
 });
 
 export const { reset } = authSlice.actions;

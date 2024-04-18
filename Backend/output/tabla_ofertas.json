@@ -1,1 +1,198 @@
-[]
+[
+  {
+    "_id": "661c0896827c71f2e7133d84",
+    "companyId": "661af33a1a13dec93277f42d",
+    "companyName": "Patatas S.L.",
+    "title": "Venta de patatas",
+    "content": "Venta de patatas",
+    "location": "Bilbao",
+    "workingMode": "Presencial",
+    "workingDayType": "Completa",
+    "contractKind": "De duración determinada",
+    "salaryRange": "18.000-20.000",
+    "requiredSkills": [],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661c0c1c827c71f2e7133d8a",
+    "companyId": "661af33a1a13dec93277f42d",
+    "companyName": "Patatas S.L.",
+    "title": "Alquiler de patatas",
+    "content": "Te dejo una patata y me la devuelves luego.",
+    "location": "Igorre",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Parcial/mañana",
+    "contractKind": "De duración determinada",
+    "salaryRange": "19.000",
+    "requiredSkills": [],
+    "likes": [],
+    "__v": 0
+  },
+  {
+    "_id": "661e59c8f80ed19aae5ed9bf",
+    "companyId": "661e537fc75895a41a6ef36d",
+    "companyName": "Frascos Hacha",
+    "title": "Logístico",
+    "content": "En dependencia de Gerencia, buscamos una persona para trabajar en el departamento logístico",
+    "location": "Lamiako",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Completa",
+    "contractKind": "Indefinido",
+    "salaryRange": "22.000",
+    "requiredSkills": [
+      "Mentalidad organizativa"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-16T10:58:16.916Z",
+    "updatedAt": "2024-04-16T10:58:16.916Z",
+    "__v": 0
+  },
+  {
+    "_id": "66210e2f43656ae5204cf96d",
+    "companyId": "6620faf212652c3b4ddd994a",
+    "companyName": "Tractores Augusto",
+    "title": "Mecánico tractorista",
+    "content": "En dependencia del Gerente, buscamos un mecánico para revisión, puesta a punto y reparación de las unidades presentes en el taller. \nLocalización: Barrika.\nSueldo de 25.000€ brutos anuales en 12 pagas.\nPuesto: indefinido tras tres meses a prueba.",
+    "location": "Barrika",
+    "workingMode": "Presencial",
+    "workingDayType": "Completa",
+    "contractKind": "Indefinido",
+    "salaryRange": "25.000",
+    "requiredSkills": [
+      "Trabajo en equipo",
+      "Improvisación",
+      "Habilidad manual"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T12:12:31.872Z",
+    "updatedAt": "2024-04-18T12:12:31.872Z",
+    "__v": 0
+  },
+  {
+    "_id": "66211100ed7cfd5e8b501550",
+    "companyId": "6620faf212652c3b4ddd994a",
+    "companyName": "Tractores Augusto",
+    "title": "Administrativo",
+    "content": "Tractores Augusto busca dos personas para el departamento administrativo durante la temporada de primavera, verano y comienzos de otoño. \nEn tanto una persona tendrá turno parcial de mañana, la otra hará lo propio durante las tardes",
+    "location": "Barrika",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Parcial/indiferente",
+    "contractKind": "De duración determinada",
+    "salaryRange": "22.000",
+    "requiredSkills": [
+      "Excel",
+      "Trato con clientes y proveedores",
+      "Resolución de problemas"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T12:24:32.444Z",
+    "updatedAt": "2024-04-18T12:24:32.444Z",
+    "__v": 0
+  },
+  {
+    "_id": "66211584d290ba23f15d89e8",
+    "companyId": "661f8faa0a4f238fdecef8ad",
+    "companyName": "Evolad",
+    "title": "Desarrollador Front-End",
+    "content": "En Evolad buscamos tres programadores junior para la creación de páginas web (tanto front como back) para terceros. Ofrecemos desarrollo personal y crecimiento. Para la contratación se hará una prueba técnica a cargo de nuestro Technical Chief, Evgeny\nEvolad es una start-up que proporciona servicios externos a las empresas más potentes de Bizkaia... y a todas las demás, si hace falta.\n",
+    "location": "Ea",
+    "workingMode": "Remoto",
+    "workingDayType": "Intensiva mañana",
+    "contractKind": "Indefinido",
+    "salaryRange": "30.000",
+    "requiredSkills": [
+      "Javascript",
+      "React",
+      "Node.js",
+      "Redux",
+      "CSS"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T12:43:48.056Z",
+    "updatedAt": "2024-04-18T12:43:48.056Z",
+    "__v": 0
+  },
+  {
+    "_id": "66212ccc2c5e017e0de0ab00",
+    "companyId": "661af33a1a13dec93277f42d",
+    "companyName": "Patatas S.L.",
+    "title": "Temporero",
+    "content": "En Patatas S.L. necesitamos gente para trabajar durante la temporada de recogida de la patata para la obtener el fruto, clasificarlo y embolsarlo. ",
+    "location": "Busturialdea",
+    "workingMode": "Presencial",
+    "workingDayType": "Completa",
+    "contractKind": "De duración determinada",
+    "salaryRange": "27.000",
+    "requiredSkills": [
+      "Manejo de maquinaria pesada",
+      "Trabajo pesado"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T14:23:08.121Z",
+    "updatedAt": "2024-04-18T14:23:08.121Z",
+    "__v": 0
+  },
+  {
+    "_id": "66212f36b55c0676055536f4",
+    "companyId": "6621051e86fdd4c713603d62",
+    "companyName": "English Academy Bilbao",
+    "title": "Transición digital",
+    "content": "En English academy Bilbao buscamos una persona joven, con conocimiento de Marketing Digital, para realizar una campaña publicitaria de nuestra academia tanto en medios digitales como tradicionales. Buscamos un enforque nuevo y fresco.",
+    "location": "Bilbao",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Intensiva tarde",
+    "contractKind": "Formativo",
+    "salaryRange": "25.000",
+    "requiredSkills": [
+      "Redes Sociales",
+      "Búsqueda de objetivos",
+      "Buyer Persona",
+      "Google Ads"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T14:33:26.992Z",
+    "updatedAt": "2024-04-18T14:33:26.992Z",
+    "__v": 0
+  },
+  {
+    "_id": "662130c3c5e23d0907316542",
+    "companyId": "662107dcfc564bc08344bb76",
+    "companyName": "SopelaAbentura",
+    "title": "Persona para ciberseguridad",
+    "content": "En Sopela Abentura buscamos una persona con conocimientos de cibersguridad para nuestros equipos informáticos. Posibilidad de trabajar desde casa, a jornada parcial. El horario será a conveniencia del trabajdor, pero se prefiere que sea matutino.",
+    "location": "Sopela",
+    "workingMode": "Remoto",
+    "workingDayType": "Parcial/indiferente",
+    "contractKind": "Fijo discontinuo",
+    "salaryRange": "18.000",
+    "requiredSkills": [
+      "Improvisación",
+      "Resolución de conflictos"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T14:40:03.519Z",
+    "updatedAt": "2024-04-18T14:40:03.519Z",
+    "__v": 0
+  },
+  {
+    "_id": "662133d10d875493c4c965ac",
+    "companyId": "6621318fc5e23d090731654a",
+    "companyName": "BBK Fundazioa",
+    "title": "Personal para Data Science",
+    "content": "En la fundación BBK estamos en el proceso de selección para nuestro frupo de Data Science, con vistas a afrontar los nuevos retos  en los que se encuentra inmersa la sociedad Bizkaina. \nDentro de nuestro departamento, pasarás a formar parte de un grupo joven orientado a que mejores tus capacidades,",
+    "location": "Bilbao",
+    "workingMode": "Híbrido (semipresencial)",
+    "workingDayType": "Completa",
+    "contractKind": "Formativo",
+    "salaryRange": "26.000",
+    "requiredSkills": [
+      "Trabajo en equipo",
+      "Bases de datos"
+    ],
+    "likes": [],
+    "createdAt": "2024-04-18T14:53:05.409Z",
+    "updatedAt": "2024-04-18T14:53:05.409Z",
+    "__v": 0
+  }
+]

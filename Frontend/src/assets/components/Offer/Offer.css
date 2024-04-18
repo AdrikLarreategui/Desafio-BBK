@@ -26,3 +26,77 @@
 .offerDetailsSection p {
   color: rgb(182, 182, 182);
 }
+
+.jobListingCard {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  max-width: 760px;
+  margin: 15px auto;
+}
+
+.jobListingHeader {
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.cardCompanyLogo {
+  width: 70px;
+  height: 70px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: "50%";
+  object-fit: cover;
+}
+
+.cardjobTitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.cardCompanyName {
+  color: #777777;
+}
+
+.locationTimeContainer {
+  margin-left: auto;
+  text-align: right;
+}
+
+.jobLocation,
+.postingTime,
+.badgeNew {
+  display: block;
+}
+
+.badgeNew {
+  color: #008000; /* Adjust the color to match the badge */
+  font-weight: bold;
+}
+
+.jobListingContent p {
+  font-size: 0.9em;
+  color: #333333;
+  margin: 0;
+}
+
+.jobListingFooter {
+  font-size: 0.8em;
+  color: #777777;
+  border-top: 1px solid #cccccc;
+  padding-top: 10px;
+}
+
+.jobListingFooter span {
+  margin-right: 5px;
+}
+
+.jobListingFooter span:not(:last-child)::after {
+  content: "|";
+  margin-left: 5px;
+}

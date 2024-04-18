@@ -72,7 +72,8 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loginCompany.fulfilled, (state, action) => {
-        state.user = action.payload;
+        //18.04.2024 changed from action.payload to action.payload.user
+        state.user = action.payload.user;
         state.token = action.payload.tokens[action.payload.tokens.length - 1];
         state.isSuccess = true;
       })

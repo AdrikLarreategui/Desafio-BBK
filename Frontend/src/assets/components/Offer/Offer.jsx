@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Offer.css";
 
 import { Link } from "react-router-dom";
-// import { HeartOutlined, HeartFilled, CommentOutlined } from "@ant-design/icons";
-// import "./Post.css";
+
+const logoArray = [
+  "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg",
+];
+
+const randomLogo = (someArray) => {
+  const randomIndex = Math.floor(Math.random() * someArray.length);
+  return logoArray[randomIndex];
+};
 
 const Offer = () => {
   const { offers } = useSelector((state) => state.offers);
-
-  const { user: userTalent } = useSelector((state) => state.talentAuth);
-  const { user: userCompany } = useSelector((state) => state.companyAuth);
-
-  const dispatch = useDispatch();
 
   const reversedOffers = offers.slice().reverse();
 
@@ -26,79 +42,55 @@ const Offer = () => {
       const date = new Date(dateString);
       return date.toISOString().split("T")[0];
     };
+
     return (
       <>
-        {/* <div key={offer._id} className="offerCard">
-          <div className="logoContainer">
-            <img
-              src={offer.companyLogo}
-              alt="Company Logo"
-              style={{ width: "100%" }}
-            />
-          </div>
-          <div className="offerDetails">
-            <h2>{offer.title}</h2>
-            <p>
-              <Link to="#">{offer.companyName}</Link>
-            </p>
-            <div className="offerDetailsSection">
-              <p>
-                {offer.location} | {offer.workingMode} |
-                {formatDate(offer.createdAt)}
-              </p>
+        <div key={offer._id} className="jobListingCard">
+          <div className="jobListingHeader">
+            <div className="cardImageContainer">
+              <img
+                className="cardCompanyLogo"
+                src={randomLogo(logoArray)}
+                alt="Company Logo"
+              />
             </div>
-            <div>
-              <p>
-                {offer.content.length > 250
-                  ? `${offer.content.substring(0, 250)}...`
-                  : offer.content}{" "}
-                <span>
-                  <Link to="#">leer más</Link>
+
+            <div className="titleAndCompanyName">
+              <div className="cardJobTitle">{offer.title}</div>
+
+              <div className="cardCompanyName">
+                <span style={{ marginLeft: "10px" }}>
+                  {offer.companyName ? offer.companyName : "BEST COMPANY BRUH"}
                 </span>
-              </p>
+              </div>
             </div>
-            <div className="offerDetailsSection">
-              <p>
-                {offer.contractKind} | {offer.workingDayType} |{" "}
-                {offer.salaryRange} <span>€ Bruto/año</span>
-              </p>
+
+            <div className="locationTimeContainer">
+              <div className="jobLocation">{offer.location}</div>
+
+              <div className="postingTime">{formatDate(offer.createdAt)}</div>
             </div>
           </div>
-        </div> */}
 
-        <div class="jobListingCard">
-          <div class="jobListingHeader">
-            <img
-              class="cardCompanyLogo"
-              src={offer.companyLogo}
-              alt="Company Logo"
-              // style={{ width: "100%" }}
-            />
-            <div class="cardJobTitle">{offer.title}</div>
-
-            <div class="cardCompanyName">
-              <span style={{ marginLeft: "10px" }}>OFFER COMPANY BRUH</span>
-            </div>
-            <div class="locationTimeContainer">
-              <span class="jobLocation">{offer.location}</span>
-              <span class="postingTime">{formatDate(offer.createdAt)}</span>
-              {/* <span class="badgeNew">Nueva</span> */}
-            </div>
-          </div>
-          <div class="jobListingContent">
+          <div className="jobListingContent">
             <p>
-              {offer.content.length > 250
-                ? `${offer.content.substring(0, 250)}...`
-                : offer.content}
+              {offer.content.length > 250 ? (
+                `${offer.content.substring(0, 250)}...`
+              ) : (
+                <div>
+                  offer.content
+                  <br />
+                </div>
+              )}
               <span>
-                <Link to="#">leer más</Link>
+                <Link to={`/offer/${offer._id}`}>leer más</Link>
               </span>
             </p>
           </div>
-          <div class="jobListingFooter">
-            <span class="employmentType">{offer.contractKind}</span>
-            <span class="jobWorkload">{offer.workingDayType}</span>
-            <span class="salaryRange">
+          <div className="jobListingFooter">
+            <span className="employmentType">{offer.contractKind}</span>
+            <span className="jobWorkload">{offer.workingDayType}</span>
+            <span className="salaryRange">
               {offer.salaryRange} <span>€ Bruto/año</span>
             </span>
           </div>

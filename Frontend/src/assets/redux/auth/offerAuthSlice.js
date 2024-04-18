@@ -30,7 +30,8 @@ export const getAllFilter = createAsyncThunk(
 
 export const getById = createAsyncThunk("offer/getById", async (id) => {
   try {
-    return await offerService.getById(id);
+    const filterData = { _id: id };
+    return await offerService.getAllFilter(filterData);
   } catch (error) {
     res.send(error);
   }
@@ -90,7 +91,7 @@ export const offerSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getById.fulfilled, (state, action) => {
-        state.offer = action.payload;
+        state.offer = action.payload[0];
         state.isLoading = false;
       })
       .addCase(getById.pending, (state) => {

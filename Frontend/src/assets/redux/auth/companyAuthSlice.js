@@ -57,6 +57,13 @@ export const updateCompanyImg = createAsyncThunk(
     }
   }
 );
+export const getAllbyId = createAsyncThunk("companyAuth/getAll", async (id) => {
+  try {
+    return await companyAuthService.getAllbyId(id);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 export const authSlice = createSlice({
   name: "companyAuth",
@@ -97,6 +104,17 @@ export const authSlice = createSlice({
       .addCase(updateCompanyImg.fulfilled, (state, action) => {
         state.user.profileImg = action.payload;
         console.log(action.payload);
+      })
+      .addCase(getAllbyId.fulfilled, (state, action) => {
+        state.users = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getAllbyId.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+      })
+      .addCase(getAllbyId.pending, (state, action) => {
+        state.isLoading = true;
       });
   },
 });

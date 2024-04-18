@@ -101,8 +101,13 @@ const CompanyController = {
   },
 
   async getAll(req, res) {
+    const { _id } = req.query;
+    const searchConditions = {};
+    if (_id) {
+      searchConditions._id = _id;
+    }
     try {
-      const companies = await Company.find();
+      const companies = await Company.find({ ...searchConditions });
       res
         .status(200)
         .send({ message: "Succesfully retrieved companies", companies });

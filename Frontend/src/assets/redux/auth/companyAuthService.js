@@ -49,11 +49,21 @@ const updateCompanyImg = async (formData) => {
   return res.data.file.path;
 };
 
+const getAllbyId = async (_id) => {
+  try {
+    const res = await axios.get(`${API_URL}/companies/getAll?_id=${_id}`);
+    return res.data.companies[0];
+  } catch (error) {
+    res.send(error);
+  }
+};
+
 const authService = {
   registerCompany,
   loginCompany,
   logoutCompany,
   updateCompanyImg,
+  // getAllbyId,
 };
 
 export default authService;

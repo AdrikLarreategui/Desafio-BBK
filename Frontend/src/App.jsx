@@ -21,6 +21,7 @@ import CreateOffer from "./assets/components/CreateOffer/CreateOffer";
 import Offers from "./assets/components/Offers/Offers";
 
 import "./App.css";
+import OfferDetail from "./assets/components/Offers/OfferDetail/OfferDetail";
 
 function App() {
   return (
@@ -39,7 +40,9 @@ function App() {
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
-      {/*     <Route
+          <Route path="/offer/:id" element={<OfferDetail />} />
+
+          {/*     <Route
             path="/talent/profile"
             element={
               // <TalentPrivateZone>

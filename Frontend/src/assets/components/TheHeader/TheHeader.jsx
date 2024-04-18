@@ -173,15 +173,23 @@ const TheHeader = () => {
 
                 {companyUser && (
                   <>
-                    <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        padding: "0",
+                        margin: "0",
+                      }}
+                    >
                       <Nav.Link
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{ display: "flex", alignItems: "baseline" }}
                         as={Link}
                         to="/profile"
                       >
                         <div className="navImageContainer">
                           <img
-                            src={profileNavImage()}
+                            // src={profileNavImage()}
+                            src={imageSrc}
                             className="d-inline-block align-center"
                             alt="profile-img"
                             style={{
@@ -193,7 +201,8 @@ const TheHeader = () => {
                           />
                         </div>
                         <span style={{ marginLeft: "1px" }}>
-                          <strong>{companyUser.companyName}</strong>
+                          {" "}
+                          <strong>{nameInProfile}</strong>
                         </span>
                       </Nav.Link>
                     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginTalent, reset } from "../../../redux/auth/talentAuthSlice";
 const foto7 = "../images/foto7.jpg";
@@ -44,13 +44,16 @@ const LoginTalent = () => {
   };
   return (
     <>
-      <h2 className="lt">Login Talent</h2>
+      {/* <h2 className="lt">Login Talent</h2> */}
       <section className="loginTalent">
         <article>
           <img src={foto7} alt="" />
         </article>
 
         <div>
+          <h2 className="lt" style={{ paddingBottom: "40px" }}>
+            Acceso de Talento
+          </h2>
           <form onSubmit={onSubmit}>
             <input
               type="email"
@@ -68,10 +71,19 @@ const LoginTalent = () => {
               onChange={onChange}
               required
             />
+            <Link>¿No recuerdas tu contraseña?</Link>
             <button className="talent" type="submit">
               Login
             </button>
           </form>
+          <hr></hr>
+
+          <p>
+            No tienes cuenta? <Link to="/talent/register">¡Únete!</Link>
+          </p>
+          <p>
+            <Link to="/company/login">Accesso de Organizaciónes </Link>
+          </p>
         </div>
       </section>
     </>

@@ -30,16 +30,20 @@ li {
 
 .navigationBarMain {
   width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
-.navText {
-  /* font-size: 18px;
+/* .navText {
+  font-size: 18px;
   color: #ffffff;
-  text-shadow: 2px 2px 4px #7309fd; */
-}
+  text-shadow: 2px 2px 4px #7309fd;
+} */
 
 .navImageContainer {
   width: 50px;
   height: 50px;
+  margin: 0;
 }
 .navImageContainer img {
   border-radius: 50%;
@@ -53,5 +57,11 @@ li {
   .navigationBarMain {
     width: 1280px;
     margin: 0 auto; /* Centers the navigation bar */
+  }
+}
+
+@media (max-width: 990px) {
+  .navigationBarMain {
+    justify-content: center;
   }
 }

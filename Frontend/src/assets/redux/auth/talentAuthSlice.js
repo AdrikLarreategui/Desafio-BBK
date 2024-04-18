@@ -70,13 +70,17 @@ export const authSlice = createSlice({
       .addCase(loginTalent.fulfilled, (state, action) => {
         state.user = action.payload;
         state.token = action.payload.tokens[action.payload.tokens.length - 1];
+        state.isLoading = false;
         state.isSuccess = true;
       })
       .addCase(loginTalent.rejected, (state, action) => {
         state.isError = true;
+        state.isLoading = false;
         // state.message = action.payload;
       })
-
+      .addCase(loginTalent.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(registerTalent.fulfilled, (state, action) => {
         state.isSuccess = true;
         // state.message = action.payload.message;

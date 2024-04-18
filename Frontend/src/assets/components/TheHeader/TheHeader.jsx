@@ -20,6 +20,8 @@ const TheHeader = () => {
 
   const [text, setText] = useState("");
 
+  const { isLoading } = useSelector((state) => state.talentAuth);
+
   const onLogout = (event) => {
     event.preventDefault();
     // (talentUser && logoutTalent()) || companyUser(dispatch(logoutCompany()));
@@ -35,6 +37,8 @@ const TheHeader = () => {
       navigate(`/search/${text}`);
     }
   };
+  const [imageSrc, setImageSrc] = useState(defaultProfileImage);
+  const [nameInProfile, setNameInProfile] = useState("Hello, User!");
 
   const profileNavImage = () => {
     let user;
@@ -43,9 +47,25 @@ const TheHeader = () => {
     } else if (companyUser) {
       user = companyUser;
     }
-    console.log(user.profileImg);
-    return user.profileImg ? user.profileImg : defaultProfileImage;
+
+    return user && user.profileImg ? user.profileImg : defaultProfileImage;
   };
+  let user;
+  useEffect(() => {
+    if (talentUser) {
+      user = talentUser;
+      setNameInProfile(user.name);
+    } else if (companyUser) {
+      user = companyUser;
+      setNameInProfile(user.companyName);
+    }
+    if (user && user.profileImg) {
+      setImageSrc(user.profileImg);
+    }
+    if (user && !user.profileImg) {
+      setImageSrc(defaultProfileImage);
+    }
+  }, [user]);
 
   // const isAdmin = user?.role === 'admin'
   // const [hover, setHover] = useState(false);
@@ -77,18 +97,23 @@ const TheHeader = () => {
               <>
                 {talentUser && (
                   <>
-                    <Nav.Link className="text-center" as={Link} to="/profile">
-                      <div
-                        className="text-center"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        padding: "0",
+                        margin: "0",
+                      }}
+                    >
+                      <Nav.Link
+                        style={{ display: "flex", alignItems: "baseline" }}
+                        as={Link}
+                        to="/profile"
                       >
                         <div className="navImageContainer">
                           <img
-                            src={profileNavImage()}
+                            // src={profileNavImage()}
+                            src={imageSrc}
                             className="d-inline-block align-center"
                             alt="profile-img"
                             style={{
@@ -99,9 +124,12 @@ const TheHeader = () => {
                             }}
                           />
                         </div>
-                        Profile
-                      </div>
-                    </Nav.Link>
+                        <span style={{ marginLeft: "1px" }}>
+                          {" "}
+                          <strong>{nameInProfile}</strong>
+                        </span>
+                      </Nav.Link>
+                    </div>
 
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <NavDropdown
@@ -145,14 +173,11 @@ const TheHeader = () => {
 
                 {companyUser && (
                   <>
-                    <Nav.Link className="text-center" as={Link} to="/profile">
-                      <div
-                        className="text-center"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
+                    <div>
+                      <Nav.Link
+                        style={{ display: "flex", alignItems: "center" }}
+                        as={Link}
+                        to="/profile"
                       >
                         <div className="navImageContainer">
                           <img
@@ -167,9 +192,12 @@ const TheHeader = () => {
                             }}
                           />
                         </div>
-                        Profile
-                      </div>
-                    </Nav.Link>
+                        <span style={{ marginLeft: "1px" }}>
+                          <strong>{companyUser.companyName}</strong>
+                        </span>
+                      </Nav.Link>
+                    </div>
+
                     <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                     <Nav.Link as={Link} to="/company/createOffer">
                       Redactar oferta de trabajo

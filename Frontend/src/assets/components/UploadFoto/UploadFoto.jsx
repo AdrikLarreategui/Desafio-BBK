@@ -86,7 +86,6 @@ const UploadFoto = () => {
             type="file"
             id="picture"
           />
-
           <input type="submit" />
         </form>
       )}

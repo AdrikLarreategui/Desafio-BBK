@@ -47,7 +47,8 @@ const updateTalentImg = async (formData) => {
   const talentToken = JSON.parse(localStorage.getItem("talentToken"));
   const updateImg = API_URL + `/uploads/image`;
 
-  const res = await axios.put(updateImg, formData, {
+  const res = await axios.put(updateImg, 
+    formData, {
     headers: {
       authorization: talentToken,
     },

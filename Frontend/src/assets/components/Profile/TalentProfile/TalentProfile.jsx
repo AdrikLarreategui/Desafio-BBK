@@ -6,7 +6,7 @@ const edit = "../images/edit.png"
 import "./TalentProfile.css"
 import UpdateTalent from "../UpdateTalentProfil/UpdateTalentProfile";
 import { useNavigate } from "react-router-dom";
-
+import UploadFoto from "../../UploadFoto/UploadFoto";
 
 const TalentProfile = () => {
 
@@ -28,6 +28,7 @@ const TalentProfile = () => {
                     <img src={foto12} alt="" />
                 </article>
                 <article>
+                    <UploadFoto/>
                     <p>
                         Email: {user.email}
                     </p>

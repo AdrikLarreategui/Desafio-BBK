@@ -41,11 +41,8 @@ function App() {
           <Route path="/company/discover-talents" element={<Talents />} />
           <Route path="/company/createOffer" element={<CreateOffer />} />
           <Route path="/offers" element={<Offers />} />
-<<<<<<< HEAD
           <Route path="/offer/:id" element={<OfferDetail />} />
 
-=======
->>>>>>> dev-production
           {/*     <Route
             path="/talent/profile"
             element={

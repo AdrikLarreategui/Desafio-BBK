@@ -1,8 +1,11 @@
 .imageContainer {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background-color: gray;
 }
 .imageContainer img {
-  width: 400px;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
 }

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 import { updateCompanyImg } from "../../redux/auth/companyAuthSlice";
 import { updateTalentImg } from "../../redux/auth/talentAuthSlice";
+const defaultProfileImage = "/images/profile-pic.JPG";
 
 const UploadFoto = () => {
   const dispatch = useDispatch();
@@ -23,15 +24,21 @@ const UploadFoto = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(defaultProfileImage);
+  const [showForm, setShowForm] = useState(false);
+  console.log(image);
 
   useEffect(() => {
     if (user && user.profileImg) {
       setImage(user.profileImg);
+
+      console.log(image);
     }
-    if (user && !user.profileImg) {
-      setImage("./Frontend/public/images/profile-pic.JPG");
-    }
+    // if (!user.profileImg) {
+    //   setImage(defaultProfileImage);
+    //   console.log(defaultProfileImage);
+    //   console.log(image);
+    // }
   }, [user]);
 
   const submitForm = (data) => {
@@ -47,26 +54,42 @@ const UploadFoto = () => {
 
   return (
     <>
-      <div className="imageContainer">
-        {(image && <img width={400} src={user.profileImg} alt="" />) || (
-          <p>La imagen no está subida todavía</p>
-        )}
+      <div
+        className="imageContainer"
+        onClick={() => setShowForm((prevShowForm) => !prevShowForm)}
+      >
+        {(image && (
+          <img
+            width={400}
+            // src={user.profileImg}
+            src={image}
+            alt="profile"
+            style={{
+              maxWidth: "300px",
+              maxHeight: "300px",
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
+        )) || <p>La imagen no está subida todavía</p>}
       </div>
 
-      <form onSubmit={handleSubmit(submitForm)}>
-        {/* <input
+      {showForm && (
+        <form onSubmit={handleSubmit(submitForm)}>
+          {/* <input
           {...register("name", { required: "Recipe name is required" })}
           type="text"
           id="name"
         /> */}
-        <input
-          {...register("picture", { required: "Image is required" })}
-          type="file"
-          id="picture"
-        />
+          <input
+            {...register("picture", { required: "Image is required" })}
+            type="file"
+            id="picture"
+          />
 
-        <input type="submit" />
-      </form>
+          <input type="submit" />
+        </form>
+      )}
     </>
   );
 };
